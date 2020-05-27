@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coupons - EveryPayJoy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+    <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+    <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+    <style>
+        .v-list--three-line .v-list__tile {
+            height: 72px !important;
+        }
+
+        .round-list {
+            border-radius: 10px;
+        }
+
+        .v-btn__content {
+            text-transform: initial;
+            font-size: 18px !important;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .menu {
+            margin: 0 auto !important;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132235786-5');
+    </script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app light>
+            <v-toolbar class="white">
+                <v-toolbar-title>
+                    <a href="/">
+                        <img src="/images/everypayjoy-logo.png" alt="everypayjoy logo" height="20">
+                    </a>
+
+                </v-toolbar-title>
+                <div class="menu">
+                    <a href="/">Sweepstakes</a>
+                    <a href="/c.html">Coupons</a>
+                </div>
+            </v-toolbar>
+            <v-content>
+
+
+                <!-- list -->
+
+                <v-layout column align-center justify-center>
+                    <v-container fluid>
+                        <v-flex xs12 md6 offset-md3>
+                            <v-layout row wrap>
+                                <!-- ads -->
+                                <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8453834851600545"
+                                data-ad-slot="5627598870" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script> -->
+                                <!-- <div style="padding-top:30px;"><b>Popular Employers</b></div> -->
+
+                                <template v-for="(item, index) in items">
+                                    <v-flex xs12 md5 class="mb-3 mr-3">
+                                        <v-card :key="index" height="100%">
+                                            <!-- <v-card-media src="/static/doc-images/cards/sunshine.jpg" height="200px">
+                                        </v-card-media> -->
+                                            <v-card-title primary-title>
+                                                <div>
+                                                    <div class="subheading">{{ item.title }}</div>
+                                                    <div class="green--text">{{ item.subtitle }}</div>
+
+                                                </div>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <v-btn class="primary" @click.native="item.show = !item.show">Read More
+                                                </v-btn>
+
+                                                <v-spacer></v-spacer>
+                                            </v-card-actions>
+                                            <v-slide-y-transition>
+                                                <v-card-text v-show="item.show">
+                                                    <div v-html="item.description"></div>
+                                                    <v-btn class="primary" outline @click="checkdialog(item.url)"
+                                                        target="_blank">View Now
+                                                    </v-btn>
+                                                </v-card-text>
+                                            </v-slide-y-transition>
+
+                                        </v-card>
+                                    </v-flex>
+                                </template>
+                            </v-layout>
+
+                        </v-flex>
+
+                        <v-dialog v-model="dialog" persistent max-width="300" class="round-list ">
+                            <v-card class="round-list white">
+                                <v-card-title>
+                                    <b style="font-size: 18px;">Continue to View Coupons</b>
+                                    <v-spacer></v-spacer>
+                                    <v-button icon @click="dialog = false">
+                                        <v-icon>close</v-icon>
+                                    </v-button>
+
+                                </v-card-title>
+                                <v-card-text>
+                                    <!-- <v-select :items="positions" label="Positions" box chips multiple v-model='k'></v-select> -->
+                                    <v-text-field box label="Full Name" v-model="form.name" @change="checkdisabled()">
+                                    </v-text-field>
+                                    <v-text-field box label="Email" v-model="form.email" @change="checkdisabled()">
+                                    </v-text-field>
+                                    <small class="muted grey--text text--lighten-1">By clicking button below, I agree to
+                                        the
+                                        Terms of Use and Privacy Policy.</small>
+                                </v-card-text>
+                                <v-card-actions class="pb-4">
+                                    <!-- <v-btn flat text @click="skip()" class="muted grey--text">
+                                        skip
+                                    </v-btn>
+                                    <v-spacer></v-spacer> -->
+                                    <v-btn depressed block round color="primary" @click="subscribe(active_url)"
+                                        :disabled="disabled">
+                                        Continue</v-btn>
+
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                    </v-container>
+                </v-layout>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+    <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+    <script src='https://cloudjs.github.io/js/tabletop.min.js'></script>
+    <script src="https://cloudjs.github.io/js/vue-cookies.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    items: [],
+                    show_p: 0,
+                    dialog: false,
+                    disabled: true,
+                    active_url: '',
+                    form: {
+                        email: "",
+                        q: "coupon",
+                        zipcode: "00000",
+                        name: ""
+                    }
+                }
+            },
+            methods: {
+
+                checkdialog(url) {
+                    this.active_url = url;
+                    if ($cookies.get("registered") == "1") this.goto(url);
+                    else this.dialog = true;
+                },
+                subscribe(url) {
+
+                    axios.post('https://api.apply-now.io/api/v1/subscription/addq', this.form)
+                        .then((response) => {
+                            this.dialog = false;
+                            this.goto(url);
+                            this.$cookies.set("registered", "1", "20991231")
+                        })
+
+                },
+                checkdisabled() {
+                    if (this.form['email'] != '' && this.form['name'] != '') this.disabled = false;
+                    else this.disabled = true;
+                },
+                goto(url) {
+                    // end ga event
+                    url = 'https://api.apply-now.io/api/v1/go?u=' + url;
+                    let newTab = window.open();
+                    newTab.location.href = url;
+                }
+            },
+            created() {
+                let uri = window.location.search.substring(1);
+                let params = new URLSearchParams(uri);
+                this.show_p = params.get("p");
+            },
+            beforeCreate: function () {
+                var self = this;
+
+                Tabletop.init({
+                    key: '1T7h2RsDgAiamqfs9alKIaF_WGmgt3uMAC5Y9EWYihGE',
+                    callback: function (data, tabletop) {
+
+                        for (var key in data) {
+                            var temps = []
+                            for (i = 0; i < data[key].elements.length; i++) {
+                                data[key].elements[i]["show"] = false
+                                temps.push(data[key].elements[i])
+                            }
+                            self.items = temps
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        var vglnk = {key: '00b2ad42c6ecf94e176eb6d3ed1b90b8'};
+        (function(d, t) {
+            var s = d.createElement(t);
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//cdn.viglink.com/api/vglnk.js';
+            var r = d.getElementsByTagName(t)[0];
+                r.parentNode.insertBefore(s, r);
+        }(document, 'script'));
+    </script>
+</body>
+
+</html>

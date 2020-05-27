@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gigs and Jobs - EveryPayJoy Jobs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+    <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+    <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+    <style>
+        .v-list--three-line .v-list__tile {
+            height: 72px !important;
+        }
+
+        .round-list {
+            border-radius: 10px;
+        }
+
+        .v-btn__content {
+            text-transform: initial;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132235786-5');
+    </script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app light>
+            <v-toolbar class="white">
+                <v-toolbar-title>
+                    <a href="/">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.0003 0H19.9999C8.95427 0 0 8.95427 0 19.9999V20.0001C0 31.0457 8.95427 40 19.9999 40H20.0003C31.0459 40 40.0002 31.0457 40.0002 20.0001V19.9999C40.0002 8.95427 31.0459 0 20.0003 0Z"
+                                fill="#F96302" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.578 26.285H23.4235V28.4694C23.4219 29.0485 23.1912 29.6034 22.7817 30.0128C22.3723 30.4222 21.8174 30.653 21.2384 30.6546H18.7624C18.1835 30.6528 17.6288 30.422 17.2195 30.0126C16.8102 29.6031 16.5796 29.0484 16.578 28.4694V26.285Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.0002 9.34509L8.2959 18.2722C9.38951 19.8463 11.2945 20.207 12.6552 19.1987L20.0009 13.5968L27.3468 19.1987C28.708 20.207 30.6125 19.8463 31.7063 18.2722L20.0002 9.34509Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.0003 16.2161L8.29529 25.1414C9.3889 26.7155 11.2939 27.0764 12.6546 26.0679L20.0003 20.4662L27.346 26.0686C28.7072 27.0771 30.6117 26.7162 31.7055 25.1421L20.0003 16.2161Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+
+
+                </v-toolbar-title>
+            </v-toolbar>
+            <v-content>
+
+
+                <!-- list -->
+
+                <v-layout column align-center justify-center>
+                    <v-container fluid>
+                        <v-flex xs12 md6 offset-md3>
+                            <p style="font-size: 22px; font-weight: bold;text-align: center;">Find {{ startCase(q) }}
+                                {{ title }}</p>
+                            <v-text-field label="Job title" v-model="q" box @blur="getData()"></v-text-field>
+
+                            <!-- links  -->
+                            <div style="font-size: 12px; display:none;">
+                                <v-btn flat color="primary" href='index.html?q=Labor'>Labor</v-btn>
+                                <v-btn flat color="primary" href='index.html?q=warehouse'>Warehouse</v-btn>
+                                <v-btn flat color="primary" href='index.html?q=Delivery Driver'>Delivery Driver</v-btn>
+                                <v-btn flat color="primary" href='index.html?q=Painter'>Painter</v-btn>
+                                <v-btn flat color="primary" href='index.html?q=Plumber'>Plumber</v-btn>
+                                <v-btn flat color="primary" href='index.html?q=Construction'>Construction Contractor
+                                </v-btn>
+                                <v-btn flat color="primary" href='index.html?q=work from home'>Work from Home</v-btn>
+                            </div>
+
+
+                            <!-- <div style="padding-top:30px;"><b>Popular Employers</b></div> -->
+                            <!-- <div>
+                            <v-btn flat color="primary" href='index.html?q=Fedex driver'>Fedex</v-btn>
+                            <v-btn flat color="primary" href='index.html?q=Instacart'>Instacart</v-btn>
+                            <v-btn flat color="primary" href='index.html?q=Uber'>Uber</v-btn>
+                            <v-btn flat color="primary" href='index.html?q=Walmart'>Walmart</v-btn>
+                            <v-btn flat color="primary" href='index.html?q=Costco'>Costco</v-btn>
+                            </div> -->
+                            <v-list three-line flat class="grey lighten-5">
+                                <div style="padding-top:30px;"><b>{{ startCase(q) }} jobs found</b></div>
+                                <!-- ads -->
+                                <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+                                </script>
+                                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                                    data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-8453834851600545"
+                                    data-ad-slot="7840675156"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script> -->
+
+                                <template v-for="(item, index) in items">
+                                    <!-- && item.price=='high' -->
+                                    <v-list-tile v-if="checkTitle(item.title, q, item.company)" class="mb-2 white"
+                                        @click="goto(item.url)" :key="index">
+                                        <v-list-tile-avatar tile size="48" class="mt-1">
+                                            <img :src="item.logo_url">
+                                        </v-list-tile-avatar>
+
+                                        <v-list-tile-content class="mt-1">
+                                            <v-list-tile-title class="blue--text text--darken-3">
+                                                <strong>{{ normalize(item.title) }}</strong>
+                                            </v-list-tile-title>
+                                            <v-list-tile-sub-title>{{ normalize(item.company) }} -
+                                                {{ normalize(item.city[0]) }}</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+
+
+                                    </v-list-tile>
+
+                                </template>
+                            </v-list>
+                        </v-flex>
+                    </v-container>
+                </v-layout>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+    <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    title: 'Jobs Near You',
+                    dialog: false,
+                    items: [],
+                    l: "0",
+                    q: "",
+
+                    k: ['Cashier', 'Sales Associate', 'Driver', 'Customer Service'],
+                    positions: ['Cashier', 'Sales Associate', 'Stock Associate', 'Driver', 'Customer Service',
+                        'Manager'
+                    ],
+                    form: {
+                        email: "",
+                        q: "",
+                        zipcode: ""
+                    },
+                    show_q: true,
+                    show_l: true,
+                    disabled: true
+                }
+            },
+            methods: {
+                getUrlVars() {
+                    var vars = {};
+                    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key,
+                        value) {
+                        vars[key] = value;
+                    });
+                    return vars;
+                },
+                goto(url) {
+                    // ga event
+                    gtag('event', 'click_job', {
+                        'event_category': 'click_r1',
+                        'event_label': this.url,
+                        'value': 0
+                    });
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-770861134/e8BoCKXb9aQBEM7Qye8C'
+                    });
+                    // end ga event
+                    url = 'https://api.apply-now.io/api/v1/go?u=' + url;
+                    let newTab = window.open();
+                    newTab.location.href = url;
+                },
+                click_link(q) {
+                    let newTab = window.open();
+                    newTab.location.href = '/index.html?q=' + q;
+                },
+                getData() {
+                    let url = "https://api.apply-now.io/api/v1/ja/0/" + this.encodeUrl(this.q) + "/" + this.l
+                    axios
+                        .get(url)
+                        .then(response => {
+                            this.items = _.uniqBy(response.data['jobs'], 'company');
+                        });
+                },
+                encodeUrl(q) {
+                    q1 = q.replace('/', ' ')
+                    q1 = q1.replace(/\s{2,}/i, " ")
+                    return encodeURI(q1)
+                },
+                checkTitle(a, q, c) {
+                    a1 = a.toLowerCase()
+                    q1 = q.toLowerCase()
+                    c1 = c.toLowerCase()
+                    if (c1.includes('ad') || c1.includes('confidential') || c1.includes('stevens trucking'))
+                        return false;
+                    return a1.includes(q1);
+                },
+                normalize(s) {
+                    if (s.length > 45) return s.substring(0, 45) + '...'
+                    return s
+                },
+                subscribe() {
+                    axios.post('https://api.apply-now.io/api/v1/subscription/addq', this.form)
+                        .then((response) => {
+                            this.dialog = false;
+                            url = this.items[0].url
+                            this.goto(url)
+                        })
+                },
+                skip() {
+                    this.dialog = false;
+                    url = this.items[0].url
+                    this.goto(url)
+                },
+                checkdisabled() {
+                    if (this.form['email'] != '' && this.form['zipcode'] != '' && this.form['q'] != '') this
+                        .disabled = false;
+                    else this.disabled = true;
+                },
+                startCase(q) {
+                    return _.startCase(q)
+                },
+
+            },
+            created() {
+                if (decodeURI(this.getUrlVars()['l']) != "undefined")
+                    this.l = decodeURI(this.getUrlVars()['l']);
+                if (decodeURI(this.getUrlVars()['q']) != "undefined")
+                    this.q = decodeURI(this.getUrlVars()['q']);
+                if (this.q != '') {
+                    this.form['q'] = this.startCase(this.q)
+                    // this.show_q = false
+                }
+                this.getData();
+            },
+        })
+    </script>
+</body>
+
+</html>

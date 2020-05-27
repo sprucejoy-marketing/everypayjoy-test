@@ -1,0 +1,22 @@
+
+User-agent: *
+Disallow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+User-agent: adidxbot
+Allow: /
+
+User-agent: 008
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-Agent: OmniExplorer_Bot
+Disallow: /
+
+User-agent: Cliqzbot
+Disallow: /

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Job List</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+  <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+  <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+  <style>
+    .v-list--three-line .v-list__tile {
+      height: 72px !important;
+    }
+
+    .round-list {
+      border-radius: 10px;
+    }
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132235786-5');
+  </script>
+
+</head>
+
+<body>
+  <div id="app">
+    <v-app light>
+      <v-content>
+        <v-layout column align-center justify-center style="margin-top: 100px;">
+          <v-container fluid>
+            <v-flex xs12 md4 offset-md4>
+              <v-card class="white">
+                <v-card-title>
+                  <b style="font-size: 20px;">Please enter your email to receive the application.
+                  </b>
+                </v-card-title>
+                <v-card-text>
+                  <p>Directions: </p>
+                  <p>after submitting name & email you will be directed to the application. </p>
+
+                  <p>{{ title }}</p>
+                  ​
+                  <p>Application are replied to on a first come, first serve basis. </p>
+                  <!-- <v-select :items="positions" label="Positions" box chips multiple v-model='k'></v-select> -->
+                  <v-text-field box label="Full Name" required v-model="form.name" :rules="nameRules"
+                    @change="checkdisabled()"></v-text-field>
+                  <v-text-field box label="Email" v-model="form.email" :rules="emailRules" required
+                    @change="checkdisabled()">
+                  </v-text-field>
+                  <small class="muted grey--text text--lighten-1">By clicking button below, I
+                    agree to the
+                    Terms of Use and Privacy Policy.</small>
+                </v-card-text>
+                <v-card-actions class="pb-4">
+                  <!-- <v-btn flat text @click="skip()" class="muted grey--text">
+                                                skip
+                                            </v-btn>
+                                            <v-spacer></v-spacer> -->
+                  <v-btn :loading="loading.subscribe" depressed block round color="primary" @click="subscribe()"
+                    :disabled="disabled">
+                    Continue</v-btn>
+
+                </v-card-actions>
+              </v-card>
+
+
+
+              <v-footer class="justify-center" color="white">
+                <div class="l-footnote" style="color: #858e99;">
+                  &copy;{{ new Date().getFullYear() }} OpinionJoy
+                </div>
+                <v-btn href="https://www.everypayjoy.com/legal/" target="_blank" class="text-none l-footnote"
+                  color="#858e99" small flat round>
+                  Privacy &amp; Terms
+                </v-btn>
+                <v-btn href="https://www.everypayjoy.com/supports/contact/" target="_blank" class="text-none l-footnote"
+                  color="#858e99" small flat round>
+                  Contact
+                </v-btn>
+              </v-footer>
+            </v-flex>
+
+            <v-snackbar v-model="show.errorSnackbar" color="error" top>
+              {{ errorText }}
+              <v-btn dark flat @click="show.errorSnackbar = false">
+                Close
+              </v-btn>
+            </v-snackbar>
+
+          </v-container>
+        </v-layout>
+
+
+
+      </v-content>
+    </v-app>
+  </div>
+
+  <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+  <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          disabled: true,
+          loading: {
+            subscribe: false
+          },
+          show: {
+            errorSnackbar: false
+          },
+          errorText: "",
+          form: {
+            name: "",
+            email: "",
+            q: "survey",
+            zipcode: "",
+            type: "survey"
+          },
+          nameRules: [
+            v => !!v || 'Full Name is required'
+          ],
+          emailRules: [
+            v => !!v || 'Email is required',
+            v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'Email must be valid'
+          ],
+          show_q: true,
+          show_l: true,
+          title: ""
+        }
+      },
+      computed: {
+        isPC() {
+          return !this.isiOS && !this.isAndroid;
+        },
+        isiOS() {
+          return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+        },
+        isAndroid() {
+          return (
+            navigator.userAgent.includes("Android") ||
+            navigator.userAgent.includes("Adr")
+          );
+        },
+      },
+      methods: {
+        validateEmail(v) {
+          // eslint-disable-next-line
+          const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(v).toLowerCase());
+        },
+        getUrlVars() {
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+          });
+          return vars;
+        },
+        subscribe() {
+          axios.get('https://api.apply-now.io/api/v1/ip/current')
+            .then((response) => {
+              if (response.data.zipCode) {
+                this.form['zipcode'] = response.data.zipCode;
+              }
+              this.subsribeInsert();
+            })
+        },
+        subsribeInsert() {
+          var that = this;
+          this.loading.subscribe = true;
+          axios.post('https://api.apply-now.io/api/v1/subscription/addq', this.form)
+            .then((response) => {
+              localStorage.setItem('RU', response.data.email);
+              window.location.href = "/surveys/e.html"
+            }).catch(function (error) {
+              that.show.errorSnackbar = true;
+              if (error.response.data.message) {
+                that.errorText = error.response.data.message;
+              } else if (error.response.data.email) {
+                that.errorText = error.response.data.email[0];
+              } else if (error.response.data.q) {
+                that.errorText = error.response.data.q[0];
+              } else if (error.response.data.zipcode) {
+                that.errorText = error.response.data.zipcode[0];
+              } else {
+                that.errorText = error.message;
+              }
+            }).then(function () {
+              that.loading.subscribe = false;
+            });
+        },
+        encodeUrl(q) {
+          q1 = q.replace('/', ' ')
+          q1 = q1.replace(/\s{2,}/i, " ")
+          return encodeURI(q1)
+        },
+        checkdisabled() {
+          if (this.form['email'] != '' && this.validateEmail(this.form.email) && this.form['q'] != '') this.disabled = false;
+          else this.disabled = true;
+        }
+      },
+      created() {
+        // let vars = this.getUrlVars()
+        // if('q' in vars) this.form['q'] = "survey " + decodeURI(this.getUrlVars()['q']);
+        // if('t' in vars) this.title = decodeURI(this.getUrlVars()['t']);
+        // if(this.form['q'] != '') this.show_q = false
+        // if(this.form['zipcode'] != '') this.show_l = false
+        var RU = localStorage.getItem('RU');
+        if (RU) {
+          window.location.href = "/surveys/list.html"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

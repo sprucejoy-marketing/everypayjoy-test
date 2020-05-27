@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Truck Driver Jobs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+    <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+    <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+    <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+    <style>
+        .v-list--three-line .v-list__tile {
+            height: 72px !important;
+        }
+
+        .round-list {
+            border-radius: 10px;
+        }
+
+        .v-btn__content {
+            text-transform: initial;
+            font-size: 18px !important;
+
+            white-space: normal;
+        }
+
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .menu {
+            margin: 0 auto !important;
+            text-align: center;
+        }
+
+        h2,
+        .cta-section {
+            margin: 20px 0;
+        }
+
+        .l-benefits .v-btn {
+            padding: 8px 2px;
+            height: auto;
+            align-items: start;
+        }
+
+        .l-benefits .v-btn .v-btn__content {
+            width: 100%;
+            flex-direction: column;
+            justify-content: start;
+        }
+
+        .l-benefits .v-btn .v-btn__content .l-btn-text {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132235786-5');
+    </script>
+    <script>
+        var PollfishIsLoaded = false;
+        var pollfishConfig = {
+            api_key: "690707d4-09cb-4ef6-8264-de1f1641d0d2",
+            debug: false,
+            ready: pollfishReady,
+            indicator_position: "BOTTOM_RIGHT",
+            survey_format: 2,
+        };
+
+        function pollfishReady() {
+            PollfishIsLoaded = true;
+            // Pollfish Webplugin is ready, so you can call it excplicitly using the Pollfish.showIndicator or Pollfish.showFullSurvey functions
+            // Pollfish.showIndicator();
+            // Pollfish.showFullSurvey();
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://storage.googleapis.com/pollfish_production/sdk/webplugin/pollfish.min.js"></script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app light>
+            <v-toolbar class="white">
+                <v-toolbar-title>
+                    <svg width="142" height="20" viewBox="0 0 142 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.6944 19H14.2944L17.5944 0.25H23.2944L20.8344 14.2H26.5344L25.6944 19ZM13.3944 18.91L0.674377 17.56H13.6344L13.3944 18.91ZM14.4144 13.12L1.69438 11.77H14.6544L14.4144 13.12ZM14.9244 10.24L2.20438 8.89H15.1644L14.9244 10.24ZM15.4344 7.36L2.71438 6.01H15.6744L15.4344 7.36ZM15.9444 4.48L3.22438 3.13H16.1544L15.9444 4.48ZM13.9044 16L1.18438 14.65H14.1444L13.9044 16ZM16.4244 1.6L3.73438 0.25H16.6644L16.4244 1.6ZM37.4763 19H31.4763L39.3663 0.25H48.1863L49.5063 19H43.4763L43.3563 16.03H38.6463L37.4763 19ZM42.9063 11.26V6.01H42.6063L40.5063 11.26H42.9063ZM30.5163 18.88L18.2163 17.56H31.0863L30.5163 18.88ZM31.7463 15.97L19.4463 14.65H32.3163L31.7463 15.97ZM32.9763 13.09L20.6763 11.77H33.5163L32.9763 13.09ZM34.1763 10.21L21.9063 8.89H34.7463L34.1763 10.21ZM35.4063 7.33L23.1363 6.01H35.9463L35.4063 7.33ZM37.8363 1.54L25.5963 0.25H38.3763L37.8363 1.54ZM36.6063 4.42L24.3663 3.13H37.1463L36.6063 4.42ZM37.8363 1.54L38.3763 0.25H25.5963L37.8363 1.54ZM70.2679 0.25C71.7079 0.25 72.7479 0.5 73.3879 0.999999C74.0479 1.5 74.3779 2.27 74.3779 3.31C74.3779 4.83 74.0379 6.08 73.3579 7.06C72.6979 8.04 71.8879 8.65 70.9279 8.89L70.8979 9.07C72.6979 9.41 73.5979 10.6 73.5979 12.64C73.5979 14.44 73.1079 15.95 72.1279 17.17C71.1479 18.39 69.7679 19 67.9879 19H57.7279L61.0279 0.25H70.2679ZM66.9679 11.53H64.7179L64.1779 14.59H66.3979C66.8979 14.59 67.2779 14.39 67.5379 13.99C67.7979 13.59 67.9279 13.08 67.9279 12.46C67.9279 11.84 67.6079 11.53 66.9679 11.53ZM67.8079 4.36H66.0079L65.4979 7.15H67.2679C68.1879 7.15 68.6479 6.5 68.6479 5.2C68.6479 4.64 68.3679 4.36 67.8079 4.36ZM56.8279 18.91L44.1079 17.56H57.0679L56.8279 18.91ZM57.8479 13.12L45.1279 11.77H58.0879L57.8479 13.12ZM58.3579 10.24L45.6379 8.89H58.5979L58.3579 10.24ZM58.8679 7.36L46.1479 6.01H59.1079L58.8679 7.36ZM59.3779 4.48L46.6579 3.13H59.5879L59.3779 4.48ZM57.3379 16L44.6179 14.65H57.5779L57.3379 16ZM59.8579 1.6L47.1679 0.25H60.0979L59.8579 1.6ZM92.7343 19H81.3343L84.6343 0.25H90.3343L87.8743 14.2H93.5743L92.7343 19ZM80.4343 18.91L67.7143 17.56H80.6743L80.4343 18.91ZM81.4543 13.12L68.7343 11.77H81.6943L81.4543 13.12ZM81.9643 10.24L69.2443 8.89H82.2043L81.9643 10.24ZM82.4743 7.36L69.7543 6.01H82.7143L82.4743 7.36ZM82.9843 4.48L70.2643 3.13H83.1943L82.9843 4.48ZM80.9443 16L68.2243 14.65H81.1843L80.9443 16ZM83.4643 1.6L70.7743 0.25H83.7043L83.4643 1.6ZM101.39 7.36L88.6705 6.01H101.63L101.39 7.36ZM100.88 10.24L88.1905 8.89H101.12L100.88 10.24ZM102.41 1.6L89.7205 0.25H102.65L102.41 1.6ZM89.2105 3.13H102.14L101.9 4.48L89.2105 3.13ZM100.61 11.77C100.53 12.43 100.48 12.88 100.46 13.12L87.7705 11.77H100.61ZM100.4 14.65C100.4 15.13 100.43 15.58 100.49 16L87.8005 14.65H100.4ZM100.91 17.56C101.17 18.12 101.49 18.57 101.87 18.91L89.1805 17.56H100.91ZM108.83 14.32C109.53 14.32 110.03 14.23 110.33 14.05C110.63 13.85 110.84 13.41 110.96 12.73L113.18 0.25H118.88L117.02 10.78C116.72 12.48 116.37 13.85 115.97 14.89C115.59 15.93 115.05 16.81 114.35 17.53C113.65 18.25 112.78 18.75 111.74 19.03C110.72 19.31 109.42 19.45 107.84 19.45C105.42 19.45 103.72 19.09 102.74 18.37C101.78 17.63 101.3 16.37 101.3 14.59C101.3 13.61 101.44 12.34 101.72 10.78L103.58 0.25H109.28L106.79 14.32H108.83ZM137.808 11.92H132.108L131.718 14.2H138.708L137.868 19H125.178L128.478 0.25H141.018L139.458 5.05H133.308L132.888 7.57H138.588L137.808 11.92ZM124.278 18.91L111.558 17.56H124.518L124.278 18.91ZM125.298 13.12L112.578 11.77H125.538L125.298 13.12ZM125.808 10.24L113.088 8.89H126.048L125.808 10.24ZM126.318 7.36L113.598 6.01H126.558L126.318 7.36ZM126.828 4.48L114.108 3.13H127.038L126.828 4.48ZM124.788 16L112.068 14.65H125.028L124.788 16ZM127.308 1.6L114.618 0.25H127.548L127.308 1.6Z" fill="#F2994A"></path></svg>
+                </v-toolbar-title>
+
+            </v-toolbar>
+            <v-content>
+                <v-container fluid>
+                    <v-layout>
+                        <v-flex xs12 md6 offset-md3>
+                            <v-layout row wrap>
+                                <!-- ads -->
+                                <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8453834851600545"
+                                data-ad-slot="5627598870" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script> -->
+                                <!-- <div style="padding-top:30px;"><b>Popular Employers</b></div> -->
+
+                                <article>
+                                    <h1 class="article-title speakable">Truck drivers wanted. Pay: $73,000</h1>
+                                    <figure id="ie_dottop"> <img src="https://sfo2.digitaloceanspaces.com/lapro/Marketing/truck-driver-hero.jpg" width="100%" style="max-width:800px" alt="american trucker shortage" border="0"> <figcaption class="caption">There will be a shortage of 48,000 truckers by the end of 2015, according to the American Trucking Associations. </figcaption> </figure>
+                                    <h2 class="speakable">America needs a lot more truck drivers.</h2>
+                                    <p class="speakable"> There will be a shortage of nearly 50,000 truckers in the
+                                        United States by the end of this year, according a new <a
+                                            href="http://www.trucking.org/article.aspx?uid=ad3cff3e-7c8b-400f-8c68-afbf3dde6898"
+                                            target="_blank">report</a> by the American Trucking Associations (ATA).
+                                        That's up from a shortage of 30,000 drivers just
+                                            two years ago, and 20,000 drivers a decade ago. </p>
+                                    <div id="ie_column">
+                                        <div id="myfinance-cnn-desktop-atf" class="myFinance-widget"
+                                            data-type="vertical" data-campaign="cnnmoney-ic-cru"></div>
+
+                                        <div>
+                                            <p class="speakable"> American businesses need truck drivers to move goods
+                                                around. And not having enough of them affects daily deliveries of
+                                                everything from essentials like food and gas to supermarkets and gas
+                                                stations to online <span>Amazon</span> <span></span> orders to people's
+                                                homes. </p>
+                                            <p> It's a job that cannot be shipped overseas and has the potential to
+                                                drive the cost of goods higher and ultimately hurt the U.S.
+                                                    economy. </p>
+                                            <p> No wonder businesses are willing to pay up for it. </p>
+                                            <div id="ad_nat_btf_03"></div>
+                                            <p> Trucker compensation has been going up 8% to 12% a year in recent years,
+                                                according to Bob Costello, chief economist at the ATA. That's a lot
+                                                higher than wages for the rest of Americans, which have barely budged
+                                                recently. </p>
+                                            <p> The median annual wage for a trucker that works for a private fleet,
+                                                such as a truck driver employed by Walmart, is $73,000, according to
+                                                ATA. </p>
+                                            <p> The Labor Department pegs the median annual salary for all truck drivers
+                                                at around $40,000. </p>
+                                            <figure class="body_img body_img--780" style="max-width: 780px;"> <img
+                                                    src="https://sfo2.digitaloceanspaces.com/lapro/Marketing/truck-shortage.jpg"
+                                                    width="100%" alt="chart truck shortage" border="0">
+                                            </figure>
+                                            <p> But it isn't an easy job to fill. </p>
+                                            <p> There's 1.6 million truck drivers in America. Of those, about 750,000
+                                                are "for hire" truckers, meaning they work for a truck company that's
+                                                hired by another company, such as a grocery chain, to deliver its
+                                                product. These truckers are sometimes on the road for 10 days at a time
+                                                before coming home, Costello says. </p>
+                                            <p> At a time when work-life
+                                                    balance issues such as paid leave and flexible schedules are
+                                                gaining spotlight in the American economy, trucking companies are
+                                                challenged to recruit and retain workers. </p>
+                                            <p> Add on an aging workforce and a lack of interest from young workers, and
+                                                you've got a shortage. </p>
+
+                                            <p> The median age of truckers is 49, according to ATA. The median age for
+                                                all American workers is about 42, according to Labor Department. </p>
+                                            <p> Costello admits that the industry is having the toughest time retaining
+                                                young workers. </p>
+                                            <p> Trucking companies also have a tough time recruiting women, who have
+                                                become a larger part of the workforce than in previous generations. </p>
+                                            <p> Women make up 47% of the total U.S. workforce, yet only 6% of all truck
+                                                drivers are women, according data from the Labor Department and ATA.
+                                            </p>
+                                            <p> To qualify, truckers have to be 21, they must a commercial trucking
+                                                license and pass a background check and drug test. Those requirements
+                                                haven't changed in years, experts say. </p>
+                                            <p> However, what's changed is that there are fewer people willing to be on
+                                                the road for days at a time and put in the long hours that the
+                                                truck-driving lifestyle demands. </p>
+                                            <p> "They're having a very difficult time being able to recruit or retain
+                                                [young] drivers," says Charlie Myers, vice president of Trucker Path, an
+                                                app for the trucking industry. </p>
+                                        </div>
+
+
+                                </article>
+                                <!-- <template v-for="(item, index) in items">
+                  <v-flex xs12 class="mb-3 mr-3">
+                    <v-card :key="index" height="100%" :href="item.url" target="_blank">
+                  
+                      <v-card-title primary-title>
+                        <div>
+                          <div class="title">{{ item.title }}</div>
+                          <div>
+                            <v-icon color="red">star</v-icon>
+                            <v-icon color="red">star</v-icon>
+                            <v-icon color="red">star</v-icon>
+                            <v-icon color="red">star</v-icon>
+                            <v-icon color="red" v-if="item.rating == 5">star</v-icon>
+                            <v-icon color="red" v-if="item.rating == 4.5">star_half</v-icon>
+                          </div>
+                          <div class="green--text">{{ item.subtitle }}</div>
+
+                        </div>
+                      </v-card-title>
+                      <v-card-text>
+                        <div>
+                          <div v-html="item.description"></div>
+
+                        </div>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn class="primary" :href="item.url" target="_blank">Join Now
+                        </v-btn>
+
+                      </v-card-actions>
+                      <v-slide-y-transition>
+                        <v-card-text v-show="item.show">
+                          <div v-html="item.description"></div>
+
+                        </v-card-text>
+                      </v-slide-y-transition>
+
+                    </v-card>
+                  </v-flex>
+                </template> -->
+                            </v-layout>
+                            <v-layout align-center justify-center>
+                                <!-- <v-btn class="primary" onclick="Pollfish.showFullSurvey()">Survey
+                </v-btn> -->
+                                <!-- Grove Collaborative
+                <a href="https://viglink.com/?vgref=434433">VigLink</a>
+                <a href="https://www.viglink.com/legal/consumer-disclosure/?vgtag=badge"><img
+                    title="Links monetized by VigLink" src="https://www.viglink.com/images/badges/88x31.png"
+                    alt="VigLink badge" width="88" height="31" /></a>
+              </v-layout> -->
+                        </v-flex>
+
+                        <v-dialog v-model="dialog" persistent max-width="300" class="round-list ">
+                            <v-card class="round-list white">
+                                <v-card-title>
+                                    <b style="font-size: 18px;">Continue to View Coupons</b>
+                                    <v-spacer></v-spacer>
+                                    <v-button icon @click="dialog = false">
+                                        <v-icon>close</v-icon>
+                                    </v-button>
+
+                                </v-card-title>
+                                <v-card-text>
+                                    <!-- <v-select :items="positions" label="Positions" box chips multiple v-model='k'></v-select> -->
+                                    <v-text-field box label="Full Name" v-model="form.name" @change="checkdisabled()">
+                                    </v-text-field>
+                                    <v-text-field box label="Email" v-model="form.email" @change="checkdisabled()">
+                                    </v-text-field>
+                                    <small class="muted grey--text text--lighten-1">By clicking button below, I agree to
+                                        the
+                                        Terms of Use and Privacy Policy.</small>
+                                </v-card-text>
+                                <v-card-actions class="pb-4">
+                                    <!-- <v-btn flat text @click="skip()" class="muted grey--text">
+                                        skip
+                                    </v-btn>
+                                    <v-spacer></v-spacer> -->
+                                    <v-btn depressed block round color="primary" @click="subscribe(active_url)"
+                                        :disabled="disabled">
+                                        Continue</v-btn>
+
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                    </v-layout>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+    <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+    <script src='https://cloudjs.github.io/js/tabletop.min.js'></script>
+    <script src="https://cloudjs.github.io/js/vue-cookies.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    items: [],
+                    show_p: 0,
+                    dialog: false,
+                    disabled: true,
+                    active_url: '',
+                    form: {
+                        email: "",
+                        q: "coupon",
+                        zipcode: "00000",
+                        name: ""
+                    }
+                }
+            },
+            methods: {
+
+                checkdialog(url) {
+                    this.active_url = url;
+                    if ($cookies.get("registered") == "1") this.goto(url);
+                    else this.dialog = true;
+                },
+                subscribe(url) {
+
+                    axios.post('https://api.apply-now.io/api/v1/subscription/addq', this.form)
+                        .then((response) => {
+                            this.dialog = false;
+                            this.goto(url);
+                            this.$cookies.set("registered", "1", "20991231")
+                        })
+
+                },
+                checkdisabled() {
+                    if (this.form['email'] != '' && this.form['name'] != '') this.disabled = false;
+                    else this.disabled = true;
+                },
+                goto(url) {
+                    // end ga event
+                    url = 'https://api.apply-now.io/api/v1/go?u=' + url;
+                    let newTab = window.open();
+                    newTab.location.href = url;
+                }
+            },
+            created() {
+                let uri = window.location.search.substring(1);
+                let params = new URLSearchParams(uri);
+                this.show_p = params.get("p");
+            },
+            beforeCreate: function () {
+                var self = this;
+
+                Tabletop.init({
+                    key: '173LUsmTge6GHovkdNcQVoG7O-3u7l3PG0utqlxzU6-Y',
+                    callback: function (data, tabletop) {
+
+                        for (var key in data) {
+                            var temps = []
+                            for (i = 0; i < data[key].elements.length; i++) {
+                                data[key].elements[i]["show"] = false
+                                temps.push(data[key].elements[i])
+                            }
+                            self.items = temps
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        var vglnk = {
+            key: 'aad15c1542ceb85410b7b624c62143d5'
+        };
+        (function (d, t) {
+            var s = d.createElement(t);
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//cdn.viglink.com/api/vglnk.js';
+            var r = d.getElementsByTagName(t)[0];
+            r.parentNode.insertBefore(s, r);
+        }(document, 'script'));
+    </script>
+    <!-- Code injected by live-server -->
+    <script type="text/javascript">
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() ==
+                            "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date()
+                                .valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        } else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+</body>
+
+</html>

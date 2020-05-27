@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Giveaways - EveryPayJoy Jobs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+    <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+    <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+    <style>
+        .v-list--three-line .v-list__tile {
+            height: 72px !important;
+        }
+
+        .round-list {
+            border-radius: 10px;
+        }
+
+        .v-btn__content {
+            text-transform: initial;
+            font-size: 18px !important;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-132235786-5');
+</script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app light>
+            <v-toolbar class="white">
+                <v-toolbar-title>
+                    <a href="/project.html">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.0003 0H19.9999C8.95427 0 0 8.95427 0 19.9999V20.0001C0 31.0457 8.95427 40 19.9999 40H20.0003C31.0459 40 40.0002 31.0457 40.0002 20.0001V19.9999C40.0002 8.95427 31.0459 0 20.0003 0Z"
+                                fill="#F96302" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.578 26.285H23.4235V28.4694C23.4219 29.0485 23.1912 29.6034 22.7817 30.0128C22.3723 30.4222 21.8174 30.653 21.2384 30.6546H18.7624C18.1835 30.6528 17.6288 30.422 17.2195 30.0126C16.8102 29.6031 16.5796 29.0484 16.578 28.4694V26.285Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.0002 9.34509L8.2959 18.2722C9.38951 19.8463 11.2945 20.207 12.6552 19.1987L20.0009 13.5968L27.3468 19.1987C28.708 20.207 30.6125 19.8463 31.7063 18.2722L20.0002 9.34509Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.0003 16.2161L8.29529 25.1414C9.3889 26.7155 11.2939 27.0764 12.6546 26.0679L20.0003 20.4662L27.346 26.0686C28.7072 27.0771 30.6117 26.7162 31.7055 25.1421L20.0003 16.2161Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+
+                </v-toolbar-title>
+            </v-toolbar>
+            <v-content>
+
+
+                <!-- list -->
+
+                <v-layout column align-center justify-center>
+                    <v-container fluid>
+                        <v-flex xs12 md6 offset-md3>
+                            <v-layout row wrap>
+                                <!-- ads -->
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+                                </script>
+                                <!-- Deal_Detail_Top -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8453834851600545"
+                                    data-ad-slot="4755201026" data-ad-format="auto"
+                                    data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                                <!-- <div style="padding-top:30px;"><b>Popular Employers</b></div> -->
+                                <v-flex xs12 md12 class="mb-3 mr-3" v-if="items[show_p]">
+                                    <div>
+                                        <h1>{{ items[show_p].title }}</h1>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div v-html="items[show_p].description"></div>
+                                        <!-- ads -->
+                                        <!-- <script async
+                                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+                                        </script>
+                                        <ins class="adsbygoogle" style="display:block; text-align:center;"
+                                            data-ad-layout="in-article" data-ad-format="fluid"
+                                            data-ad-client="ca-pub-8453834851600545" data-ad-slot="6663372582"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script> -->
+                                        <v-btn class="primary" :href="items[show_p].url" target="_blank">Apply
+                                            Now
+                                        </v-btn>
+                                        <v-btn flat class="orange--text"
+                                            :href="'project.html?p='+ ((parseInt(show_p)+parseInt(1)) == items.length ? 0 : parseInt(show_p)+parseInt(1))">
+                                            Next
+                                        </v-btn>
+                                        <br>
+                                        <v-btn flat
+                                            :href="'project.html?p='+ (parseInt(show_p) == 0 ? items.length : parseInt(show_p)-parseInt(1))"
+                                            class="gray--text text--lighten-5">Previous
+                                        </v-btn>
+                                        
+                                        
+                                    </div>
+                                </v-flex>
+                                <template v-for="(item, index) in items">
+
+                                    <v-flex xs12 md12 class="mb-3 mr-3" v-if="index > show_p">
+                                        <v-card :key="index" height="100%">
+                                            <!-- <v-card-media src="/static/doc-images/cards/sunshine.jpg" height="200px">
+                                        </v-card-media> -->
+                                            <v-card-title primary-title>
+                                                <div>
+                                                    <div class="title">{{ item.title }}</div>
+                                                </div>
+                                            </v-card-title>
+                                            <v-card-actions>
+                                                <v-btn class="primary" :href="'project.html?p='+index" outline>View
+                                                </v-btn>
+
+                                                <!-- <v-spacer></v-spacer>
+                                                <v-btn icon @click.native="item.show = !item.show">
+                                                    <v-icon>
+                                                        {{ item.show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
+                                                    </v-icon>
+                                                </v-btn> -->
+                                            </v-card-actions>
+                                            <v-slide-y-transition>
+                                                <v-card-text v-show="item.show">
+                                                    <div v-html="item.description"></div>
+                                                    <v-btn class="primary" outline :href="item.url" target="_blank">
+                                                        Enter Now
+                                                    </v-btn>
+                                                </v-card-text>
+                                            </v-slide-y-transition>
+
+                                        </v-card>
+                                    </v-flex>
+                                </template>
+                                <div style="display: none;">
+                                    <p>Shoe Station Shoes For Life</p>
+<p>What To Expect $1,500 Amazon Card Giveaway</p>
+<p>$1,000 AT&T Reward Card Sweepstakes</p>
+<p>Coolibar Sun Safe Sweepstakes</p>
+<p>Tillys Enter to Win A $500 Gift Card Sweepstakes</p>
+<p>Serena & Lily Home Sweepstakes</p>
+<p>Ellentube $300 Target Gift Card Giveaway</p>
+                                </div>
+                            </v-layout>
+
+                        </v-flex>
+                    </v-container>
+                </v-layout>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+    <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    items: [],
+                    show_p: 0
+                }
+            },
+            methods: {
+
+
+            },
+            created() {
+                let uri = window.location.search.substring(1);
+                let params = new URLSearchParams(uri);
+                if(params.get("p"))this.show_p = params.get("p");
+            },
+            beforeCreate: function () {
+                var self = this;
+
+                Tabletop.init({
+                    key: '1rngXfxdq_3lnRNs1FKWeanjb8373Z0fD8HHgTtpj2uQ',
+                    callback: function (data, tabletop) {
+
+                        for (var key in data) {
+                            var temps = []
+                            console.log(data[key])
+                            for (i = 0; i < data[key].elements.length; i++) {
+                                data[key].elements[i]["show"] = false
+                                temps.push(data[key].elements[i])
+                            }
+                            self.items = temps
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>

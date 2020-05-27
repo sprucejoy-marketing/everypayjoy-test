@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Make Your June Yard Checklist Free</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+  <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+  <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+  <style>
+    .l-largetitle {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 34px;
+      line-height: 41px;
+      letter-spacing: 0.374px;
+      color: #000000;
+    }
+
+    .l-title-1 {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: 0.364px;
+      color: #000000;
+    }
+
+    .l-title-2 {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: 0.352px;
+      color: #000000;
+    }
+
+    .l-title-3 {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.38px;
+      color: #000000;
+    }
+
+    .l-headline {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 17px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: #000000;
+    }
+
+    .l-body {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 17px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: #000000;
+    }
+
+    .l-callout {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 21px;
+      letter-spacing: -0.32px;
+      color: #000000;
+    }
+
+    .l-subheadline {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -0.24px;
+      color: #000000;
+    }
+
+    .l-footnote {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 18px;
+      letter-spacing: -0.078px;
+      color: #000000;
+    }
+
+    .l-caption-1 {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      color: #000000;
+    }
+
+    .l-caption-2 {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 13px;
+      letter-spacing: 0.066px;
+      color: #000000;
+    }
+  </style>
+  <style>
+    .v-list--three-line .v-list__tile {
+      height: 72px !important;
+    }
+
+    .round-list {
+      border-radius: 10px;
+    }
+
+    .l-hero {
+      padding: 32px 12px 48px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://sfo2.digitaloceanspaces.com/lapro/everypayjoy/lp/yard-checklist.jpg");
+    }
+
+    .l-logos {
+      padding-top: 16px;
+      display: flex;
+    }
+
+    .l-logos img {
+      display: block;
+      width: 70%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .l-list-item {
+      margin-bottom: 16px;
+      display: flex;
+    }
+
+    .l-card-item {
+      padding: 14px 12px 16px;
+      width: 100%;
+      min-height: 155px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .l-card-item-title {
+      margin-bottom: 6px;
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 22px;
+      min-height: 44px;
+      text-align: center;
+      letter-spacing: -0.408px;
+      color: #000000;
+    }
+
+    .l-card-item-content {
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: -0.078px;
+      color: #59575C;
+    }
+
+    @media (min-width: 600px) {
+      .l-logos {
+        padding-top: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .l-layout {
+        padding: 0 16px;
+      }
+    }
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132235786-5');
+  </script>
+
+</head>
+
+<body>
+  <div id="app">
+    <v-app light>
+      <v-toolbar color="white" app>
+        <v-toolbar-title>
+          <v-img
+            src="https://lapro.sfo2.digitaloceanspaces.com/sprucejoy/sprucejoy-circle-logo-with-text.png"
+            width="135"
+            height="25"
+            contain
+          >
+            <template #placeholder>
+              <v-layout class="fill-height ma-0 align-center justify-center">
+                <v-progress-circular
+                  indeterminate
+                  color="grey lighten-5"
+                ></v-progress-circular>
+              </v-layout>
+            </template>
+          </v-img>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
+      <v-content>
+        <v-container class="pa-0" fluid>
+          <v-layout>
+            <v-flex>
+              <div class="l-hero d-flex align-center justify-center">
+                <v-layout>
+                  <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
+                    <div class="pb-2 mb-4 l-title-2 font-weight-bold white--text text-xs-center">
+                        Make Your June Yard Checklist Free
+                    </div>
+                    <v-card class="mx-auto" max-width="356" color="white" tile>
+                      <v-card-text class="">
+                        <div class="mb-4 l-body">
+                          <span style="color: #37A000;">125 neighbors</span> are using SpruceJoy.
+                        </div>
+                        <v-text-field color="#F96302" box label="Full Name" required v-model="form.name" :rules="rules.nameRules">
+                        </v-text-field>
+                        <v-text-field color="#F96302" box label="Email" required v-model="form.email" :rules="rules.emailRules">
+                        </v-text-field>
+                      </v-card-text>
+                      <v-card-actions class="pt-0 px-4 pb-4">
+                        <v-btn
+                          class="text-none white--text"
+                          :loading="loading.subscribe"
+                          depressed
+                          block
+                          round
+                          color="#F96302"
+                          @click="subscribe"
+                          :disabled="!isFormValid"
+                        >Get Started</v-btn>
+                      </v-card-actions>
+                      <small class="pb-4 px-3 d-flex muted grey--text text--lighten-1">
+                        By clicking button above, I agree to the Terms of Use and Privacy Policy.
+                      </small>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+              </div>
+            </v-flex>
+          </v-layout>
+          <v-layout class="l-layout">
+            <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
+              <div class="l-logos justify-center align-center">
+                <div v-if="isPC" class="mr-4 l-body font-weight-bold" style="color: #A1A1A1;">As seen on</div>
+                <div v-else class="mr-3 l-caption-1 font-weight-bold" style="color: #A1A1A1;">As seen on</div>
+                <img src="https://lapro.sfo2.digitaloceanspaces.com/everypayjoy/lp/brands.png" alt="brands">
+              </div>
+              <div class="mt-4">
+                <div class="l-list-item align-start">
+                  <v-icon class="mr-2" color="#00c7af" size="22">check_circle_outline</v-icon>
+                  <div>
+                    <div class="l-title-3 font-weight-bold">
+                      5 Minutes Setup.
+                    </div>
+                    <div class="l-footnote" style="color: #59575C;">
+                      View pricing, choose your pros, and schedule service in 5 minutes or less
+                    </div>
+                  </div>
+                </div>
+                <div class="l-list-item align-start">
+                  <v-icon class="mr-2" color="#00c7af" size="22">check_circle_outline</v-icon>
+                  <div>
+                    <div class="l-title-3 font-weight-bold">
+                      Satisfaction Guaranteed
+                    </div>
+                    <div class="l-footnote" style="color: #59575C;">
+                      If you're not completely satisfied we'll come back and fix it, free of charge.
+                    </div>
+                  </div>
+                </div>
+                <div class="l-list-item align-start">
+                  <v-icon class="mr-2" color="#00c7af" size="22">check_circle_outline</v-icon>
+                  <div>
+                    <div class="l-title-3 font-weight-bold">
+                      Verified Lawn Care Technicians
+                    </div>
+                    <div class="l-footnote" style="color: #59575C;">
+                      All our technicians are verified and screened.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <div class="mb-2 pb-4 d-flex justify-center l-headline font-weight-bold">HOW IT WORKS</div>
+                <v-container grid-list-md>
+                  <v-layout row wrap>
+                    <v-flex xs12 sm12 md4 lg4 xl4>
+                      <div class="l-card-item">
+                        <div class="l-card-item-title">Describe Your Task</div>
+                        <div class="l-card-item-content">
+                          Tell us what you need done, when and where it works for you.
+                        </div>
+                      </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md4 lg4 xl4>
+                      <div class="l-card-item">
+                        <div class="l-card-item-title">
+                          Choose Your Pro
+                        </div>
+                        <div class="l-card-item-content">
+                          Browse trusted Pros by skills, reviews, and price. Chat with them to confirm details.
+                        </div>
+                      </div>
+                    </v-flex>
+                    <v-flex xs12 sm12 md4 lg4 xl4>
+                      <div class="l-card-item">
+                        <div class="l-card-item-title">Get It Done</div>
+                        <div class="l-card-item-content">
+                          Your Pro arrives and gets the job done. Pay securely and leave a review, all through SpruceJoy.
+                        </div>
+                      </div>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </div>
+
+              <div class="pt-5 pb-4 l-title-3" style="color: #59575C; text-align: center;">
+                Thank goodness I finally have a company that shows up on time and consistently! On top of that every job is just as impressive as their first was!
+              </div>
+
+              <div style="text-align: center;">
+                <v-rating :value="5" size="20" readonly color="#F96302" dense></v-rating>
+              </div>
+
+              <div class="my-2 l-footnote" style="color: #858E99; text-align: center;">Melissa A., Austin</div>
+
+              <div class="l-caption-2" style="color: #59575C;">*The cost is based on the historial price on SpruceJoy.</div>
+
+              <v-footer class="justify-center" color="white">
+                <div class="l-footnote" style="color: #858e99;">
+                  &copy;{{ new Date().getFullYear() }} SpruceJoy
+                </div>
+                <v-btn href="https://www.sprucejoy.com/legal/" target="_blank" class="text-none l-footnote"
+                  color="#858e99" small flat round>
+                  Privacy &amp; Terms
+                </v-btn>
+                <v-btn href="https://www.sprucejoy.com/supports/contact/" target="_blank" class="text-none l-footnote"
+                  color="#858e99" small flat round>
+                  Contact
+                </v-btn>
+              </v-footer>
+            </v-flex>
+
+
+            <v-snackbar v-model="show.errorSnackbar" color="error" top>
+              {{ errorText }}
+              <v-btn dark flat @click="show.errorSnackbar = false">
+                Close
+              </v-btn>
+            </v-snackbar>
+
+            <v-dialog v-model="show.dialog" max-width="290">
+              <v-card>
+                <v-card-title class="headline">Congratulations!</v-card-title>
+                <v-card-text class="pt-0">
+                  Thank you for submitting. We'll get it back to you ASAP.
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    color="green darken-1"
+                    flat="flat"
+                    @click="show.dialog = false"
+                  >
+                    Ok!
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
+
+  <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+  <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          rules: {
+            nameRules: [
+              (v) => !!v || 'Full Name is required',
+              // eslint-disable-next-line
+              (v) => /^\s?(([a-zA-Z]{2,40})\s){1,}([a-zA-Z]{2,40})\s?$/.test(v) || 'Must include first and last name'
+            ],
+            emailRules: [
+              (v) => !!v || 'Email is required',
+              // eslint-disable-next-line
+              (v) => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'Email must be valid'
+            ]
+          },
+          loading: {
+            subscribe: false
+          },
+          show: {
+            dialog: false,
+            errorSnackbar: false
+          },
+          errorText: "",
+          form: {
+            name: "",
+            email: "",
+            q: "yard",
+            zipcode: "",
+            type: "checklist"
+          },
+          title: ""
+        }
+      },
+      computed: {
+        isFormValid() {
+          if (!this.validateName(this.form.name)) return false
+          if (!this.validateEmail(this.form.email)) return false
+          return true
+        },
+        isPC() {
+          return !this.isiOS && !this.isAndroid;
+        },
+        isiOS() {
+          return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+        },
+        isAndroid() {
+          return (
+            navigator.userAgent.includes("Android") ||
+            navigator.userAgent.includes("Adr")
+          );
+        },
+      },
+      methods: {
+        validateName(v) {
+          // eslint-disable-next-line
+          const re = /^\s?(([a-zA-Z]{2,40})\s){1,}([a-zA-Z]{2,40})\s?$/
+          return re.test(String(v).toLowerCase())
+        },
+        validateEmail(v) {
+          // eslint-disable-next-line
+          const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(v).toLowerCase());
+        },
+        getUrlVars() {
+          var vars = {};
+          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+          });
+          return vars;
+        },
+        subscribe() {
+          this.loading.subscribe = true;
+          axios.get('https://api.apply-now.io/api/v1/ip/current')
+            .then((response) => {
+              if (response.data.zipCode) {
+                this.form.zipcode = response.data.zipCode;
+              }
+              this.subsribeInsert();
+            })
+        },
+        subsribeInsert() {
+          var that = this;
+          this.loading.subscribe = true;
+          axios.post('https://api.apply-now.io/api/v1/subscription/addq', this.form)
+            .then((response) => {
+              localStorage.setItem('RU', response.data.email);
+              this.show.dialog = true
+            }).catch(function (error) {
+              that.show.errorSnackbar = true;
+              if (error.response.data.message) {
+                that.errorText = error.response.data.message;
+              } else if (error.response.data.email) {
+                that.errorText = error.response.data.email[0];
+              } else if (error.response.data.q) {
+                that.errorText = error.response.data.q[0];
+              } else if (error.response.data.zipcode) {
+                that.errorText = error.response.data.zipcode[0];
+              } else {
+                that.errorText = error.message;
+              }
+            }).then(function () {
+              that.loading.subscribe = false;
+            });
+        },
+        encodeUrl(q) {
+          q1 = q.replace('/', ' ')
+          q1 = q1.replace(/\s{2,}/i, " ")
+          return encodeURI(q1)
+        }
+      },
+      created() {
+        var RU = localStorage.getItem('RU');
+        if (RU) {
+          this.show.dialog = true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

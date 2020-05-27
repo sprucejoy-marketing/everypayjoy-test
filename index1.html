@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Giveaways - EveryPayJoy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://cloudjs.github.io/js/vuetify.min.css" rel="stylesheet">
+    <script src="https://cloudjs.github.io/js/vue.min.js"></script>
+    <meta name="verify-admitad" content="38cc12c149" />
+    <script src="https://cloudjs.github.io/js/vuetify.min.js"></script>
+    <style>
+        .v-list--three-line .v-list__tile {
+            height: 72px !important;
+        }
+
+        .round-list {
+            border-radius: 10px;
+        }
+
+        .v-btn__content {
+            text-transform: initial;
+            font-size: 18px !important;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+        .menu {
+            margin: 0 auto !important;
+            text-align: center;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132235786-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-132235786-5');
+  gtag('config', 'AW-770861134');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '238978047383695');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=238978047383695&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+</head>
+
+<body>
+    <div id="app">
+        <v-app light>
+            <v-toolbar class="white">
+                <v-toolbar-title>
+                    <a href="/">
+                        <img src="/images/everypayjoy-logo.png" alt="everypayjoy logo" height="20">
+                    </a>
+
+                </v-toolbar-title>
+                <div class="menu">
+                    <a href="/">Sweepstakes</a>
+                    <a href="/c.html">Coupons</a>
+                </div>
+            </v-toolbar>
+            <v-content>
+
+
+                <!-- list -->
+
+                <v-layout column align-center justify-center>
+                    <v-container fluid>
+                        <v-flex xs12 md6 offset-md3>
+                            <v-layout row wrap>
+                            <!-- ads -->
+                            <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8453834851600545"
+                                data-ad-slot="5627598870" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script> -->
+                            <!-- <div style="padding-top:30px;"><b>Popular Employers</b></div> -->
+
+                            <template v-for="(item, index) in items">
+                                <v-flex xs12 md5 class="mb-3 mr-3">
+                                    <v-card :key="index" height="100%">
+                                        <!-- <v-card-media src="/static/doc-images/cards/sunshine.jpg" height="200px">
+                                        </v-card-media> -->
+                                        <v-card-title primary-title>
+                                            <div>
+                                                <div class="subheading">{{ item.title }}</div>
+                                                <div class="orange--text">End Date: {{ item.end_date }}</div>
+                                                <div class="green--text">Value: ${{ item.value }}</div>
+                                            </div>
+                                        </v-card-title>
+                                        <v-card-actions>
+                                            <v-btn class="primary" :href="'deal_detail.html?p='+index">Read More
+                                            </v-btn>
+
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                        <v-slide-y-transition>
+                                            <v-card-text v-show="item.show">
+                                                <div v-html="item.description"></div>
+                                                <v-btn class="primary" outline :href="item.url" target="_blank">Enter
+                                                    Now
+                                                </v-btn>
+                                            </v-card-text>
+                                        </v-slide-y-transition>
+
+                                    </v-card>
+                                </v-flex>
+                            </template>
+                        </v-layout>
+                            
+                        </v-flex>
+                    </v-container>
+                </v-layout>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cloudjs.github.io/js/axios.min.js"></script>
+    <script src="https://cloudjs.github.io/js/lodash.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    items: [],
+                    show_p: 0
+                }
+            },
+            methods: {
+
+
+            },
+            created()
+  {
+    let uri = window.location.search.substring(1); 
+    let params = new URLSearchParams(uri);
+    this.show_p = params.get("p");
+  },
+            beforeCreate: function () {
+                var self = this;
+                
+                Tabletop.init({
+                    key: '1qw3rHQcadcJ5Ma2XIY5UOPXeM6JAIKrvlaRSXAxNTqo',
+                    callback: function (data, tabletop) {
+
+                        for (var key in data) {
+                            var temps = []
+                            for (i = 0; i < data[key].elements.length; i++) {
+                                data[key].elements[i]["show"] = false
+                                temps.push(data[key].elements[i])
+                            }
+                            self.items = temps
+                        }
+                    }
+                });
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        var vglnk = {key: '00b2ad42c6ecf94e176eb6d3ed1b90b8'};
+        (function(d, t) {
+            var s = d.createElement(t);
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//cdn.viglink.com/api/vglnk.js';
+            var r = d.getElementsByTagName(t)[0];
+                r.parentNode.insertBefore(s, r);
+        }(document, 'script'));
+    </script>
+</body>
+
+</html>
