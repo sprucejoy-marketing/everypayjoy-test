@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/weeklyadsv0/aldi.97/3", {data:[{}],fetch:[],mutations:[]});
