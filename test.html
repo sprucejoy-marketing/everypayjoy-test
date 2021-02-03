@@ -15,10 +15,12 @@
       as="script"
     />
     <script>
-      var usedLaterScript = document.createElement("script");
-      usedLaterScript.src =
-        "https://lapro.sfo2.digitaloceanspaces.com/sj-subscribe.js";
-      document.body.appendChild(usedLaterScript);
+      (function () {
+        var script = document.createElement("script");
+        script.setAttribute("src", "https://lapro.sfo2.digitaloceanspaces.com/sj-subscribe.js");
+        script.setAttribute("type", "application/javascript");
+        document.head.appendChild(script);
+      })();
     </script>
 
     <script src="https://lp.everypayjoy.com/inline.js"></script>
