@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.YETT_BLACKLIST = [
+      /inline/,
+      /inserted/,
+    ]
+    window.YETT_WHITELIST = [
+      /my-whitelisted-domain/,
+    ]
+  </script>
+  <script src="https://unpkg.com/yett@0.1.13/dist/yett.min.js"></script>
+  <script src="https://lp.everypayjoy.com/inline.js"></script>
+  <script>
+    (function() {
+      var script = document.createElement('script')
+      script.setAttribute('src', 'https://lp.everypayjoy.com/inserted.js')
+      script.setAttribute('type', 'application/javascript')
+      document.head.appendChild(script)
+    })()
+  </script>
+
+</head>
+<body>
+  
+</body>
+</html>
