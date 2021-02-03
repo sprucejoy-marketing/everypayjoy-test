@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
-    window.YETT_BLACKLIST = [
-      /inline/,
-      /inserted/,
-    ]
-    window.YETT_WHITELIST = [
-      /my-whitelisted-domain/,
-    ]
-  </script>
-  <script src="https://lapro.sfo2.digitaloceanspaces.com/sj-subscribe.js"></script>
-  <script src="https://lp.everypayjoy.com/inline.js"></script>
-  <script>
-    (function() {
-      var script = document.createElement('script')
-      script.setAttribute('src', 'https://lp.everypayjoy.com/inserted.js')
-      script.setAttribute('type', 'application/javascript')
-      document.head.appendChild(script)
-    })()
-  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.YETT_BLACKLIST = [/inline/, /inserted/];
+      window.YETT_WHITELIST = [/my-whitelisted-domain/];
+    </script>
 
-</head>
-<body>
-  
-</body>
+    <link
+      rel="preload"
+      href="https://lapro.sfo2.digitaloceanspaces.com/sj-subscribe.js"
+      as="script"
+    />
+    <script>
+      var usedLaterScript = document.createElement("script");
+      usedLaterScript.src =
+        "https://lapro.sfo2.digitaloceanspaces.com/sj-subscribe.js";
+      document.body.appendChild(usedLaterScript);
+    </script>
+
+    <script src="https://lp.everypayjoy.com/inline.js"></script>
+    <script>
+      (function () {
+        var script = document.createElement("script");
+        script.setAttribute("src", "https://lp.everypayjoy.com/inserted.js");
+        script.setAttribute("type", "application/javascript");
+        document.head.appendChild(script);
+      })();
+    </script>
+  </head>
+  <body>
+    <div>test</div>
+  </body>
 </html>
