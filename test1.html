@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Top</h1>
+    <iframe
+      id="test2"
+      src="/test2.html"
+      frameborder="0"
+      name="subscribebox"
+      data-subscribebox-id="subscribebox-f1"
+    ></iframe>
+    <script>
+      var iframe = document.getElementById("test2");
+      setTimeout(function () {
+        iframe.contentWindow.postMessage("message", "*");
+      }, 500);
+
+      window.onmessage = function (event) {
+        console.log("Parent Reply received:", event);
+      };
+    </script>
+  </body>
+</html>
