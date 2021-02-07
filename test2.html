@@ -7,7 +7,22 @@
   </head>
   <body>
     <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
+    <h2>iframe</h2>
     <script>
+      // window.frameElement.style.height = document.body.clientHeight;
+      window.parent.document.getElementById('test2').height = document.body.clientHeight;
+
+
       console.log(window.frameElement.dataset);
       window.onmessage = function (event) {
         console.log("Iframe Message received:", event);
