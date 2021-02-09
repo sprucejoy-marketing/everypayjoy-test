@@ -11,7 +11,7 @@
       id="test2"
       src="http://localhost:8080/"
       name="subscribebox"
-      style="width:100%; border:none;"
+      style="width: 356px; border: none"
       data-subscribebox-id="subscribebox-f1"
     ></iframe>
     <script>
@@ -22,6 +22,11 @@
 
       window.onmessage = function (event) {
         console.log("Parent Reply received:", event);
+        if (event.data && event.data.event === "resize") {
+          iframe.style.width = event.data.payload.width + "px";
+          iframe.style.height = event.data.payload.height + "px";
+          iframe.style.boxShadow = "0px 4px 4px rgba(0, 0, 0, 0.25)";
+        }
       };
     </script>
   </body>
