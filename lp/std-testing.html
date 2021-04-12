@@ -4462,7 +4462,7 @@
 		<div class=container>
 			<div class="columns is-gapless">
 				<div class="column is-two-thirds">
-					<h1 class=title>100% Private & Fast STD Testing from $24</h1>
+					<h1 class=title id="hero">100% Private & Fast STD Testing from $24</h1>
 					<div class=list>
 						<div class=list-item><span class=icon><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentcolor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22s10-4.5 10-10S17.5 2 12 2m0 18c-4.41.0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8M16.59 7.58 10 14.17 7.41 11.59 6 13l4 4 8-8-1.41-1.42z"/></svg></span>
 							<div class=body>100% Private - Protect Yourself and Your Partner. 
@@ -4484,6 +4484,7 @@
 					</div>
 					<div class=subscription>
 						<a class="button btn-subscribe see-pricing" href="#pricing">See Tests & Prices</a>
+						<a class="button epja-action mx-3 my-3" href="https://www.anrdoezrs.net/click-100151778-13498256">Find a Lab</a>
 						<!--<a class="button epja-action mx-3 my-3" href="https://www.kqzyfj.com/click-100151778-12558194">Find a Lab</a>-->
 					</div>
 					<div class="mt-5 columns">
@@ -5149,6 +5150,8 @@
 			</div>
 		</div>
 	</section>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 	<script>
 	function back2Subscription() {
 		window.scrollTo(0, 0)
@@ -5166,6 +5169,14 @@
 	  }
 	  
 	  document.addEventListener("mouseout", onMouseOut);
+
+
+		axios.get('https://api.apply-now.io/api/v1/ip/current').then(resp => {
+
+			console.log(resp.data.cityName);
+			var target = document.getElementById('hero');
+			target.innerHTML = resp.data.cityName + ' STD Testing';
+		});
 	</script>
 	<footer class=footer>
 		<div class=has-text-centered><span class=footer-item>&copy;2021 STD Testing</span> <a href=https://www.kqzyfj.com/click-100151778-12558194 class=footer-item>Privacy</a> <a href=https://www.kqzyfj.com/click-100151778-12558194 class=footer-item>Terms</a> <a href=https://www.kqzyfj.com/click-100151778-12558194 class=footer-item>Contact</a></div>
