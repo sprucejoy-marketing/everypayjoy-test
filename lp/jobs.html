@@ -427,6 +427,14 @@
             var that = this;
             that.loading.getJobs = true;
 
+            if (this.form.q.toLowerCase() === "warehouse") {
+              this.form.major_category = "Warehousing/Logistics";
+            } else if (this.form.q.toLowerCase() === "trucking") {
+              this.form.major_category = "trucking";
+            } else {
+              this.form.major_category = this.form.q;
+            }
+
             return axios
               .get(this.endpoint, {
                 params: this.form,
@@ -451,6 +459,14 @@
             var copy = JSON.parse(JSON.stringify(this.form));
             copy.start = that.jobs.length;
             that.loading.getMoreJobs = true;
+
+            if (copy.q.toLowerCase() === "warehouse") {
+              copy.major_category = "Warehousing/Logistics";
+            } else if (copy.q.toLowerCase() === "trucking") {
+              copy.major_category = "trucking";
+            } else {
+              copy.major_category = copy.q;
+            }
 
             return axios
               .get(this.endpoint, {
