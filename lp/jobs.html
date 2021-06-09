@@ -223,12 +223,12 @@
               >
                 <div
                   v-if="total !== null"
-                  class="mb-6 text--text text--lighten-1"
+                  class="mb-6 text--text text--lighten-1 mx-3"
                 >
                   {{ total.toLocaleString() }} Jobs found.
                 </div>
 
-                <div class="lp-jobs">
+                <div class="lp-jobs mx-3">
                   <div v-for="i in jobs" :key="i.id" class="item">
                     <div class="name" @click="handleClick(i)">{{i.title}}</div>
                     <div class="company-name">
