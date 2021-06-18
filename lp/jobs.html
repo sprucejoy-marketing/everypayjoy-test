@@ -419,7 +419,9 @@
 
         created: function () {
           this.loading.getJobs = true;
-          this.getAddr().then(this.getJobs);
+          this.getAddr().then(function () {
+            return this.getJobs(true);
+          });
         },
 
         methods: {
@@ -433,7 +435,7 @@
                   response.data.cityName + "," + response.data.regionCode;
               });
           },
-          getJobs: function () {
+          getJobs: function (isInit) {
             var that = this;
             that.loading.getJobs = true;
 
@@ -460,7 +462,9 @@
               })
               .then(function () {
                 that.loading.getJobs = false;
-                that.show.dialog = false;
+                if (!isInit) {
+                  that.show.dialog = false;
+                }
               });
           },
 
