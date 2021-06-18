@@ -463,7 +463,7 @@
               })
               .then(function () {
                 that.loading.getJobs = false;
-                if (!isInit) {
+                if (isInit !== true) {
                   that.show.dialog = false;
                 }
               });
