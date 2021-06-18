@@ -307,6 +307,16 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+      function capitalizeFirstLetter(str) {
+        if (!str) return str;
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
+
+      function formatQ(str) {
+        if (!str) return str;
+        return str.split(" ").map(capitalizeFirstLetter).join(" ");
+      }
+
       function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
@@ -376,7 +386,7 @@
               id: 4927,
               pass: "JRuRyxzgsQiyqAqz",
               ip: "",
-              q: getParameterByName("q"),
+              q: formatQ(getParameterByName("q")),
               l: "",
               start: 0,
               limit: 10,
