@@ -489,15 +489,17 @@
           },
           handleClick: function (v) {
             var that = this;
-            gtag("event", "ClickJobs", {
-              event_category: "ClickJob",
-              event_label: that.form.q + ":" + window.location.href,
-              event_value: 3,
-            });
+            if (typeof window.gtag === "function") {
+              window.gtag("event", "ClickJobs", {
+                event_category: "ClickJob",
+                event_label: that.form.q + ":" + window.location.href,
+                event_value: 3,
+              });
 
-            gtag("event", "conversion", {
-              send_to: "AW-770861134/5SOCCIib8L0CEM7Qye8C",
-            });
+              window.gtag("event", "conversion", {
+                send_to: "AW-770861134/5SOCCIib8L0CEM7Qye8C",
+              });
+            }
 
             window.open(v.url);
           },
