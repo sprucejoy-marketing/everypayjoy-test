@@ -418,9 +418,10 @@
         },
 
         created: function () {
+          var that = this;
           this.loading.getJobs = true;
           this.getAddr().then(function () {
-            return this.getJobs(true);
+            return that.getJobs(true);
           });
         },
 
