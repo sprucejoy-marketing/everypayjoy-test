@@ -5468,10 +5468,7 @@
 	<div class="page-container is-hidden-desktop">
 		<div class="my-3 epja-container">
 			<div id="epja-video"></div>
-			<div id="epja-video-m">
-                
-				<div id="epja-mm-video"></div>
-			</div>
+			
 		</div>
 	</div>
 	</div>
@@ -5501,7 +5498,10 @@
 				<div class="left">
 					<div id="epja-above" class="mb-5 pb-2 mt-2 epja-container">
 						<div class="has-text-grey-light is-size-7" style="padding-bottom:5px;text-align-last:center">ADVERTISEMENT</div>
-						<script async id="AV6025174b4c291b59585f0017" type="text/javascript" src="https://tg1.aniview.com/api/adserver/spt?AV_TAGID=6025174b4c291b59585f0017&AV_PUBLISHERID=601a5782213558528e5b4ff3"></script>
+                        <div id="epja-video-m">
+                
+                            <div id="epja-mm-video"></div>
+                        </div>
 					</div>
 					<div class="swipe-container img-block is-flex-tablet is-align-items-center">
 						<div class="img-action">
@@ -7135,6 +7135,12 @@
 		var a = document.getElementById(b);
 		a && (a.innerHTML = '')
 	}
+	document.addEventListener('DOMContentLoaded', function() {
+		var b, a, c;
+		console.log('DOM Content Loaded'), b = window.matchMedia("only screen and (min-width: 1025px)"), a = window.matchMedia("only screen and (max-width: 767px)"), b.matches ? (console.log('mq:', b)) : (a = window.matchMedia("only screen and (max-width: 767px)"), console.log('mm:', a), c = 100, setTimeout(function() {
+			a.matches ? removeChildren('epja-video-m') : removeChildren('epja-video'), SP_loadAniPassback()
+		}, c))
+	})
 	</script>
 	<script>
 	document.onreadystatechange = function() {
