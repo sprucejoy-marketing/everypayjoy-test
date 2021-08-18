@@ -15356,6 +15356,7 @@
       }
     });
   </script>
+  <div id="epja-video-m"></div>
   <header class="l-nav is-flex is-justify-content-space-between is-align-items-center">
     <div class="is-flex is-align-items-center is-flex-grow-0 is-flex-shrink-0">
       <div class="px-3 py-2 is-flex"><img src=https://lapro.sfo2.cdn.digitaloceanspaces.com/weekly-ads/store/2353.jpg
@@ -17551,6 +17552,80 @@
         var r = d.getElementsByTagName(t)[0];
             r.parentNode.insertBefore(s, r);
     }(document, 'script'));
+</script>
+
+
+
+<script>
+  function SP_loadAniPassback() {
+    console.log('EXECUTE: SP_loadAniPassback')
+    var Url = '//tg1.aniview.com/api/adserver/spt?AV_TAGID=6025174b4c291b59585f0017&AV_PUBLISHERID=601a5782213558528e5b4ff3';
+    var mq = window.matchMedia("only screen and (min-width: 1025px)");
+    var mm = window.matchMedia("only screen and (max-width: 767px)");
+
+    scr = document.createElement("script");
+    scr.async = true;
+    scr.type = "text/javascript";
+    scr.src = Url;
+    scr.id = "AV6025174b4c291b59585f0017";
+    scr.src = Url;
+    if (mq.matches) {
+      var target = document.getElementById("epja-side-2");
+      var device = "PC";
+    } else if (mm.matches) {
+      var target = document.getElementById("epja-video-m");
+      var device = "M";
+    } else {
+      var target = document.getElementById("epja-video");
+      var device = "T";
+    }
+
+    if(target) {
+      target.appendChild(scr);
+    }
+  };
+
+  function removeVid(id) {
+    var target = document.getElementById(id);
+    if (target) {
+      target.remove();
+    }
+  };
+
+  function removeChildren(id) {
+    var target = document.getElementById(id);
+    if (target) {
+      target.innerHTML = '';
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded')
+    var mq = window.matchMedia("only screen and (min-width: 1025px)");
+    var mm = window.matchMedia("only screen and (max-width: 767px)");
+    
+    if (mq.matches) {
+      console.log('mq:', mq)
+      // SP_loadMinuteMediaPassback();
+   
+        setTimeout(function () {
+          removeChildren('epja-side-v');
+          SP_loadAniPassback();
+        }, 2500)
+    } else {
+      // m
+      var mm = window.matchMedia("only screen and (max-width: 767px)");
+      console.log('mm:', mm)
+
+
+      var duration = 500;
+      setTimeout(function () {
+        if (mm.matches) removeChildren('epja-video-m');
+        else removeChildren('epja-video');
+        SP_loadAniPassback();
+      }, duration); 
+    }
+  });
 </script>
 </body>
 
