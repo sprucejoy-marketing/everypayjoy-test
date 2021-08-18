@@ -7135,7 +7135,12 @@
 		var a = document.getElementById(b);
 		a && (a.innerHTML = '')
 	}
-	
+	document.addEventListener('DOMContentLoaded', function() {
+		var b, a, c;
+		console.log('DOM Content Loaded'), b = window.matchMedia("only screen and (min-width: 1025px)"), a = window.matchMedia("only screen and (max-width: 767px)"), b.matches ? (console.log('mq:', b), SP_loadAnyClipPassback()) : (a = window.matchMedia("only screen and (max-width: 767px)"), console.log('mm:', a), c = 100, setTimeout(function() {
+			a.matches ? removeChildren('epja-video-m') : removeChildren('epja-video'), SP_loadAniPassback()
+		}, c))
+	})
 	</script>
 	<script>
 	document.onreadystatechange = function() {
