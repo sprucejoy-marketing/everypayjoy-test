@@ -7189,6 +7189,8 @@
 	function SP_loadUdmPassback() {
 		console.log('EXECUTE: SP_loadUdmPassback')
 		var Url = 'https://udmserve.net/udm/img.fetch?sid=16678;tid=1;dt=6;';
+		var mq = window.matchMedia("only screen and (min-width: 1025px)");
+    var mm = window.matchMedia("only screen and (max-width: 767px)");
 	
 		scr = document.createElement("script");
 		scr.async = true;
