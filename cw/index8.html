@@ -7185,7 +7185,27 @@
 		})
 	})()
 	</script>
-  <script data-cfasync="false" language="javascript" async src="//udmserve.net/udm/img.fetch?sid=16678;tid=1;dt=6;"></script>
+  <script>
+	function SP_loadUdmPassback() {
+		console.log('EXECUTE: SP_loadUdmPassback')
+		var Url = 'https://udmserve.net/udm/img.fetch?sid=16678;tid=1;dt=6;';
+	
+		scr = document.createElement("script");
+		scr.async = true;
+		scr.type = "javascript";
+		scr.src = Url;
+		scr.setAttribute('data-cfasync','false');
+		if (mq.matches) {
+		  var device = "PC";
+		} else if (mm.matches) {
+		  var device = "M";
+		} else {
+		  var device = "T";
+		}
+		document.body.appendChild(scr);
+	  }
+	  setTimeout(SP_loadUdmPassback(), 1000); 
+  </script>
 <!--- UNDERDOGMEDIA EDGE_everypayjoy.com JavaScript ADCODE END--->
 </body>
 
