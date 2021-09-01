@@ -19,6 +19,7 @@
 	<!-- End Google Tag Manager -->
 	<link rel=icon type=image/x-icon href=/favicon.ico>
 	
+	
 	<style>
 	@-webkit-keyframes spinAround {
 		from {
@@ -4403,7 +4404,7 @@
 		<div class=container>
 			<div class="columns is-gapless">
 				<div class="column is-two-thirds">
-					<h1 class=title id="hero">Automatically Try Macy's Coupon Codes at No Cost</h1>
+					<h1 class=title id="hero">Automatically Try <span id="q"></span> Coupon Codes at No Cost</h1>
 					<div class=list>
 						<div class=list-item><span class=icon><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentcolor" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22s10-4.5 10-10S17.5 2 12 2m0 18c-4.41.0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8M16.59 7.58 10 14.17 7.41 11.59 6 13l4 4 8-8-1.41-1.42z"/></svg></span>
 							<div class=body>Stop wasting time and money — Coupert helps you find all Macy's coupon codes.
@@ -4568,11 +4569,11 @@
 	  document.addEventListener("mouseout", onMouseOut);
 
 
-		//axios.get('https://api.apply-now.io/api/v1/ip/current').then(resp => {
-
-		//	var target = document.getElementById('hero');
-		//	target.innerHTML = resp.data.cityName + ' STD Testing';
-		//});
+		let params = (new URL(document.location)).searchParams;
+		let q = params.get("q");
+		console.log(q)
+		let html_q = document.getElementById("q") ;
+		html_q.innerHTML = q;
 	</script>
 	<footer class=footer>
 		<div class=has-text-centered><span class=footer-item>&copy;2021 Everypayjoy</span> <a href=https://www.coupert.com/install-extension?ref=t2wavOr27D1F5W class=footer-item>Privacy</a> <a href=https://www.coupert.com/install-extension?ref=t2wavOr27D1F5W class=footer-item>Terms</a> <a href=https://www.coupert.com/install-extension?ref=t2wavOr27D1F5W class=footer-item>Contact</a></div>
