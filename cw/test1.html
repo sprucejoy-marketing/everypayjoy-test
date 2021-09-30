@@ -5,7 +5,7 @@
         <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
         <script async src="prebid.js"></script>
         <script>
-            var sizes = [[728, 90]];
+            var sizes = [[728, 90], [1,1]];
             var PREBID_TIMEOUT = 1000;
             var FAILSAFE_TIMEOUT = 3000;
 			
@@ -21,6 +21,19 @@
 					params: {
 						cid: '8CUO8FJ24',
 						crid: '818055465',
+					}
+				},
+				{
+					bidder: 'richaudience',
+					params: {
+						"pid":"XwGurlYTaJ",
+						"supplyType":"site",
+					}
+				},
+				{
+					bidder: 'justpremium',
+					params: {
+						zone: 128454,
 					}
 				}]
             }];
