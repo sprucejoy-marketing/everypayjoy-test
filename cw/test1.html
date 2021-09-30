@@ -8,7 +8,7 @@
             var sizes = [[728, 90]];
             var PREBID_TIMEOUT = 1000;
             var FAILSAFE_TIMEOUT = 3000;
-
+			
             var adUnits = [{
                 code: '/21904908158/everypayjoy/epj_left4',
                 mediaTypes: {
@@ -33,6 +33,9 @@
             });
 
             var pbjs = pbjs || {};
+
+			pbjs.setConfig({ debug: true });
+
             pbjs.que = pbjs.que || [];
 
             pbjs.que.push(function() {
