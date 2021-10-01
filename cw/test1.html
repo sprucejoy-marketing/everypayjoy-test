@@ -5,7 +5,8 @@
         <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
         <script async src="prebid.js"></script>
         <script>
-            var sizes = [[728, 90], [1,1]];
+            var sizesD = [[728, 90], [1,1]];
+            var sizesM = [[300, 250], [1,1]];
             var PREBID_TIMEOUT = 1000;
             var FAILSAFE_TIMEOUT = 3000;
 			
@@ -13,7 +14,7 @@
                 code: '/21904908158/opj/opj_left1',
                 mediaTypes: {
                     banner: {
-                        sizes: sizes
+                        sizes: sizesD
                     }
                 },
                 bids: [{
@@ -79,10 +80,10 @@
             }, FAILSAFE_TIMEOUT);
 
             googletag.cmd.push(function() {
-                googletag.defineSlot('/21904908158/opj/opj_left1', sizes, 'div-opj_left1')
+                googletag.defineSlot('/21904908158/opj/opj_left1', sizesD, 'div-opj_left1')
                 	.addService(googletag.pubads());
-                googletag.pubads().enableSingleRequest();
                 googletag.pubads().disableInitialLoad(); 
+                googletag.pubads().enableSingleRequest();
                 googletag.enableServices();
             });
 
