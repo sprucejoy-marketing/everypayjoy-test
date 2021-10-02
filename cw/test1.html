@@ -398,8 +398,25 @@
     var pbjs = pbjs || {};
     pbjs.que = pbjs.que || [];
 
-    pbjs.setConfig({ debug: true });
+    pbjs.setConfig({
+        sizeConfig: [{
+            mediaQuery: '(min-width: 768px)',
+            sizesSupported: [[970,90], [728,90], [300,250], [338,280]],
+            labels: [ "display"]
+          }, {
+            mediaQuery: '(max-width: 767px)',
+            sizesSupported: [[300,50],[320,50]],
+            labels: [ "phone"]
+       }]
+        //userSync: {
+            //iframeEnabled: true
+        //}
+    });
 
+    pbjs.onEvent('bidWon', function(data) {
+        console.log('==Prebid==', data.bidderCode + ' won the ad server auction for ad unit ' + data.adUnitCode + ' at ' + data.cpm + ' CPM');
+    });
+    
     pbjs.que.push(function() {
           pbjs.addAdUnits(adUnits);
           pbjs.requestBids({
