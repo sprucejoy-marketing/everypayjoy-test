@@ -29,7 +29,7 @@
                 sizes: sizesD
             }
         },
-        labelAny: ["pc"],
+        labelAny: ['display'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -59,7 +59,7 @@
                 sizes: sizesD
             }
         },
-        labelAny: ["pc"],
+        labelAny: ['display'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -89,7 +89,7 @@
                 sizes: sizesD
             }
         },
-        labelAny: ["pc"],
+        labelAny: ['display'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -125,7 +125,7 @@
                 sizes: sizesD
             }
         },
-        labelAny: ["pc"],
+        labelAny: ['display'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -161,7 +161,7 @@
                 sizes: sizesM
             }
         },
-        labelAny: ["mob"],
+        labelAny: ['phone'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -191,7 +191,7 @@
                 sizes: sizesM
             }
         },
-        labelAny: ["mob"],
+        labelAny: ['phone'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -221,7 +221,7 @@
                 sizes: sizesM
             }
         },
-        labelAny: ["mob"],
+        labelAny: ['phone'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -331,7 +331,7 @@
                 ]
             }
         },
-        labelAny: ["pc"],
+        labelAny: ['display'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -364,7 +364,7 @@
                 ]
             }
         },
-        labelAny: ["mob"],
+        labelAny: ['phone'],
         bids: [{
                 name: 'medianet',
                 params: {
@@ -400,15 +400,15 @@
     pbjs.que = pbjs.que || [];
 
     pbjs.setConfig({
-        debug: false,
+        debug: true,
         sizeConfig: [{
             mediaQuery: '(min-width: 768px)',
             sizesSupported: [[970,90], [728,90], [300,250], [338,280]],
-            labels: [ "pc"]
+            labels: [ "display"]
           }, {
             mediaQuery: '(max-width: 767px)',
             sizesSupported: [[300,50],[320,50]],
-            labels: [ "mob"]
+            labels: [ "phone"]
        }],
         //userSync: {
             //iframeEnabled: true
@@ -484,7 +484,6 @@
           var slot4 = googletag.defineSlot('/21904908158/opj/opj_right1', [300, 250], 'div-opj_right1').defineSizeMapping(mappingB).addService(googletag.pubads());
           var slot5 = googletag.defineSlot('/21904908158/opj/opj_right2', [300, 250], 'div-opj_right2').addService(googletag.pubads());
       
-          googletag.pubads().disableInitialLoad(); 
           googletag.pubads().enableSingleRequest();
           googletag.enableServices();
           setInterval(function() {
@@ -492,7 +491,6 @@
           }, 30000);
       });
 
-    safeGtag("AdPV", "OPJ");
   </script>
   <!-- END OPJ -->
 
