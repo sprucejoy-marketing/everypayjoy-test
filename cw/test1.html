@@ -408,6 +408,10 @@
 
 
             pbjs.que = pbjs.que || [];
+            
+            pbjs.onEvent('bidWon', function(data) {
+                console.log('==Prebid==', data.bidderCode + ' won the ad server auction for ad unit ' + data.adUnitCode + ' at ' + data.cpm + ' CPM');
+            });
 
             pbjs.que.push(function() {
                 pbjs.addAdUnits(adUnits);
