@@ -415,6 +415,7 @@
 
 
     // tracking events
+    
     const SJ_EVENTS = {
         AUCTION_INIT: 'auctionInit',
         BID_REQUEST: 'bidRequested',
@@ -423,20 +424,75 @@
         AUCTION_END: 'auctionEnd',
         TIMEOUT: 'adapterTimedOut'
       }
-    
+      
+      let auctionTimeStart = Date.now();
+      
       function trackAuctionInit(args) {
-        console.log('...yyyyyyyyyyyy');
-        const event = [args.auctionId, SJ_EVENTS.AUCTION_INIT];
-        console.log(JSON.stringify(event));
-        return event;
+        auctionTimeStart = Date.now();
+        const event = createHbEvent(args.auctionId, undefined, SJ_EVENTS.AUCTION_INIT);
+        return [event];
       }
-
-    function trackBidWon(args) {
-        console.log('...xxxxxxxxxxxxxxxx');
-        const event = [args.auctionId, args.bidderCode, SJ_EVENTS.BID_WON, args.adUnitCode, args.cpm];
-        console.log(JSON.stringify(event));
-        return event;
-    }
+      
+      function trackBidRequest(args) {
+        return args.bids.map(bid =>
+          createHbEvent(args.auctionId, args.bidderCode, SJ_EVENTS.BID_REQUEST, bid.adUnitCode));
+      }
+      
+      function trackBidResponse(args) {
+        const event = createHbEvent(args.auctionId, args.bidderCode, SJ_EVENTS.BID_RESPONSE,
+          args.adUnitCode, args.cpm, args.timeToRespond / 1000, false, args);
+        return [event];
+      }
+      
+      function trackBidWon(args) {
+        const event = createHbEvent(args.auctionId, args.bidderCode, SJ_EVENTS.BID_WON, args.adUnitCode, args.cpm, undefined, true, args);
+        return [event];
+      }
+      
+      function trackAuctionEnd(args) {
+        const event = createHbEvent(args.auctionId, undefined, SJ_EVENTS.AUCTION_END, undefined,
+          undefined, (Date.now() - analyticsAdapter.context.auctionTimeStart) / 1000);
+        return [event];
+      }
+      
+      function trackBidTimeout(args) {
+        return args.map(arg => createHbEvent(arg.auctionId, arg.bidderCode, SJ_EVENTS.TIMEOUT));
+      }
+      
+      function createHbEvent(auctionId, adapter, event, adUnitCode = undefined, value = 0, time = 0, bidWon = undefined, eventArgs) {
+        let ev = { event: event };
+        if (adapter) {
+          ev.adapter = adapter;
+          ev.bidderName = adapter;
+        }
+        if (adUnitCode) {
+          ev.adUnitCode = adUnitCode;
+        }
+        if (value) {
+          ev.cpm = value;
+        }
+        if (time) {
+          ev.timeToRespond = time;
+        }
+        if (typeof bidWon !== 'undefined') {
+          ev.bidWon = bidWon;
+        } else if (event === 'bidResponse') {
+          ev.bidWon = false;
+        }
+        ev.auctionId = auctionId;
+      
+        if (eventArgs) {
+          if (SJ_EVENTS.BID_RESPONSE == event || SJ_EVENTS.BID_WON == event) {
+            ev.width = eventArgs.width;
+            ev.height = eventArgs.height;
+      
+            ev.adId = eventArgs.adId;
+          }
+        }
+        console.log(JSON.stringify([ev]));
+        return ev;
+      }
+      
 
     pbjs.onEvent('auctionInit', function(data) {
         trackAuctionInit(data)
