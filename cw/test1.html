@@ -413,14 +413,29 @@
         //}
     });
 
+
+    // tracking events
+    const SJ_EVENTS = {
+        AUCTION_INIT: 'auctionInit',
+        BID_REQUEST: 'bidRequested',
+        BID_RESPONSE: 'bidResponse',
+        BID_WON: 'bidWon',
+        AUCTION_END: 'auctionEnd',
+        TIMEOUT: 'adapterTimedOut'
+      }
+
+    function trackBidWon(args) {
+        console.log('...xxxxxxxxxxxxxxxx');
+        const event = [args.auctionId, args.bidderCode, SJ_EVENTS.BID_WON, args.adUnitCode, args.cpm];
+        console.log(JSON.stringify(event));
+        return event;
+    }
+
     pbjs.onEvent('bidWon', function(data) {
+        trackBidWon(data)
         console.log('==Prebid==', data.bidderCode + ' won the ad server auction for ad unit ' + data.adUnitCode + ' at ' + data.cpm + ' CPM');
     });
     
-    pbjs.enableAnalytics([{
-        provider: 'ga'
-      }]);
-      
     pbjs.que.push(function() {
           pbjs.addAdUnits(adUnits);
           pbjs.requestBids({
