@@ -493,33 +493,7 @@
         return ev;
       }
 
-      let sjAdapterRefWin;
-
-sjAdapterRefWin = getRefererInfo(window);
-
-function buildRequestTemplate() {
-    const url = sjAdapterRefWin.referer;
-    const ref = sjAdapterRefWin.referer;
-    const topLocation = sjAdapterRefWin.referer;
-    
-    req = {
-        domain: topLocation.hostname,
-        path: topLocation.pathname,
-        userAgent: navigator.userAgent,
-        env: {
-          screen: {
-            w: window.screen.width,
-            h: window.screen.height
-          },
-          lang: navigator.language
-        },
-        src: getUmtSource(url, ref)
-      }
-
-      console.log(JSON.stringify([req]));
-    return req;
-  }
-  buildRequestTemplate();
+      
     pbjs.onEvent('auctionInit', function(data) {
         trackAuctionInit(data)
     });
