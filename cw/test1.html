@@ -451,7 +451,7 @@
       
       function trackAuctionEnd(args) {
         const event = createHbEvent(args.auctionId, undefined, SJ_EVENTS.AUCTION_END, undefined,
-          undefined, (Date.now() - analyticsAdapter.context.auctionTimeStart) / 1000);
+          undefined, (Date.now() - auctionTimeStart) / 1000);
         return [event];
       }
       
@@ -492,16 +492,29 @@
         console.log(JSON.stringify([ev]));
         return ev;
       }
-      
 
     pbjs.onEvent('auctionInit', function(data) {
         trackAuctionInit(data)
-        console.log(data.auctionId);
+    });
+
+    pbjs.onEvent('bidRequested', function(data) {
+        trackBidRequest(data)
+    });
+
+    pbjs.onEvent('bidResponse', function(data) {
+        trackBidResponse(data)
     });
 
     pbjs.onEvent('bidWon', function(data) {
         trackBidWon(data)
-        console.log('==Prebid==', data.bidderCode + ' won the ad server auction for ad unit ' + data.adUnitCode + ' at ' + data.cpm + ' CPM');
+    });
+
+    pbjs.onEvent('auctionEnd', function(data) {
+        trackAuctionEnd(data)
+    });
+
+    pbjs.onEvent('adapterTimedOut', function(data) {
+        trackAdapterTimedOut(data)
     });
     
     pbjs.que.push(function() {
