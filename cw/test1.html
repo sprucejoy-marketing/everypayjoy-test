@@ -423,6 +423,13 @@
         AUCTION_END: 'auctionEnd',
         TIMEOUT: 'adapterTimedOut'
       }
+    
+      function trackAuctionInit(args) {
+        console.log('...yyyyyyyyyyyy');
+        const event = [args.auctionId, SJ_EVENTS.AUCTION_INIT];
+        console.log(JSON.stringify(event));
+        return event;
+      }
 
     function trackBidWon(args) {
         console.log('...xxxxxxxxxxxxxxxx');
@@ -430,6 +437,11 @@
         console.log(JSON.stringify(event));
         return event;
     }
+
+    pbjs.onEvent('auctionInit', function(data) {
+        trackAuctionInit(data)
+        console.log(data.auctionId);
+    });
 
     pbjs.onEvent('bidWon', function(data) {
         trackBidWon(data)
