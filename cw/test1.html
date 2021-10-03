@@ -417,6 +417,10 @@
         console.log('==Prebid==', data.bidderCode + ' won the ad server auction for ad unit ' + data.adUnitCode + ' at ' + data.cpm + ' CPM');
     });
     
+    pbjs.enableAnalytics([{
+        provider: 'ga'
+      }]);
+      
     pbjs.que.push(function() {
           pbjs.addAdUnits(adUnits);
           pbjs.requestBids({
