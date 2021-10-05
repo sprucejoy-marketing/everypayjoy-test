@@ -509,6 +509,7 @@
     pbjs.onEvent('bidWon', function(data) {
         //trackBidWon(data)
         var cpm = Math.round(paseInt(data.cpm) * 100) / 100;
+        console.log(".....xxxxxxxxxxxx...........BidWon")
         console.log( data.bidderCode + "PB" + cpm.toString() + " CPM:" + data.adUnitCode + ":" + window.location.href)
     });
 
