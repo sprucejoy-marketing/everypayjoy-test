@@ -489,7 +489,7 @@
             ev.adId = eventArgs.adId;
           }
         }
-        console.log(JSON.stringify([ev]));
+        //console.log(JSON.stringify([ev]));
         return ev;
       }
 
@@ -507,7 +507,9 @@
     });
 
     pbjs.onEvent('bidWon', function(data) {
-        trackBidWon(data)
+        //trackBidWon(data)
+        var cpm = Math.round(paseInt(data.cpm) * 100) / 100;
+        console.log( data.bidderCode + "PB" + cpm.toString() + " CPM:" + data.adUnitCode + ":" + window.location.href)
     });
 
     pbjs.onEvent('auctionEnd', function(data) {
