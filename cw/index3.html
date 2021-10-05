@@ -15400,6 +15400,36 @@
         </div>
       </div>
     </div>
+    <script>
+      function SP_loadAdenginePassback() {
+        console.log('EXECUTE: SP_loadAePassback')
+        var Url = '//live.primis.tech/live/liveView.php?s=108673&schain=1.0,1!theadengine.com,[01336],1';
+        var mq = window.matchMedia("only screen and (min-width: 1025px)");
+        var mm = window.matchMedia("only screen and (max-width: 767px)");
+    
+        scr = document.createElement("script");
+        scr.type = "text/javascript";
+        scr.src = Url;
+        scr.language = "javascript";
+        if (mq.matches) {
+          var target = document.getElementById("epja-video");
+          var device = "PC";
+        } else if (mm.matches) {
+          var target = document.getElementById("epja-video");
+          var device = "M";
+        } else {
+          var target = document.getElementById("epja-video");
+          var device = "T";
+        }
+    
+        if(target) {
+          target.appendChild(scr);
+          safeGtag('VidIm', device + '_Adengine');
+        }
+      }
+
+      SP_loadAdenginePassback()
+    </script>
     <div class=page-container>
       <div class=page-wrap>
         <div class=left>
@@ -15407,7 +15437,6 @@
             <div class="has-text-grey-light is-size-7" style=padding-bottom:5px;text-align-last:center>ADVERTISEMENT -
               CONTINUE READING BELOW</div>
             <div class=epja-above>
-              <script type="text/javascript" language="javascript" src="https://live.primis.tech/live/liveView.php?s=108673&schain=1.0,1!theadengine.com,[01336],1"></script>
             </div>
           </div>
           <div class="swipe-container img-block is-flex-tablet is-align-items-center">
