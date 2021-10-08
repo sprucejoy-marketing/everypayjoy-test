@@ -21,7 +21,89 @@
       var PREBID_TIMEOUT = 1000;
       var FAILSAFE_TIMEOUT = 3000;
 
-      var adUnits = [{
+      var adUnits = [
+      {
+        code: '/21904908158/opj/opj_sticky',
+        mediaTypes: {
+            banner: {
+                sizes: [
+                    [728, 90],
+                    [970, 90],
+                    [1, 1]
+                ]
+            }
+        },
+        labelAny: ['display'],
+        bids: [{
+                bidder: 'medianet',
+                params: {
+                    cid: '8CUO8FJ24',
+                    crid: '882195742',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
+                }
+            },
+            {
+                bidder: 'richaudience',
+                params: {
+                    pid: "PAAcPZfbJc",
+                    supplyType: "site",
+                }
+            },
+            {
+                bidder: "nobid",
+                params: {
+                    siteId: 22607392898
+                }
+            }
+        ],
+        hardFloor: "0"
+      },
+      {
+        code: '/21904908158/opj/opj_sticky_mob',
+        mediaTypes: {
+            banner: {
+                sizes: [
+                    [320, 50],
+                    [1, 1]
+                ]
+            }
+        },
+        labelAny: ['phone'],
+        bids: [{
+                bidder: 'medianet',
+                params: {
+                    cid: '8CUO8FJ24',
+                    crid: '871514936',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
+                }
+            },
+            {
+                bidder: 'richaudience',
+                params: {
+                    pid: "FqqhLjfSYz",
+                    supplyType: "site",
+                }
+            },
+            {
+                bidder: "nobid",
+                params: {
+                    siteId: 22607392898
+                }
+            }
+        ],
+        hardFloor: "0"
+      },
+      {
         code: '/21904908158/opj/opj_left1',
         mediaTypes: {
             banner: {
@@ -31,16 +113,26 @@
         labelAny: ['display'],
         bids: [{
                 bidder: 'medianet',
+                gdpr: !0,
+                tcf2: !0,
+                usp: !0,
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '818055465',
+                    cid: '8CUO8FJ24',
+                    crid: '818055465',
+                },
+                hardFloor: "0"
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "XwGurlYTaJ",
+                    supplyType: "site",
                 }
             },
             {
@@ -62,15 +154,28 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '617248763',
+                    cid: '8CUO8FJ24',
+                    crid: '617248763',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "tBNjCKVqns",
+                    supplyType: "site",
+                }
+            },
+            {
+                bidder: 'richaudience',
+                params: {
+                    pid: "obA39sZMRz",
+                    supplyType: "site",
                 }
             },
             {
@@ -92,15 +197,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '475671601',
+                    cid: '8CUO8FJ24',
+                    crid: '475671601',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "l6fjcbAhNk",
+                    supplyType: "site",
                 }
             },
             {
@@ -128,15 +239,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '885384254',
+                    cid: '8CUO8FJ24',
+                    crid: '885384254',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "7EuVFbPs3C",
+                    supplyType: "site",
                 }
             },
             {
@@ -164,15 +281,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '554687443',
+                    cid: '8CUO8FJ24',
+                    crid: '554687443',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "CCO3qZvRZg",
+                    supplyType: "site",
                 }
             },
             {
@@ -181,7 +304,8 @@
                     siteId: 22607392898
                 }
             }
-        ]
+        ],
+        hardFloor: "0.70"
       },
       {
         code: '/21904908158/opj/opj_left2_mob',
@@ -194,15 +318,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '612178340',
+                    cid: '8CUO8FJ24',
+                    crid: '612178340',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "FwQTLjJzWg",
+                    supplyType: "site",
                 }
             },
             {
@@ -224,15 +354,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '581246745',
+                    cid: '8CUO8FJ24',
+                    crid: '581246745',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "0uVLzLwHqR",
+                    supplyType: "site",
                 }
             },
             {
@@ -259,15 +395,21 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '172219243',
+                    cid: '8CUO8FJ24',
+                    crid: '172219243',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "L9M0ESNRtn",
+                    supplyType: "site",
                 }
             },
             {
@@ -294,88 +436,27 @@
         bids: [{
                 bidder: 'medianet',
                 params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '121725352',
+                    cid: '8CUO8FJ24',
+                    crid: '121725352',
+                }
+            },
+            {
+                bidder: 'unruly',
+                params: {
+                    siteId: 238529
                 }
             },
             {
                 bidder: 'richaudience',
                 params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
+                    pid: "fQKFA1XyGb",
+                    supplyType: "site",
                 }
             },
             {
                 bidder: 'justpremium',
                 params: {
                     zone: 128454,
-                }
-            },
-            {
-                bidder: "nobid",
-                params: {
-                    siteId: 22607392898
-                }
-            }
-        ]
-      },
-      {
-        code: '/21904908158/opj/opj_sticky',
-        mediaTypes: {
-            banner: {
-                sizes: [
-                    [728, 90],
-                    [970, 90],
-                    [1, 1]
-                ]
-            }
-        },
-        labelAny: ['display'],
-        bids: [{
-                bidder: 'medianet',
-                params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '882195742',
-                }
-            },
-            {
-                bidder: 'richaudience',
-                params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
-                }
-            },
-            {
-                bidder: "nobid",
-                params: {
-                    siteId: 22607392898
-                }
-            }
-        ]
-      },
-      {
-        code: '/21904908158/opj/opj_sticky_mob',
-        mediaTypes: {
-            banner: {
-                sizes: [
-                    [320, 50],
-                    [1, 1]
-                ]
-            }
-        },
-        labelAny: ['phone'],
-        bids: [{
-                bidder: 'medianet',
-                params: {
-                    'cid': '8CUO8FJ24',
-                    'crid': '871514936',
-                }
-            },
-            {
-                bidder: 'richaudience',
-                params: {
-                    "pid": "XwGurlYTaJ",
-                    "supplyType": "site",
                 }
             },
             {
@@ -499,6 +580,7 @@
     });
 
     pbjs.onEvent('bidRequested', function(data) {
+        console.log(".....yyyyyyyyy.....bidRequested")
         trackBidRequest(data)
     });
 
