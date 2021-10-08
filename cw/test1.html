@@ -581,7 +581,8 @@
 
     pbjs.onEvent('bidRequested', function(data) {
         console.log(".....yyyyyyyyy.....bidRequested")
-        trackBidRequest(data)
+        console.log(data.bidderCode)
+        //trackBidRequest(data)
     });
 
     pbjs.onEvent('bidResponse', function(data) {
