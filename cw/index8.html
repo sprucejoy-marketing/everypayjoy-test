@@ -14543,8 +14543,7 @@
 		})
 	}), safeGtag("AdPV", "EPJ")
 
-	bdata = biddr.getAllPrebidWinningBids()
-	  console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
+	
 	</script>
 </head>
 
@@ -16436,12 +16435,16 @@
 			}, !1))
 		}
 		document.addEventListener("DOMContentLoaded", function() {
+			bdata = biddr.getAllPrebidWinningBids()
+	  console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
+	  
 			setTimeout(function() {
 				b()
 			}, 2500)
 		})
 	})()
 	</script>
+	
 </body>
 
 </html>
