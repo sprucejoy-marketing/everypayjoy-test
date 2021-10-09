@@ -16435,11 +16435,14 @@
 			}, !1))
 		}
 		document.addEventListener("DOMContentLoaded", function() {
-			bdata = window.biddr.getAllPrebidWinningBids()
-	  console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
+			function bdata1() {
+				bdata = biddr.getAllPrebidWinningBids()
+				console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
+			}
+			
 
 			setTimeout(function() {
-				b()
+				bdata1()
 			}, 2500)
 		})
 	})()
