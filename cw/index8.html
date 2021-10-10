@@ -16437,10 +16437,14 @@
 		document.addEventListener("DOMContentLoaded", function() {
 			function bdata1() {
 				bdata = biddr.getAllPrebidWinningBids()
-				console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
+				//console.log("BW..............@@@@@@@@@@...."+JSON.stringify(bdata))
 			}
 			
-
+			biddr.onEvent('bidWon', function(data) {
+				var cpm = Math.floor(parseFloat(data.cpm) * 100);
+				console.log("BW1111..............@@@@@@@@@@...."+JSON.stringify(data))
+				//safeGtag("PB", "BW-" + data.bidderCode, data.adUnitCode + "::" + window.location.href, cpm)
+			});
 			setTimeout(function() {
 				bdata1()
 			}, 2500)
