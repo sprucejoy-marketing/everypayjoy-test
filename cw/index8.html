@@ -7206,6 +7206,10 @@
 			}, !1))
 		}
 		document.addEventListener("DOMContentLoaded", function() {
+			function test_() {
+				bdata = instBid.getAllPrebidWinningBids()
+				console.log(JSON.stringify(bdata))
+			}
 			instBid.onEvent('bidWon', function(data) {
 				var cpm = Math.floor(parseFloat(data.cpm) * 100);
 				console.log("BW.............")
@@ -7213,7 +7217,7 @@
 				safeGtag("Test-PB", "BW-" + data.bidderCode, data.adUnitCode + "::" + window.location.href, cpm)
 			  });
 			setTimeout(function() {
-				b()
+				test_()
 			}, 2500)
 		})
 	})()
