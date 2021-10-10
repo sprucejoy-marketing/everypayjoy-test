@@ -16444,7 +16444,7 @@
 				var cpm = Math.floor(parseFloat(data.cpm) * 100);
 				console.log("BW.............")
 				console.log("BW-" + data.bidderCode + "....." + data.adUnitCode + "::" + window.location.href + String(cpm))
-				//safeGtag("PB", "BW-" + data.bidderCode, data.adUnitCode + "::" + window.location.href, cpm)
+				safeGtag("Test-PB", "BW-" + data.bidderCode, data.adUnitCode + "::" + window.location.href, cpm)
 			});
 			setTimeout(function() {
 				bdata1()
