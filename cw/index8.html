@@ -14484,26 +14484,58 @@
 	})
 	</script>
 	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-	<script src="//biddr.brealtime.com/91610114-1681.js" type="text/javascript"></script>
-	<script>
-	window.googletag = window.googletag || {
-		cmd: []
-	};
-	var GAM_web_interstitial;
-	googletag.cmd.push(function() {
-		var a = googletag.sizeMapping().addSize([728, 0], [728, 90], [728, 280]).addSize([0, 0], [300, 250]).build(),
-			b = googletag.sizeMapping().addSize([728, 0], [336, 280]).addSize([0, 0], []).build(),
-			d = googletag.sizeMapping().addSize([728, 0], []).addSize([0, 0], [300, 250]).build(),
-			c = googletag.sizeMapping().addSize([970, 0], [
-				[970, 90],
-				[728, 90]
-			]).addSize([768, 0], [728, 90]).addSize([0, 0], [320, 50]).build();
-		googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//1', [300, 250], 'div-gpt-ad-1614596357247-0').defineSizeMapping(a).addService(googletag.pubads()), googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//2', [336, 280], 'div-gpt-ad-1614596380402-0').defineSizeMapping(b).addService(googletag.pubads()), googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//3', [300, 250], 'div-gpt-ad-1614596402501-0').defineSizeMapping(a).addService(googletag.pubads()), googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//4', [300, 250], 'div-gpt-ad-1614596438806-0').addService(googletag.pubads()), googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//5', [
-			[300, 250],
-			[728, 90]
-		], 'div-gpt-ad-1617788377375-0').defineSizeMapping(a).addService(googletag.pubads()), googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//adhesion', [320, 50], 'div-gpt-ad-oko-adhesion').defineSizeMapping(c).addService(googletag.pubads()), GAM_web_interstitial = googletag.defineOutOfPageSlot('/2507246,21904908158/EPJ//everypayjoy//misc//interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL), GAM_web_interstitial && GAM_web_interstitial.addService(googletag.pubads()), googletag.pubads().enableSingleRequest(), googletag.enableServices()
-	}), safeGtag("AdPV", "OKO"))
-	</script>
+        <script src="//biddr.brealtime.com/91610114-1681.js" type="text/javascript"></script>
+
+        <script>
+            window.googletag = window.googletag || {
+            cmd: []
+            };
+            var GAM_web_interstitial;
+            googletag.cmd.push(function() {
+            var mappingA = googletag.sizeMapping().
+            addSize([728, 0], [728, 90], [728,280]).
+            addSize([0, 0], [300, 250]).
+            build();
+            var mappingB = googletag.sizeMapping().
+            addSize([728, 0], [336, 280]).
+            addSize([0, 0], []).
+            build();
+            var mappingD = googletag.sizeMapping().
+            addSize([728, 0], []).
+            addSize([0, 0], [300, 250]).
+            build();
+            var mappingAdhesion = googletag.sizeMapping().
+            addSize([970, 0], [
+                [970, 90],
+                [728, 90]
+            ]).
+            addSize([768, 0], [728, 90]).
+            addSize([0, 0], [320, 50]).
+            build();
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//1', [300, 250], 'div-gpt-ad-1614596357247-0').defineSizeMapping(mappingA).addService(googletag.pubads());
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//2', [336, 280], 'div-gpt-ad-1614596380402-0').defineSizeMapping(mappingB).addService(googletag.pubads());
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//3', [300, 250], 'div-gpt-ad-1614596402501-0').defineSizeMapping(mappingA).addService(googletag.pubads());
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//4', [300, 250], 'div-gpt-ad-1614596438806-0').addService(googletag.pubads());
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//5', [
+                [300, 250],
+                [728, 90]
+            ], 'div-gpt-ad-1617788377375-0').defineSizeMapping(mappingA).addService(googletag.pubads());
+            googletag.defineSlot('/2507246,21904908158/EPJ//everypayjoy//misc//adhesion', [320, 50], 'div-gpt-ad-oko-adhesion').defineSizeMapping(mappingAdhesion).addService(googletag.pubads());
+            GAM_web_interstitial = googletag.defineOutOfPageSlot('/2507246,21904908158/EPJ//everypayjoy//misc//interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL)
+            if(GAM_web_interstitial) {
+                GAM_web_interstitial.addService(googletag.pubads())
+            }
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+            });
+            safeGtag("AdPV", "OKO");
+     
+
+            biddr.onEvent('bidWon', function(data) {
+                var cpm = Math.floor(parseFloat(data.cpm) * 100);
+                safeGtag("OKO-PB", "BW-" + data.bidderCode, data.adUnitCode + "::" + window.location.href, cpm)
+            });
+        </script>
 </head>
 
 <body>
