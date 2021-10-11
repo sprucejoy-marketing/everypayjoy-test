@@ -15408,38 +15408,7 @@
           <div  class="my-3 px-3 has-text-centered epja-container" id="epja-video">
             <div class="has-text-grey-light is-size-7" style=padding-bottom:5px;text-align-last:center>ADVERTISEMENT -
               CONTINUE READING BELOW</div>
-              <script>
-                function SP_loadPlaybuzzPassback() {
-                  console.log('EXECUTE: SP_loadExPassback')
-                  scr = document.createElement("script");
-                  scr.type = "text/javascript";
-                  scr.text = '(function (d, s, n) {var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s);js.className = n;js.src = "//player.ex.co/player/1fc35732-3699-44f3-9a5a-dddce5271d73";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "exco-player"));';
               
-                  _div = document.createElement("div");
-                  _div.setAttribute("id", "1fc35732-3699-44f3-9a5a-dddce5271d73");
-              
-                  var mq = window.matchMedia("only screen and (min-width: 1025px)");
-                  var mm = window.matchMedia("only screen and (max-width: 767px)");
-              
-                  if (mq.matches) {
-                    var target = document.getElementById("epja-side-3");
-                    var device = "PC";
-                  } else if (mm.matches) {
-                    var target = document.getElementById("epja-video");
-                    var device = "M";
-                  } else {
-                    var target = document.getElementById("epja-video");
-                    var device = "T";
-                  }
-              
-                  if(target) {
-                    target.appendChild(_div);
-                    target.appendChild(scr);
-                    safeGtag('VidIm', device + '_Ex');
-                  }
-                }
-                SP_loadPlaybuzzPassback()
-              </script>
           </div>
           <div class="swipe-container img-block is-flex-tablet is-align-items-center">
             <div class=img-action><button class="zoomin px-0 py-0 button is-light has-background-grey is-radiusless"
@@ -17653,7 +17622,38 @@
 </script>
 
 <script type="text/javascript" src="https://s.skimresources.com/js/198944X1677079.skimlinks.js"></script>
+<script>
+  function SP_loadPlaybuzzPassback() {
+    console.log('EXECUTE: SP_loadExPassback')
+    scr = document.createElement("script");
+    scr.type = "text/javascript";
+    scr.text = '(function (d, s, n) {var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s);js.className = n;js.src = "//player.ex.co/player/1fc35732-3699-44f3-9a5a-dddce5271d73";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "exco-player"));';
 
+    _div = document.createElement("div");
+    _div.setAttribute("id", "1fc35732-3699-44f3-9a5a-dddce5271d73");
+
+    var mq = window.matchMedia("only screen and (min-width: 1025px)");
+    var mm = window.matchMedia("only screen and (max-width: 767px)");
+
+    if (mq.matches) {
+      var target = document.getElementById("epja-side-3");
+      var device = "PC";
+    } else if (mm.matches) {
+      var target = document.getElementById("epja-video");
+      var device = "M";
+    } else {
+      var target = document.getElementById("epja-video");
+      var device = "T";
+    }
+
+    if(target) {
+      target.appendChild(_div);
+      target.appendChild(scr);
+      safeGtag('VidIm', device + '_Ex');
+    }
+  }
+  SP_loadPlaybuzzPassback()
+</script>
 </body>
 
 </html>
