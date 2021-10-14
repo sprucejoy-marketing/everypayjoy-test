@@ -4,7 +4,6 @@
         <link rel="icon" type="image/png" href="/favicon.png">
         <!-- BEGIN EPJ GAM -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-  <script src="//biddr.brealtime.com/16177664-1728.js" type="text/javascript"></script>
   
   <script>
     // initial GPT
@@ -29,9 +28,16 @@
     <body>
         <h2>Basic Prebid.js Example</h2>
         <h5>Div-11</h5>
-        <div id='div-epj_left1' class="epja-above epja-target has-text-centered">
-            <script>googletag.cmd.push(function() { googletag.display('div-epj_left1'); });</script>
-        </div>
+<div id="gpt-passback728">
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+    googletag.defineSlot('/21939239661,21904908158/apl/everypayjoyapl/banner', [728, 90], 'gpt-passback728').addService(googletag.pubads());
+    googletag.enableServices();
+    googletag.display('gpt-passback728');
+    });
+  </script>%%CLICK_URL_UNESC%%
+</div>
     </body>
 
 </html>
