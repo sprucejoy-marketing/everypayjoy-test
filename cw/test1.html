@@ -668,7 +668,12 @@
           
           var slot4 = googletag.defineSlot('/21904908158/opj/opj_right1', [300, 250], 'div-opj_right1').defineSizeMapping(mappingB).addService(googletag.pubads());
           var slot5 = googletag.defineSlot('/21904908158/opj/opj_right2', [300, 250], 'div-opj_right2').addService(googletag.pubads());
-      
+          
+          GAM_web_interstitial = googletag.defineOutOfPageSlot('/21904908158/opj/opj_interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL)
+          if(GAM_web_interstitial) {
+              GAM_web_interstitial.addService(googletag.pubads())
+          }
+
           googletag.pubads().enableSingleRequest();
           googletag.enableServices();
           setInterval(function() {
@@ -738,6 +743,19 @@
                 });
             </script>
         </div>
+
+        
+<!-- BEGIN OPJ interstitial -->
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+            googletag.cmd.push(function () {
+                googletag.display(GAM_web_interstitial);
+            });
+        }
+    }
+</script>
+<!-- END OPJ interstitial -->
     </body>
 
 </html>
