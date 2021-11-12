@@ -17075,30 +17075,33 @@
 			})
 		}
 		document.addEventListener('DOMContentLoaded', function () {
-			var h = window.matchMedia("only screen and (max-width: 767px)"),
-				a, e, c, f, b, d;
-			if (h.matches)
-				if (a = document.getElementById('epja-above'), e = document.getElementById('epja-header'), a.after(e),
-					a)
-					if (window.scrollTo(0, a.getBoundingClientRect().top), c = a.querySelector('.epja-target'), c) {
-						f = setInterval(g, 50);
-
-						function g() {
-							var a = c.getBoundingClientRect();
-							a.height > 0 && (clearInterval(f), window.scrollTo(0, a.height / 5 + a.top + window
-								.scrollY))
-						}
-					} setTimeout(function () {
-				simulate(), getRecommendation()
-			}, 2e3), b = [].slice.call(document.querySelectorAll('.prev-store')), d = [].slice.call(document
-				.querySelectorAll('.next-store')), b.length > 0 && b.forEach(function (a) {
-				a.addEventListener('click', prevStore)
-			}), d.length > 0 && d.forEach(function (a) {
-				a.addEventListener('click', nextStore)
-			})
+			var mq = window.matchMedia("only screen and (max-width: 767px)");
+      var $epjaHome = document.getElementById('epja-header');
+      var $epjaAbove = document.getElementById('epja-above');
+      if(mq.matches) {
+        $epjaAbove.after($epjaHome);
+        if ($epjaAbove) {
+          window.scrollTo(0, $epjaAbove.getBoundingClientRect().top);
+          var $ads = $epjaAbove.querySelector('.epja-target');
+          
+          if ($ads) {
+          
+            var checkAdsRectTimer = setInterval(checkAdsRect, 50);
+            function checkAdsRect() {
+              var rect = $ads.getBoundingClientRect();
+              if (rect.height > 0) {
+                clearInterval(checkAdsRectTimer);
+                window.scrollTo(0, rect.height / 5 + rect.top + window.scrollY);
+              }
+            }
+          }
+        }
+      } else {
+        window.scrollTo(0, $epjaHome.getBoundingClientRect().top);
+      }
 		})
 	</script>
-	<script src="//cdn.opinionjoy.com/epja/al-scripts.min.js" type="text/javascript"></script>
+	<script src="//cdn.opinionjoy.com/epja/al-scripts-v1.js" type="text/javascript"></script>
 </body>
 
 </html>
