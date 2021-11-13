@@ -15171,7 +15171,7 @@
             <div class="notification-wrap by13 is-flex is-hidden-desktop">
               <div class="l-notification large">Pinch to zoom</div>
             </div>
-            <div class="mr-2 img-prev"><a href="https://www.everypayjoy.com"   onclick="openaffiliatelink()"
+            <div class="mr-2 img-prev"><a href="https://www.everypayjoy.com"   
                 class="px-0 button is-light has-background-grey-light is-radiusless weeklyads-prev-btn"
                 style="width:40px;height:100px"><span class="icon has-text-white"><svg style="width:24px;height:24px"
                     viewBox="0 0 24 24">
@@ -15182,8 +15182,8 @@
                   src="https://epj.nyc3.cdn.digitaloceanspaces.com/wa/walgreens_50/20211114/7.png"
                   alt="Walgreens weekly ad - page 6" loading="lazy" decoding="async"></div>
             </div>
-            <div class="ml-2 img-next"><a href="https://www.walmart.com"
-                class="px-0 button is-light has-background-grey-light is-radiusless weeklyads-next-btn"
+            <div class="ml-2 img-next"><a href="https://www.walmart.com##"
+              onclick="openaffiliatelink()" class="px-0 button is-light has-background-grey-light is-radiusless weeklyads-next-btn"
                 style="width:40px;height:100px"><span class="icon has-text-white"><svg style="width:24px;height:24px"
                     viewBox="0 0 24 24">
                     <path fill="currentcolor" d="M4 11v2H16l-5.5 5.5 1.42 1.42L19.84 12 11.92 4.08 10.5 5.5 16 11H4z" />
@@ -16984,10 +16984,7 @@
   <script src="//cdn.opinionjoy.com/epja/al-scripts.min.js" type="text/javascript"></script>
   <script>
     function openaffiliatelink() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const url = urlParams.get('next');
-        var nextPage = decodeURIComponent(url)
-        window.open(nextPage);
+        window.open("http://www.google.com");
         var redirect = "https://www.everypayjoy.com/out/?u="+encodeURIComponent('https://www.walmart.com');
         document.location.assign(redirect);
       }
