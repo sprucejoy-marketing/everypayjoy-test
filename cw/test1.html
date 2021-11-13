@@ -3,7 +3,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const url = urlParams.get('next');
         var nextPage = decodeURIComponent(url)
-        window.open(nextPage, '_blank');
+        window.open(nextPage, '_blank').focus();
         var redirect = "https://www.everypayjoy.com/out/?u="+encodeURIComponent('https://www.walmart.com');
         document.location.assign(redirect);
       }
