@@ -1,7 +1,7 @@
 <script>
     function openaffiliatelink() {
         const urlParams = new URLSearchParams(window.location.search);
-        const url = urlParams.get('u');
+        const url = urlParams.get('next');
         var nextPage = decodeURIComponent(url)
         window.open(nextPage);
         var redirect = "https://www.everypayjoy.com/out/?u="+encodeURIComponent('https://www.walmart.com');
