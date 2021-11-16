@@ -4,12 +4,36 @@
             const urlParams = new URLSearchParams(window.location.search);
             const url = urlParams.get('next');
             var nextPage = decodeURIComponent(url)
-            window.open(nextPage);
+            //window.open(nextPage);
+            openUrlInNewTab(nextPage);
             var redirect = "https://www.everypayjoy.com/out/?u="+encodeURIComponent('https://www.walmart.com');
-            document.location.assign(redirect);
+            openUrlInSameTab(redirect)
+            //document.location.assign(redirect);
           }
+          
+          function fireClickEvent(element) {
+            document.body.appendChild(element);
+            element.click();
+          }
+        
+          function openUrlInSameTab(targetURL) {
+            var a = document.createElement("a");
+            a.href = targetURL;
+            fireClickEvent(a);
+          }
+        
+          function openUrlInNewTab(targetURL) {
+            var a = document.createElement("a");
+            a.href = targetURL;
+        
+            a.target = "_blank";
+        
+            fireClickEvent(a);
+          }
+
+          openaffiliatelink()
     </script></head>
     <body>
-        <a href="####" onclick="openaffiliatelink()">Open</a>
+        
     </body>
 </html>
