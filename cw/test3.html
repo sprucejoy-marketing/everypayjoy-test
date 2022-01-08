@@ -101,7 +101,15 @@
         
             // page_load_time = new Date().getTime() - performance.timing.navigationStart;
             // console.log(page_load_time + "ms -- Player loaded!");
-        
+            var player = videojs('vid1', {
+                    autoplay: true,
+                    muted: true,
+                    responsive: true,
+                    aspectRatio: '4:3',
+                    fluid: true,
+                    fill: true
+                  });
+
             function invokeVideoPlayer(url) {
         
                 // page_load_time = new Date().getTime() - performance.timing.navigationStart;
@@ -111,15 +119,9 @@
                    in the player's ID. Add a `ready` listener to make sure the
                    player is ready before interacting with it. */
         
-                   var player = videojs('vid1', {
-                    autoplay: true,
-                    muted: true,
-                    responsive: true,
-                    aspectRatio: '4:3',
-                    fluid: true,
-                    fill: true
-                  });
-
+                   
+            videojs("vid1").ready(function() {
+              var player = this;
                   var options = {
                     id: 'vid1',
                     //   adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=',
@@ -144,7 +146,7 @@
                   })
                                   // page_load_time = new Date().getTime() - performance.timing.navigationStart;
                                   // console.log(page_load_time + "ms -- invokeVideoPlayer complete!");
-                      
+              });     
             }
         
         </script>
