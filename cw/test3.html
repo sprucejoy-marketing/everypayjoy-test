@@ -141,11 +141,13 @@
                     page_load_time = new Date().getTime() - performance.timing.navigationStart;
                     console.log(page_load_time + "ms -- Prebid VAST tag inserted!");
                     
-                    player.ima(options);
                     
+
                     player.muted(true);
                     player.play();
-        
+                    
+                    player.ima(options);
+                    
                     page_load_time = new Date().getTime() - performance.timing.navigationStart;
                     console.log(page_load_time + "ms -- invokeVideoPlayer complete!");
         
