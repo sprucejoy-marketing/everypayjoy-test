@@ -82,13 +82,11 @@
     <body>
         
 
-        <div class="example-video-container">
-            <video id="vid1" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup='{}' width='640' height='480'>
-                <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'/>
-                <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm'/>
-                <source src="https://vjs.zencdn.net/v/oceans.ogv" type='video/ogg'/>
-            </video>
-        </div>
+      <div style="max-width:640px; min-height:1px;">
+        <video autoplay id="vid1" class="video-js vjs-default-skin" controls preload="auto">
+          <source src="https://cdn.opinionjoy.com/vad/2.mp4" type="video/mp4" />
+        </video>
+      </div>
                 
         <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
 	<script src="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
