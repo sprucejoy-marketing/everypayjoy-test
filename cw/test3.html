@@ -113,45 +113,40 @@
                    in the player's ID. Add a `ready` listener to make sure the
                    player is ready before interacting with it. */
         
-                videojs("vid1").ready(function() {
-        
-                    page_load_time = new Date().getTime() - performance.timing.navigationStart;
-                    console.log(page_load_time + "ms -- Player is ready!");
-        
-                    /* PASS SETTINGS TO VAST PLUGIN
-        
-                       Pass in a JSON object to the player's `vastClient` (defined
-                       by the VAST/VPAID plugin we're using). The requires an
-                       `adTagUrl`, which will be the URL returned by Prebid. You
-                       can view all the options available for the `vastClient`
-                       here:
-        
-                       https://github.com/MailOnline/videojs-vast-vpaid#options */
-        
-                    var player = this;
-                    var options = {
-                      id: 'vid1',
-                      //   adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=',
-                      // adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
-                      adTagUrl: url,
-                      disableAdControls: false,
-                      disableFlashAds: true
-                    };
-        
-                    // page_load_time = new Date().getTime() - performance.timing.navigationStart;
-                    // console.log(page_load_time + "ms -- Prebid VAST tag inserted!");
-                    
-                    
+                   var player = videojs('vid1', {
+                    autoplay: true,
+                    muted: true,
+                    responsive: true,
+                    aspectRatio: '4:3',
+                    fluid: true,
+                    fill: true
+                  });
 
-                    player.muted(true);
-                    player.play();
-                    
-                    player.ima(options);
+                  var options = {
+                    id: 'vid1',
+                    //   adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=',
+                    // adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
+                    adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/98948493,21904908158/everypayjoy.com/epj-video&description_url=http%3A%2F%2Fwww.everypayjoy.com&tfcd=0&npa=0&sz=1x1%7C300x250%7C640x480%7C970x250%7C400x300%7C320x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=&vad_type=linear',
+                    disableAdControls: false,
+                    disableFlashAds: true
+                  };
 
-                    // page_load_time = new Date().getTime() - performance.timing.navigationStart;
-                    // console.log(page_load_time + "ms -- invokeVideoPlayer complete!");
-        
-                });
+                  
+
+                  player.ima(options);
+                  // On mobile devices, you must call initializeAdDisplayContainer as the result
+                  // of a user action (e.g. button click). If you do not make this call, the SDK
+                  // will make it for you, but not as the result of a user action. For more info
+                  // see our examples, all of which are set up to work on mobile devices.
+                  // player.ima.initializeAdDisplayContainer();
+
+                  player.on('ads-manager', function (response) {
+                    var adsManager = response.adsManager;
+                    // Your code in response to the `ads-manager` event.
+                  })
+                                  // page_load_time = new Date().getTime() - performance.timing.navigationStart;
+                                  // console.log(page_load_time + "ms -- invokeVideoPlayer complete!");
+                      
             }
         
         </script>
