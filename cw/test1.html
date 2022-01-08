@@ -41,11 +41,6 @@
           cid: '8CUO8FJ24',
           crid: '186775332'
         }
-      },{
-        bidder: 'appnexus',
-        params: {
-            placementId: 13232361
-        }
       }]
     };
 
@@ -68,6 +63,8 @@
               output: 'vast'
             }
           });
+          console.log('videoUrl:--------------');
+          console.log(videoUrl);
           invokeVideoPlayer(videoUrl);
         }
       });
@@ -77,72 +74,51 @@
 </head>
 
 <body>
-  <div class="example-video-container">
-    <video id="vid1" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup='{}' width='640'
-      height='480'>
-      <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
-      <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
-      <source src="https://vjs.zencdn.net/v/oceans.ogv" type='video/ogg' />
-    </video>
-  </div>
+  <div style="max-width:640px; min-height:1px;">
+		<video autoplay id="vid1" class="video-js vjs-default-skin" controls preload="auto">
+			<source src="https://cdn.opinionjoy.com/vad/2.mp4" type="video/mp4" />
+		</video>
+	</div>
+	
+	<!-- Load dependent scripts -->
+	<script src="//googleads.github.io/videojs-ima/node_modules/video.js/dist/video.min.js"></script>
+	<script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+	<script src="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
+	<script src="//googleads.github.io/videojs-ima/dist/videojs.ima.js"></script>
 
-
-  <script>
-    var page_load_time;
-
-    page_load_time = new Date().getTime() - performance.timing.navigationStart;
-    console.log(page_load_time + "ms -- Player loading!");
-
-    var vid1 = videojs('vid1');
-
-    page_load_time = new Date().getTime() - performance.timing.navigationStart;
-    console.log(page_load_time + "ms -- Player loaded!");
-
+	<script>
+		var player = videojs('vid1', {
+			autoplay: true,
+			muted: true,
+			responsive: true,
+			aspectRatio: '4:3',
+			fluid: true,
+			fill: true
+		});
     function invokeVideoPlayer(url) {
+      var options = {
+        id: 'vid1',
+        //   adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=',
+        // adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
+        adTagUrl: url,
+        disableFlashAds: true
+      };
 
-      page_load_time = new Date().getTime() - performance.timing.navigationStart;
-      console.log(page_load_time + "ms -- Prebid VAST url = " + url);
+      player.ima(options);
+      // On mobile devices, you must call initializeAdDisplayContainer as the result
+      // of a user action (e.g. button click). If you do not make this call, the SDK
+      // will make it for you, but not as the result of a user action. For more info
+      // see our examples, all of which are set up to work on mobile devices.
+      // player.ima.initializeAdDisplayContainer();
 
-      /* Access the player instance by calling `videojs()` and passing
-         in the player's ID. Add a `ready` listener to make sure the
-         player is ready before interacting with it. */
-
-      videojs("vid1").ready(function () {
-
-        page_load_time = new Date().getTime() - performance.timing.navigationStart;
-        console.log(page_load_time + "ms -- Player is ready!");
-
-        /* PASS SETTINGS TO VAST PLUGIN
-  
-                 Pass in a JSON object to the player's `vastClient` (defined
-                 by the VAST/VPAID plugin we're using). The requires an
-                 `adTagUrl`, which will be the URL returned by Prebid. You
-                 can view all the options available for the `vastClient`
-                 here:
-  
-                 https://github.com/MailOnline/videojs-vast-vpaid#options */
-
-        var player = this;
-        var vastAd = player.vastClient({
-          adTagUrl: url,
-          playAdAlways: true,
-          verbosity: 4,
-          vpaidFlashLoaderPath: "https://github.com/MailOnline/videojs-vast-vpaid/blob/RELEASE/bin/VPAIDFlash.swf?raw=true",
-          autoplay: true
-        });
-
-        page_load_time = new Date().getTime() - performance.timing.navigationStart;
-        console.log(page_load_time + "ms -- Prebid VAST tag inserted!");
-
-        player.muted(true);
-        player.play();
-
-        page_load_time = new Date().getTime() - performance.timing.navigationStart;
-        console.log(page_load_time + "ms -- invokeVideoPlayer complete!");
-
-      });
+      player.on('ads-manager', function (response) {
+        var adsManager = response.adsManager;
+        // Your code in response to the `ads-manager` event.
+      })
     }
-  </script>
+		
+	</script>
+  
 </body>
 
 </html>
