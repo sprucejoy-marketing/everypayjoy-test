@@ -90,7 +90,9 @@
             </video>
         </div>
                 
-        
+        <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+	<script src="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
+	<script src="//googleads.github.io/videojs-ima/dist/videojs.ima.js"></script>
         <script>
             var page_load_time;
         
@@ -127,17 +129,20 @@
                        https://github.com/MailOnline/videojs-vast-vpaid#options */
         
                     var player = this;
-                    var vastAd = player.vastClient({
-                        adTagUrl: url,
-                        playAdAlways: true,
-                        verbosity: 4,
-                        vpaidFlashLoaderPath: "https://github.com/MailOnline/videojs-vast-vpaid/blob/RELEASE/bin/VPAIDFlash.swf?raw=true",
-                        autoplay: true
-                    });
+                    var options = {
+                      id: 'vid1',
+                      //   adTagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=',
+                      // adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
+                      adTagUrl: url,
+                      disableAdControls: false,
+                      disableFlashAds: true
+                    };
         
                     page_load_time = new Date().getTime() - performance.timing.navigationStart;
                     console.log(page_load_time + "ms -- Prebid VAST tag inserted!");
-        
+                    
+                    player.ima(options);
+                    
                     player.muted(true);
                     player.play();
         
