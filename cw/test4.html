@@ -43,51 +43,7 @@
                 },
               ],
             };
-            pbjs.setConfig({
-              
-              useBidCache: true,
-              userSync: {
-                filterSettings: {
-                  iframe: {
-                    bidders: "*",
-                    filter: "include",
-                  }
-                },
-                syncEnabled: true,
-                iframeEnabled: true,
-                syncsPerBidder: 5,
-                syncDelay: 3000,
-                userIds: [
-                  {
-                    name: "criteo",
-                  },
-                  {
-                    name: "uid2",
-                  },
-                  {
-                    name: "pubCommonId",
-                    storage: {
-                      type: "cookie",
-                      name: '"_pubcid"', // create a cookie with this name
-                      expires: 365, // expires in 1 years
-                    },
-                  },
-                  {
-                    name: "id5Id",
-                    params: {
-                      partner: 965,
-                    },
-                    storage: {
-                      type: "html5",
-                      name: "id5id",
-                      expires: 90,
-                      refreshInSeconds: 8 * 3600,
-                    },
-                  },
-                ],
-              },
-              priceGranularity: customConfigObject,
-            });
+            
             /* Prebid video ad unit */
         
             var videoAdUnit = {
@@ -121,7 +77,12 @@
                   }
                 }]
             };
-        
+            
+            pbjs.setConfig({
+              
+              priceGranularity: customConfigObject,
+            });
+
             pbjs.que.push(function() {
                 pbjs.addAdUnits(videoAdUnit);
         
