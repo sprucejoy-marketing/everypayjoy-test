@@ -13,6 +13,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-vast-vpaid/2.0.2/videojs_5.vast.vpaid.min.js"></script>
         
         <script>
+          window.addEventListener('DOMContentLoaded', (event) => {
+    
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
             var customConfigObject = {
@@ -112,7 +114,7 @@
                     }
                 });
             });
-        
+          });
         </script>    
         
 
@@ -131,6 +133,7 @@
                 
         
         <script>
+           window.addEventListener('DOMContentLoaded', (event) => {
             var page_load_time;
         
             page_load_time = new Date().getTime() - performance.timing.navigationStart;
@@ -185,6 +188,7 @@
         
                 });
             }
+          });
         
         </script>
     </body>
