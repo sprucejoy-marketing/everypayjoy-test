@@ -15,8 +15,79 @@
         <script>
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
-        
-        
+            var customConfigObject = {
+              buckets: [
+                {
+                  precision: 2, //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
+                  min: 0,
+                  max: 5,
+                  increment: 0.5,
+                },
+                {
+                  precision: 2,
+                  min: 5,
+                  max: 10,
+                  increment: 1.0,
+                },
+                {
+                  precision: 2,
+                  min: 10,
+                  max: 20,
+                  increment: 5.0,
+                },
+                {
+                  precision: 2,
+                  min: 20,
+                  max: 30,
+                  increment: 10.0,
+                },
+              ],
+            };
+            pbjs.setConfig({
+              
+              useBidCache: true,
+              userSync: {
+                filterSettings: {
+                  iframe: {
+                    bidders: "*",
+                    filter: "include",
+                  }
+                },
+                syncEnabled: true,
+                iframeEnabled: true,
+                syncsPerBidder: 5,
+                syncDelay: 3000,
+                userIds: [
+                  {
+                    name: "criteo",
+                  },
+                  {
+                    name: "uid2",
+                  },
+                  {
+                    name: "pubCommonId",
+                    storage: {
+                      type: "cookie",
+                      name: '"_pubcid"', // create a cookie with this name
+                      expires: 365, // expires in 1 years
+                    },
+                  },
+                  {
+                    name: "id5Id",
+                    params: {
+                      partner: 965,
+                    },
+                    storage: {
+                      type: "html5",
+                      name: "id5id",
+                      expires: 90,
+                      refreshInSeconds: 8 * 3600,
+                    },
+                  },
+                ],
+              },
+              priceGranularity: customConfigObject,
+            });
             /* Prebid video ad unit */
         
             var videoAdUnit = {
