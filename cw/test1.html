@@ -20,14 +20,7 @@
 
   <body>
     <div class="example-video-container">
-      <video
-        id="vid1"
-        class="video-js vjs-default-skin vjs-big-play-centered"
-        controls
-        data-setup="{}"
-        width="640"
-        height="480"
-      >
+      <video id="vid1" class="video-js vjs-default-skin vjs-big-play-centered">
         <p class="vjs-no-js">
           To view this video, please enable JavaScript and consider upgrading to
           a web browser that
@@ -146,7 +139,7 @@
             console.log(videoUrl);
             window.__VIDEO_URL__ = videoUrl;
 
-            initPlayer(window.__VIDEO_URL__)
+            invokeVideo(window.__VIDEO_URL__);
           },
         });
       });
@@ -161,13 +154,16 @@
       // page_load_time = new Date().getTime() - performance.timing.navigationStart;
       // console.log(page_load_time + "ms -- Player loaded!");
 
-      function initPlayer(url) {
+      function invokeVideo(url) {
         const player = videojs("vid1", {
           responsive: true,
           aspectRatio: "4:3",
           fluid: true,
           fill: true,
-  
+
+          width: 640,
+          height: 480,
+
           preload: "auto",
           controls: true,
           autoplay: true,
@@ -179,16 +175,16 @@
             },
           ],
         });
-  
+
         const options = {
           id: "vid1",
           adTagUrl: url,
-            // "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=",
+          // "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=",
           debug: true,
         };
-  
+
         player.ima(options);
-  
+
         /* player.on("ended", function () {
           player.ima.setContentWithAdTag(
             "https://cdn.opinionjoy.com/vad/2.mp4",
