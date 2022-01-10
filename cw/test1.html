@@ -109,7 +109,9 @@
                         });
                         console.log('videoUrl:--------------');
                         console.log(videoUrl);
-                        invokeVideoPlayer(videoUrl);
+                        setTimeout(function() {
+                          invokeVideoPlayer(videoUrl);
+                        }, 10000)
                     }
                 });
             });
