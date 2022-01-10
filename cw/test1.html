@@ -147,8 +147,14 @@
             // console.log(page_load_time + "ms -- Player loaded!");
         
             function invokeVideoPlayer(url) {
-              videojs("vid1").ready(function () {
-                const player = this;
+              const player = videojs('vid1', {
+                          // autoplay: true,
+                          // muted: true,
+                          responsive: true,
+                          aspectRatio: '4:3',
+                          fluid: true,
+                          fill: true
+                        });
                 const options = {
                   id: "vid1",
                   adTagUrl: url,
@@ -157,7 +163,6 @@
                 player.ima(options);
                 player.muted(true);
                 player.play();
-              });
                 
             }
         
