@@ -32,33 +32,33 @@
     var pbjs = pbjs || {};
     pbjs.que = pbjs.que || [];
     var customConfigObject = {
-      buckets: [
-        {
-          precision: 2, //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
-          min: 0,
-          max: 0.5,
-          increment: 0.1,
-        },
-        {
-          precision: 2,
-          min: 0.5,
-          max: 10,
-          increment: 0.5,
-        },
-        {
-          precision: 2,
-          min: 10,
-          max: 20,
-          increment: 5.0,
-        },
-        {
-          precision: 2,
-          min: 20,
-          max: 30,
-          increment: 10.0,
-        },
-      ],
-    };
+        buckets: [
+          {
+            precision: 2, //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
+            min: 0,
+            max: 5,
+            increment: 0.1,
+          },
+          {
+            precision: 2,
+            min: 5,
+            max: 10,
+            increment: 0.5,
+          },
+          {
+            precision: 2,
+            min: 10,
+            max: 20,
+            increment: 5.0,
+          },
+          {
+            precision: 2,
+            min: 20,
+            max: 30,
+            increment: 10.0,
+          },
+        ],
+      };
 
     /* Prebid video ad unit */
 
