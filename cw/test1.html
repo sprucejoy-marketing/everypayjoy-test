@@ -32,33 +32,32 @@
     var pbjs = pbjs || {};
     pbjs.que = pbjs.que || [];
     var customConfigObject = {
-        buckets: [
-          {
-            precision: 2, //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
-            min: 0,
-            max: 5,
-            increment: 0.1,
-          },
-          {
-            precision: 2,
-            min: 5,
-            max: 10,
-            increment: 0.5,
-          },
-          {
-            precision: 2,
-            min: 10,
-            max: 20,
-            increment: 5.0,
-          },
-          {
-            precision: 2,
-            min: 20,
-            max: 30,
-            increment: 10.0,
-          },
-        ],
-      };
+      buckets: [{
+          precision: 2, //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
+          min: 0,
+          max: 5,
+          increment: 0.1,
+        },
+        {
+          precision: 2,
+          min: 5,
+          max: 10,
+          increment: 0.5,
+        },
+        {
+          precision: 2,
+          min: 10,
+          max: 20,
+          increment: 5.0,
+        },
+        {
+          precision: 2,
+          min: 20,
+          max: 30,
+          increment: 10.0,
+        },
+      ],
+    };
 
     /* Prebid video ad unit */
 
@@ -74,8 +73,7 @@
           skip: 1,
         },
       },
-      bids: [
-        {
+      bids: [{
           bidder: "richaudience",
           params: {
             pid: "TmdZelyZgy",
@@ -102,11 +100,11 @@
         {
           bidder: 'triplelift',
           params: {
-              inventoryCode: 'EPJ_Desktop_300x250_L4',
-              video: {
-                  mimes: ['video/mp4'],
-                  w: 640,
-                  h: 480,
+            inventoryCode: 'EPJ_Desktop_300x250_L4',
+            video: {
+              mimes: ['video/mp4'],
+              w: 640,
+              h: 480,
             },
           }
         },
@@ -125,15 +123,15 @@
           params: {
             tagid: '160107',
             video: {
-                skippable: true,
-                playback_methods: ['auto_play_sound_off']
+              skippable: true,
+              playback_methods: ['auto_play_sound_off']
             }
           }
         },
         {
           bidder: "conversant",
           params: {
-              site_id: '211626',
+            site_id: '211626',
           }
         },
         {
@@ -142,7 +140,7 @@
             siteId: "1081534"
           }
         },
-      ],
+      ]
     };
 
     pbjs.que.push(function () {
@@ -197,12 +195,10 @@
         controls: true,
         autoplay: true,
         muted: true,
-        sources: [
-          {
-            src: "https://cdn.opinionjoy.com/vad/1.mp4",
-            type: "video/mp4",
-          },
-        ],
+        sources: [{
+          src: "https://cdn.opinionjoy.com/vad/1.mp4",
+          type: "video/mp4",
+        }, ],
       });
 
       const options = {
