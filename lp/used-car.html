@@ -134,7 +134,7 @@
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://epj.nyc3.cdn.digitaloceanspaces.com/p/used-car/bmw-ix-2022-1280x436.jpg");
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://epj.nyc3.cdn.digitaloceanspaces.com/p/used-car/bmw-ix-2022-1280x436.jpg");
     }
 
     .l-logos {
@@ -243,32 +243,15 @@
           </v-layout>
           <v-layout>
             <v-flex>
-              <div class="l-hero d-flex align-center justify-center">
+              <div class="l-hero d-flex align-center justify-center" style="padding-top: 150px; padding-bottom: 150px;">
                 <v-layout>
                   <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
                     <div class="pb-2 mb-4 l-title-2 font-weight-bold white--text text-xs-center">
                       Buy Your Cars, Trucks and SUV Today with Best Prices.
                     </div>
-                    <v-card class="mx-auto" max-width="356" color="white" tile>
-                      <v-card-text class="">
-                        <div class="mb-4 l-body">
-                          Best Used Car Online.
-                        </div>
-                        <v-text-field color="#F96302" box label="Full Name" required v-model="form.name"
-                          :rules="rules.nameRules">
-                        </v-text-field>
-                        <v-text-field color="#F96302" box label="Email" required v-model="form.email"
-                          :rules="rules.emailRules">
-                        </v-text-field>
-                      </v-card-text>
-                      <v-card-actions class="pt-0 px-4 pb-4">
-                        <v-btn class="text-none white--text" :loading="loading.subscribe" depressed block round
-                          color="#F96302" @click="subscribe" :disabled="!isFormValid">See Price</v-btn>
-                      </v-card-actions>
-                      <small class="pb-4 px-3 d-flex muted grey--text text--lighten-1">
-                        By clicking button above, I agree to the Terms of Use and Privacy Policy.
-                      </small>
-                    </v-card>
+                    <div class="mb-4 l-body">
+                      Best Used Car Online.
+                    </div>
                   </v-flex>
                 </v-layout>
               </div>
