@@ -214,6 +214,52 @@
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8453834851600545"
   crossorigin="anonymous"></script>
   
+  <script>
+    (function () {
+      var a = null,
+        b = [],
+        c = null;
+
+      function d() {
+        a && (clearInterval(a), a = null)
+      }
+
+      function e() {
+        var a = typeof window.gtag == "function";
+        return a ? window.gtag.apply(null, arguments) : b.push(arguments)
+      }
+
+      function f() {
+        try {
+          if (typeof window.gtag != "function" || c) return;
+          c = !0, b.forEach(function (a) {
+            window.gtag.apply(null, a)
+          }), b = [], d()
+        } catch (a) {
+          console.log(a)
+        } finally {
+          c = !1
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        a = setInterval(f, 300)
+      }), window.__gtag__ = e
+    })()
+  </script>
+  <script>
+    function safeGtag(c, d, a = "", e = 1) {
+      a === "" && (a = window.location.href);
+      var b = {
+        name: c,
+        payload: {
+          event_category: d,
+          event_label: a,
+          value: e
+        }
+      };
+      window.__gtag__("event", b.name, b.payload)
+    }
+  </script>
   <script type="text/javascript">
     var isFreestar=0,imgNum=2,epjVersion=3</script>
   <script src="//cdn.opinionjoy.com/epja/eam.min.js"></script>
