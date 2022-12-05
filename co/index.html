@@ -1,0 +1,3734 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-AR" lang="es-AR">
+  <head>
+    <title>Cuit Online</title>
+    <base href="//www.cuitonline.com/" />
+    <meta name="copyright" content="Copyright 2007-2022. CuitOnline." />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/ico"
+      href="https://www.cuitonline.com/images/favicon-2013.ico"
+    />
+    <meta name="theme-color" content="#1F7AC1" />
+    <meta
+      name="description"
+      content="Buscador de CUIT y CUIL por DNI, nombre o razón social; constancias AFIP, ANSES, monotributo e impuestos provinciales"
+    />
+    <style rel="stylesheet" type="text/css" media="screen">
+      * {
+        margin: 0;
+      }
+
+      BODY,
+      html {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background-color: #ffffff;
+        height: 100%;
+      }
+
+      IMG {
+        border: 0px;
+      }
+
+      .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+
+      .clearfix {
+        display: inline-block;
+      } /* for IE/Mac */
+
+      /** Estilos COMUNES a todas las secciones **/
+
+      DIV.main-container {
+        width: 100%;
+        height: auto !important;
+        height: 100%;
+        min-height: 100%;
+        margin: 0 auto -78px;
+      }
+
+      DIV.container {
+        width: 100%;
+        max-width: 1170px;
+        margin: 0 auto;
+      }
+
+      DIV.search-box-container-home,
+      DIV.search-box-container-header {
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+        width: auto;
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+      }
+
+      INPUT.search-box-home,
+      INPUT.search-box-header {
+        font-size: 13px;
+        color: #757575;
+        text-align: left;
+        padding: 7px 60px 7px 5px;
+        width: 435px;
+        background-color: #fff;
+        border: solid 1px #d4d4d4;
+        margin: 0;
+      }
+
+      DIV.search-button-container-home,
+      DIV.search-button-container-header {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+
+      BUTTON.button {
+        border: 0px;
+        cursor: pointer;
+      }
+
+      BUTTON.search-button-home,
+      BUTTON.search-button-header {
+        background: #4f4f66
+          url("https://www.cuitonline.com/images/search-icon.png") center center
+          no-repeat;
+        width: 60px;
+        height: 30px;
+        margin: 0;
+        border-radius: 2px;
+        background-size: 30%;
+      }
+
+      BUTTON.search-button-home SPAN.button-text,
+      BUTTON.search-button-header SPAN.button-text {
+        display: none;
+      }
+
+      /** Estilos del HOME **/
+
+      DIV.main-container-home {
+        background: #f1f1f1;
+      }
+
+      DIV.divisas-top-bar {
+        position: relative;
+        height: 45px;
+        background-color: #e6e8eb;
+      }
+
+      DIV.divisas-home {
+        text-align: center;
+        width: 100%;
+        background-color: #e6e8eb;
+        color: #4f4f66;
+        height: 46px;
+      }
+
+      DIV.divisas-content {
+        position: relative;
+        margin: 0 auto;
+        width: auto;
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        height: 40px;
+      }
+
+      DIV.divisas-home DIV.divisa-link {
+        padding: 2px 2px;
+        margin: 13px 6px 0 8px;
+        float: left;
+      }
+
+      DIV.divisas-home DIV.divisa-link A SPAN {
+        float: left;
+      }
+
+      DIV.divisas-home DIV.divisa-link A SPAN.indicator {
+        padding-right: 2px;
+        padding-left: 4px;
+        height: 12px;
+        -moz-height: 15px;
+        width: 6px;
+        margin-left: 9px;
+      }
+
+      SPAN.divisa-indicator-estable {
+        background: url("https://www.cuitonline.com/images/divisa_estable.png")
+          no-repeat center center;
+      }
+
+      SPAN.divisa-indicator-sube {
+        background: url("https://www.cuitonline.com/images/divisa_sube.png")
+          no-repeat center center;
+      }
+
+      SPAN.divisa-indicator-baja {
+        background: url("https://www.cuitonline.com/images/divisa_baja.png")
+          no-repeat center center;
+      }
+
+      DIV.divisas-home DIV.divisa-link A SPAN.flag {
+        margin: -1px 0 0 0;
+        padding: 0;
+        text-align: left;
+        width: 16px;
+        height: 16px;
+      }
+
+      DIV.divisas-home DIV.divisa-link A SPAN.value {
+        padding-left: 5px;
+      }
+
+      SPAN.searcher-divisas-alert {
+        color: #ffffff;
+        padding: 3px 4px 2px 20px;
+        background: #e30713
+          url("https://www.cuitonline.com/images/alert_white_12x12.png")
+          no-repeat 4px center;
+      }
+
+      DIV.divisas-home DIV A {
+        text-decoration: none;
+        color: #626161;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      DIV.divisas-right-button,
+      DIV.divisas-left-button {
+        display: none;
+      }
+
+      DIV.variaciones-uva {
+        background-color: #f0f0f0;
+        margin-top: 10px;
+        padding-top: 20px;
+        width: 100%;
+        height: 143px;
+      }
+
+      DIV.variaciones-uva DIV.title-uva {
+        font-size: 18px;
+        font-family: "Arial";
+        color: rgb(46, 49, 146);
+        font-weight: bold;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      DIV.variaciones-uva DIV.variacion-uva {
+        float: left;
+        width: 120px;
+        height: 100px;
+        font-size: 12px;
+        font-family: "Arial";
+        color: rgb(102, 102, 102);
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      DIV.variacion-uva DIV.circulo-uva {
+        border-radius: 50%;
+        background-color: rgb(46, 49, 146);
+        width: 60px;
+        height: 60px;
+        font-size: 14px;
+        margin: 0 auto;
+        margin-bottom: 8px;
+        font-family: "Arial";
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        line-height: 4.25;
+        text-align: center;
+      }
+
+      DIV.home-logo {
+        position: relative;
+        margin-bottom: 53px;
+        margin-top: 120px;
+      }
+
+      IMG.img-logo {
+        display: inline;
+      }
+
+      IMG.img-logo-mobile {
+        display: none;
+      }
+
+      DIV.home-ads {
+        position: relative;
+        width: 100%;
+        margin-top: 124px;
+        margin-bottom: 130px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
+      /*A.cotizaciones-button {
+  display: block;
+  text-decoration: none;
+  color: #a0a0a0;
+  font-family: Tahoma, sans-serif;
+  font-size: 10px;
+  padding: 6px 20px 6px 10px !important;
+  line-height: 27px !ie;
+  height: 12px;
+  background: #f1f1f1 url('../https://www.cuitonline.com/images/arrow_btn.gif') no-repeat 90px center;
+  border: solid 1px #e5e5e5;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: absolute;
+  right: -220px;
+  top: 10px;
+}
+
+A.cotizaciones-button:hover {
+  color: #fff !important;
+  background: #1f7ac1 url('../https://www.cuitonline.com/images/arrow_btn.gif') no-repeat 90px center;
+}*/
+
+      /** Estilos del SEARCH **/
+
+      DIV.search-query {
+        margin-bottom: 5px;
+        color: #49495a;
+      }
+
+      DIV.search-query SPAN {
+        color: #9494a3;
+      }
+
+      DIV.search-breadcrumbs-button {
+        display: none;
+      }
+
+      DIV.search-breadcrumbs {
+        padding-bottom: 5px;
+      }
+
+      DIV.breadcrumbs {
+        font-size: 12px;
+        color: #818181;
+        text-align: left;
+        border-bottom: solid #f1f1f1 1px;
+      }
+
+      DIV.breadcrumbs A {
+        color: #1c6bb0;
+      }
+
+      DIV.breadcrumb {
+        width: auto;
+        font-size: 10px;
+        padding: 0;
+        color: #818181;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        background-color: #f1f1f1;
+        border: solid 1px #e5e5e5;
+        float: left;
+        margin-right: 2px;
+        margin-bottom: 2px;
+      }
+
+      DIV.hl-breadcrumb {
+        border: solid #e5e5e5 1px !important;
+      }
+
+      DIV.breadcrumb DIV.breadcrumb-inner {
+        border: solid #f1f1f1 1px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        padding: 1px 2px;
+      }
+
+      DIV.breadcrumb A {
+        background-image: url("https://www.cuitonline.com/images/cruz.gif");
+        background-repeat: no-repeat;
+        background-position: -7px center;
+        padding: 2px;
+        text-decoration: none;
+      }
+
+      DIV.breadcrumb A:hover {
+        background-position: 0px center;
+      }
+
+      DIV.search-top-bar {
+        background-color: #f1f1f1;
+        width: 100%;
+        text-align: center;
+      }
+
+      DIV.search-top-bar-container {
+        position: relative;
+        margin: 0px auto;
+        width: 100%;
+        max-width: 1170px;
+        text-align: center;
+        height: 75px;
+      }
+
+      DIV.search-top-bar-logo {
+        position: absolute;
+        left: 0;
+        top: 14px;
+      }
+
+      DIV.filters-button {
+        display: none;
+      }
+
+      DIV.bottom-container {
+        width: 100%;
+        max-width: 1170px;
+        height: auto;
+        margin: 18px auto 32px auto;
+        position: relative;
+        background-color: #fff;
+        padding: 0;
+        clear: right !important;
+        display: inline-block;
+        text-align: left;
+        *display: inline;
+        zoom: 1;
+      }
+
+      DIV.categories {
+        float: left;
+        width: 175px;
+        text-align: left;
+        font-size: 11px;
+        height: 2px;
+      }
+
+      DIV.close-filter-button {
+        display: none;
+      }
+
+      DIV.results-count {
+        margin-bottom: 3px;
+        font-size: 12px;
+      }
+
+      DIV.categories DIV.filters-title {
+        width: 100%;
+        height: 12px;
+        background-color: #1f7ac1;
+        padding: 8px 0px;
+        text-align: center;
+        color: #fff;
+        font-size: 12px;
+      }
+
+      DIV.categories DIV.view-categories {
+        margin-bottom: 7px;
+      }
+
+      DIV.categories DIV.view-categories DIV.view-name {
+        font-size: 12px;
+        height: 14px;
+        color: #fff;
+        background-color: #999;
+        padding: 3px 0px 2px 15px;
+        text-align: left;
+        width: 160px;
+        margin-bottom: 2px;
+      }
+
+      DIV.categories DIV.view-categories A {
+        color: #313131;
+        text-decoration: none;
+        background-image: url("https://www.cuitonline.com/images/arrow.gif");
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 6px;
+        line-height: 12px;
+        margin-bottom: 2px;
+      }
+
+      DIV.categories DIV.view-categories A:hover {
+        text-decoration: underline;
+        color: #1f7ac1;
+      }
+
+      DIV.categories DIV.view-categories SPAN.category-count {
+        font-size: 10px;
+        color: #1f7ac1;
+        text-align: left;
+        padding: 0px 1px;
+        line-height: 10px;
+      }
+
+      DIV.breadcrumb-in-filter {
+        display: none;
+      }
+
+      DIV.just-on-mobile {
+        display: none;
+      }
+
+      /*DIV.right-pane {
+  position: relative;
+  margin-left: 205px;
+}*/
+
+      DIV.left-pane {
+        /*position: relative;*/
+        width: 68.5%;
+        display: block;
+      }
+
+      DIV.results {
+        min-height: 572px;
+        height: auto !important;
+        height: 610px;
+        margin-left: 205px;
+      }
+
+      DIV.results DIV.hit {
+        border-bottom: solid #f1f1f1 1px;
+        text-align: left;
+        padding: 12px 0 9px 5px;
+        font-size: 12px;
+        background-color: #fff;
+        position: relative;
+      }
+
+      DIV.hit SPAN.cuit,
+      .p_cuit {
+        color: #1f7ac1;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      A.constancia-inscripcion {
+        font: 12px Arial, sans-serif;
+        color: #4c748b;
+        text-decoration: underline;
+        font-style: italic;
+      }
+
+      DIV.hit SPAN.denominacion {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #49495a;
+      }
+
+      A.denominacion {
+        color: #1f7ac1;
+      }
+
+      A.denominacion:hover {
+        color: #676767;
+      }
+
+      DIV.results DIV.hit A.denominacion {
+        font-weight: bold;
+        color: #000;
+        font-size: 11px;
+        text-decoration: none;
+      }
+
+      DIV.denominacion {
+        margin-bottom: 1px;
+      }
+
+      DIV.results DIV.hit A.denominacion:hover {
+        color: #676767;
+      }
+
+      DIV.hit DIV.doc-facets {
+        color: #313131;
+        float: left;
+        font-family: Arial, sans-serif;
+      }
+
+      DIV.hit DIV.doc-facets SPAN.bullet {
+        color: #000000;
+        font-size: 12px;
+      }
+
+      DIV.paginator {
+        position: relative;
+        height: 20px;
+        padding-top: 5px;
+        border-bottom: solid #f2f2f2 1px;
+      }
+
+      DIV.paginator A {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        text-decoration: none;
+        color: #676767;
+        padding: 1px 3px;
+      }
+
+      DIV.paginator A:hover {
+        color: #fff;
+        background-color: #999999;
+      }
+
+      DIV.paginator SPAN.special-link {
+        position: absolute;
+        top: 0px;
+      }
+
+      DIV.paginator SPAN.special-link A {
+        background-color: #fff;
+        color: #676767;
+      }
+
+      DIV.paginator SPAN.selected {
+        color: #fff;
+        padding: 1px 3px;
+        background-color: #999999;
+        font-size: 12px;
+        margin: 0 2px;
+      }
+
+      DIV.paginator-prev {
+        position: absolute;
+        top: 5px;
+        left: -2px;
+      }
+
+      DIV.paginator-next {
+        position: absolute;
+        top: 5px;
+        right: 60px;
+      }
+
+      DIV.ads-right-bar {
+        position: absolute;
+        right: 0px;
+        top: -15px;
+        width: 30%;
+        text-align: center;
+      }
+
+      DIV.ads-bottom-bar {
+        margin: 0 auto;
+      }
+
+      /* ESTILOS DEL FOOTER */
+
+      DIV.footer {
+        position: relative;
+        width: 100%;
+        max-width: 1170px;
+        margin: auto auto;
+        text-align: center;
+        padding: 0;
+        height: 30px;
+      }
+
+      /* DIV.footer-home {} */
+
+      DIV.footer-search {
+        height: 51px;
+        background: #ffffff;
+      }
+
+      DIV.footer-search DIV.div-copyright {
+        height: 51px;
+        background: #ffffff;
+        margin: 0;
+      }
+
+      .push {
+        height: 78px;
+      }
+
+      .img-co-iso {
+        cursor: pointer;
+        border: none;
+      }
+
+      /*IMG.logo-footer {
+  display: inline;
+}*/
+
+      IMG.logo-footer {
+        display: inline;
+        width: 50%;
+      }
+
+      IMG.logo-footer-mobile {
+        display: none;
+      }
+
+      DIV.div-co-iso {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      DIV.div-copyright {
+        position: absolute;
+        left: 30px;
+        top: 0;
+        padding-left: 67px;
+        padding-top: 9px;
+        font: 12px Arial, sans-serif;
+        text-align: left;
+        color: #4f4f66;
+      }
+
+      DIV.social-footer {
+        position: absolute;
+        right: 30px;
+        top: 0px;
+        width: 168px;
+      }
+
+      DIV.social-footer DIV.facebook {
+        position: absolute;
+        left: 39px;
+        top: 6px;
+        width: 50px;
+        height: 24px;
+      }
+
+      DIV.social-footer DIV.twitter {
+        position: absolute;
+        left: 95px;
+        top: 6px;
+        width: 11px;
+        height: 24px;
+      }
+
+      DIV.div-btn-comercial {
+        position: absolute;
+        right: 70px;
+        top: 18px;
+        width: 213px;
+        height: 37px;
+      }
+
+      DIV.div-btn-baja {
+        position: absolute;
+        right: 30px;
+        top: 21px;
+        width: 149px;
+        height: 29px;
+      }
+
+      .img-btn-comercial,
+      .img-btn-baja {
+        cursor: pointer;
+      }
+
+      /* PUBLICIDADES */
+
+      .pBody {
+        width: 900px;
+        height: auto;
+        margin: auto;
+      }
+
+      DIV.pSeccion {
+        font: bold 25px Calibri;
+        color: red;
+        margin-top: 10px;
+        margin-bottom: 6px;
+      }
+
+      DIV.pElemento {
+        font: bold 15px Calibri;
+        float: left;
+      }
+
+      DIV.pEliminar {
+        font: bold 12px Calibri;
+        float: right;
+        margin-top: 2px;
+      }
+
+      DIV.pInfo {
+        margin: auto;
+        width: 200px;
+        min-height: 20px;
+        text-align: center;
+      }
+
+      DIV.pBanner {
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      /* SECCION BAJAS */
+
+      DIV.bodyBajas {
+        width: 90%;
+        margin: 20px auto 15px auto;
+      }
+      DIV.fisicaJuridica {
+        height: 220px;
+      }
+      DIV.bajaFisica {
+        width: 45%;
+        text-align: justify;
+        font: 12px Arial, Helvetica, sans-serif;
+        color: #000000;
+        float: left;
+        /*margin-right: 80px;
+margin-left: 25px;*/
+      }
+      DIV.bajaTitulo,
+      SPAN.bajaTitulo {
+        font: bold 12px Arial, Helvetica, sans-serif;
+        color: #1c6aaf;
+      }
+      DIV.bajaJuridica {
+        width: 45%;
+        text-align: justify;
+        font: 12px Arial, Helvetica, sans-serif;
+        color: #000000;
+        float: left;
+        margin-left: 10%;
+      }
+
+      INPUT.baja_file {
+        width: 351px;
+      }
+
+      INPUT.baja_text {
+        width: 347px;
+      }
+
+      DIV.baja {
+        font: normal 12px Verdana, Helvetica, sans-serif;
+        margin-bottom: 5px;
+      }
+
+      DIV.baja SPAN.highlight {
+        color: #c20e1a;
+      }
+
+      DIV.entiendo {
+        font: bold 12px Verdana, Helvetica, sans-serif;
+        text-align: right;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      DIV.obligatorios {
+        position: absolute;
+        bottom: 0px;
+        left: 30px;
+        font: italic 11px Verdana, Helvetica, sans-serif;
+      }
+
+      #entiendo {
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      DIV.hint {
+        font: italic 11px Verdana, Helvetica, sans-serif;
+        color: grey;
+        width: 348px;
+        text-align: left;
+        margin-left: 156px;
+        margin-bottom: 5px;
+      }
+
+      DIV.form_baja_title {
+        font: bold 14px Verdana, Helvetica, sans-serif;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      FORM.baja {
+        text-align: right;
+        width: 505px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      #baja_error {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #c20e1a;
+        font: bold 11px Tahoma, Helvetica, sans-serif;
+        text-align: center;
+        line-height: 15px;
+      }
+
+      DIV.baja-submit-container {
+        text-align: right;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 500px) {
+        DIV.fisicaJuridica {
+          height: auto;
+        }
+
+        DIV.bajaFisica {
+          width: 100%;
+        }
+
+        DIV.bajaJuridica {
+          width: 100%;
+          margin-left: 0;
+          margin-top: 10px;
+        }
+
+        DIV.baja SPAN.form-label {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+
+        INPUT[type="text"] {
+          width: 80%;
+        }
+
+        FORM.baja {
+          width: 100%;
+          text-align: left;
+          margin-bottom: 50px;
+        }
+
+        DIV.hint {
+          text-align: left;
+          margin-left: 0;
+          width: 100%;
+        }
+
+        DIV.entiendo {
+          width: 100%;
+          text-align: center;
+        }
+
+        TABLE.baja-captcha {
+          width: 100% !important;
+        }
+
+        TD.baja-captcha-img {
+          display: block;
+          text-align: center;
+        }
+
+        TD.baja-captcha-text {
+          display: block;
+          text-align: center;
+        }
+
+        DIV.obligatorios {
+          bottom: -50px;
+        }
+
+        FORM.baja INPUT[type="submit"] {
+          width: 90% !important;
+        }
+
+        DIV.baja-submit-container {
+          text-align: center;
+        }
+      }
+
+      /*------------------persona.php-----------------*/
+
+      h1.p_title {
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        position: relative;
+        color: #676767;
+        font-size: 2em;
+      }
+
+      DIV.persona-informes {
+        height: auto;
+        background-color: #f0f0f0;
+        margin-top: 9px;
+        padding-bottom: 10px;
+        display: flex;
+        width: 100%;
+      }
+
+      DIV.persona-informes > DIV {
+        float: left;
+        border-left: solid #d6d6d6 1px;
+        margin-top: 15px;
+        padding: 0 10px 0 20px;
+        min-height: 52px;
+        display: inline-block;
+        background-image: none;
+      }
+
+      DIV.persona-informes > DIV > DIV > SPAN.informes-nombre-corto {
+        display: none;
+      }
+
+      DIV.persona-informes > DIV > DIV > SPAN.informes-nombre-largo {
+        display: block;
+      }
+
+      DIV.persona-informes DIV:first-child {
+        border-left: none;
+      }
+
+      DIV.afip {
+        width: 22%;
+      }
+
+      DIV.rentas {
+        width: 18%;
+      }
+
+      DIV.banco-central {
+        width: 22%;
+      }
+
+      DIV.dateas {
+        width: 18%;
+      }
+
+      DIV.afip DIV.titulo_box_informes {
+        color: #424242;
+      }
+
+      DIV.rentas DIV.titulo_box_informes {
+        color: #e5880f;
+      }
+
+      DIV.banco-central DIV.titulo_box_informes {
+        color: #1d6ac2;
+      }
+
+      DIV.dateas DIV.titulo_box_informes {
+        color: #267f00;
+      }
+
+      DIV.titulo_box_informes {
+        float: none;
+        font: bold 12px Arial;
+        margin-bottom: 5px;
+        /*min-height: 100%;*/
+        height: auto;
+        text-align: left;
+      }
+
+      UL.p_listaInformes {
+        padding: 0px;
+        margin: 0;
+        text-align: left;
+        display: block;
+      }
+
+      UL.p_listaInformes-mobile {
+        display: none;
+      }
+
+      UL.p_listaInformes LI {
+        display: block;
+        color: #676767;
+        list-style: none;
+      }
+
+      UL.p_listaInformes LI A {
+        text-decoration: none;
+        font-size: 12px;
+        color: #676767;
+      }
+
+      DIV.persona-info-container {
+        height: auto;
+        position: relative;
+        text-align: left;
+        margin: 22px 0 0 0;
+        min-height: 338px;
+      }
+
+      DIV.persona-data {
+        float: left;
+        width: calc(100% - 330px);
+        padding: 0 10px 0 0;
+      }
+
+      @media (max-width: 1170px) {
+        DIV.persona-info-container {
+        }
+
+        DIV.persona-data {
+          padding: 0 2% 0 2%;
+        }
+      }
+
+      DIV.p_infoPersona {
+        width: 440px;
+        text-align: left;
+        margin-left: 10px;
+      }
+
+      UL.p_info {
+        margin-bottom: 10px;
+        padding-left: 0px;
+        margin-top: 0;
+      }
+
+      .p_cuit_title {
+        font: 18px Arial !important;
+        color: #313131 !important;
+        border-bottom: dashed #e8e8e8 1px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+      }
+
+      UL.p_info LI {
+        display: block;
+        font: 12px Arial, sans-serif;
+        color: #676767;
+        list-style: none;
+      }
+
+      .c_black {
+        color: #494949;
+        font: 12px Arial, sans-serif;
+        font-weight: bold;
+      }
+
+      .constancia_link {
+        text-decoration: none;
+        color: #000;
+        font-size: 11px;
+        font-weight: bold;
+      }
+
+      DIV.persona-map {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: 2px;
+        width: 300px;
+        min-height: 334px;
+      }
+
+      DIV.p_map_background {
+        background: url("https://www.cuitonline.com/images/mapa2.png") no-repeat;
+        width: 300px;
+        height: 338px;
+      }
+
+      DIV.p_map_background2 {
+        background: url("https://www.cuitonline.com/images/mapa1.png") no-repeat;
+        width: 300px;
+        height: 700px;
+      }
+
+      DIV.p_map_background DIV.map-text-expl {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        font-size: 11px;
+        background-color: #6b6b6b;
+        opacity: 0.6;
+        color: #fff;
+        font: 11px Arial, sans-serif;
+        text-align: justify;
+        padding: 10px 10px;
+      }
+
+      DIV.p_map_background2 DIV.map-text-expl {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        font-size: 11px;
+        background-color: #6b6b6b;
+        opacity: 0.6;
+        color: #fff;
+        font: 11px Arial, sans-serif;
+        text-align: justify;
+        padding: 10px 10px;
+      }
+
+      DIV.p_btnUbicarMapa {
+        background: url("https://www.cuitonline.com/images/localizar-en-mapa.png")
+          no-repeat;
+        background-size: 100%;
+        width: 210px;
+        height: 90px;
+        position: absolute;
+        top: 30%;
+        left: 45px;
+      }
+      DIV.mapa_deshabilitado {
+        background: url("https://www.cuitonline.com/images/mapa-no-disponible.png")
+          no-repeat;
+      }
+
+      IFRAME.map-iframe {
+        overflow: hidden;
+        border: none;
+        text-align: center;
+      }
+
+      DIV.banner-entre-datos {
+        display: none;
+      }
+
+      /*-------------------------------- BÚSQUEDA AVANZADA ----------------------------------*/
+      DIV.informes-constancias-head {
+        background-color: #ff7a41;
+        font-weight: bold;
+        font-size: 14px;
+        color: #fff;
+        padding: 14px 5px;
+        margin: 12px 0px 11px;
+      }
+
+      DIV.informe_dateas,
+      DIV.informe_gratuito {
+        width: 100%;
+        margin: 0 auto;
+        height: 177px;
+        position: relative;
+        background-color: #f0f0f0;
+      }
+      DIV.informe_gratuito {
+        margin-bottom: 44px;
+        height: 150px;
+      }
+
+      DIV.informe_tipo {
+        font: 18px Arial, sans-serif;
+        line-height: 22px;
+        color: #313131;
+        margin: 0px 0px 1px 0px;
+        background-color: #dedede;
+        padding: 5px;
+        text-align: center;
+      }
+
+      DIV.informe_tipo DIV.titulo-informe {
+        background: url("https://www.cuitonline.com/images/info_icon.png")
+          no-repeat;
+        background-position: center left;
+        padding: 2px 0px 2px 30px;
+        margin: 0 auto;
+        text-align: center;
+        display: inline-block;
+      }
+
+      DIV.seleccione_dateas {
+        position: absolute;
+        left: 54px;
+        font: bold 12px Arial;
+        color: #323232;
+      }
+
+      DIV.seleccione_gratuito {
+        position: absolute;
+        top: -23px;
+        left: 2px;
+        font: bold 12px Arial;
+        color: #323232;
+      }
+
+      DIV.radio_btns {
+        position: absolute;
+        top: 104px;
+        left: 48px;
+        text-align: left;
+        line-height: 5px;
+        font: 12px Arial;
+        color: #323232;
+      }
+
+      DIV.radio_btns INPUT {
+        display: block;
+        margin: 2px 0 0 2px;
+        float: left;
+        padding: 0;
+      }
+
+      DIV.radio_btns LABEL {
+        display: block;
+        float: left;
+        margin: 0 10px 0 5px;
+        padding: 2px 0 0 0;
+      }
+
+      DIV.text_inputs {
+        position: absolute;
+        top: 19px;
+        right: 50px;
+        text-align: right;
+        color: #323232;
+        font: 12px Arial;
+      }
+
+      DIV.text_inputs INPUT,
+      DIV.select_cuit INPUT {
+        padding: 7px 1px 7px 5px;
+        height: 16px;
+      }
+
+      DIV.text_inputs INPUT,
+      DIV.select_cuit INPUT {
+        width: 294px;
+        border: solid #dfdfdf 1px;
+        margin-bottom: 3px;
+      }
+
+      .pedir_informe_btn {
+        background: url("https://www.cuitonline.com/images/informe_btn.png")
+          no-repeat;
+        position: absolute;
+        bottom: 15px;
+        right: 181px;
+        width: 170px;
+        height: 28px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .pedir_informe_btn SPAN {
+        display: none;
+      }
+
+      DIV.pedir-informe-btn-container {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      DIV.pedir-informe-btn-container .pedir_informe_btn {
+        position: relative;
+        bottom: 0;
+        right: 0;
+      }
+
+      DIV.select_cuit {
+        position: absolute;
+        top: 38px;
+        left: 52px;
+        color: #323232;
+        font: 12px Arial;
+        width: 87%;
+      }
+
+      DIV.co-select-like {
+        width: 230px;
+        height: 30px;
+        overflow: hidden;
+        background: url("https://www.cuitonline.com/images/select.jpg")
+          no-repeat 203px #fff;
+        border: solid #dfdfdf 1px;
+        float: left;
+      }
+
+      DIV.select_cuit SELECT {
+        float: left;
+        font: 12px Arial;
+        width: 255px;
+        padding: 6px 5px 8px 5px;
+        -webkit-appearance: none;
+        border: none;
+        line-height: 15px;
+        background: transparent;
+      }
+
+      DIV.text_inputs_gratuito {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        text-align: right;
+        color: #323232;
+        font: 12px Arial;
+      }
+
+      #error_gratuito,
+      #error_dateas {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font: bold 12px Arial;
+        color: #c20e1a;
+      }
+
+      DIV.impuestos_activos {
+        font: 12px Verdana;
+        color: #444;
+        text-align: left;
+        margin: 0 20px;
+      }
+
+      H2.impuestos_activos {
+        margin: 5px 0 3px 0;
+        padding: 0;
+        font: bold 12px Verdana;
+        color: #444;
+      }
+
+      /* DIVISAS */
+
+      DIV.divisas-heading-bar {
+        position: relative;
+        padding: 3px;
+        margin: 0 0 1px 0;
+        background: #f0f0f0;
+        height: 50px;
+        text-align: center;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas {
+        padding-top: 18px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.dolar SPAN {
+        background: url("https://www.cuitonline.com/images/USA_flag.jpg") left
+          center no-repeat;
+        padding-left: 30px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.euro SPAN {
+        background: url("https://www.cuitonline.com/images/UE_flag.jpg") left
+          center no-repeat;
+        padding-left: 30px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.real SPAN {
+        background: url("https://www.cuitonline.com/images/Brazil_flag.jpg")
+          left center no-repeat;
+        padding-left: 30px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.bitcoin SPAN {
+        background: url("https://www.cuitonline.com/images/BTC_icon.png") left
+          center no-repeat;
+        padding-left: 30px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.uva SPAN {
+        background: url("https://www.cuitonline.com/images/UVA_icon.png") left
+          center no-repeat;
+        padding-left: 30px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.divisa-link-selected {
+        background-color: #ddd;
+        border-radius: 18px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A {
+        text-decoration: none;
+        line-height: 18px;
+        padding: 9px 9px 9px 12px;
+        margin: 0 3px;
+        font: 14px Arial, sans-serif;
+        color: #726363;
+      }
+
+      DIV.divisas-heading-bar H1 {
+        padding: 0;
+        margin: 3px 0 0 0;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #676767;
+        font-weight: normal;
+        width: 300px;
+        line-height: 18px;
+        height: 18px;
+      }
+
+      DIV.divisas-blue-bar {
+        font-family: Arial, sans-serif;
+        height: 56px;
+        width: 100%;
+      }
+
+      DIV.divisas-blue-bar DIV.dark-side {
+        position: relative;
+        float: left;
+        padding: 10px 3% 0px 2%;
+        background: #19649e
+          url("https://www.cuitonline.com/images/cotizacion_bkg.png") center
+          right no-repeat;
+        width: 39%;
+        height: 50px;
+        font-size: 14px;
+        color: #afdcff;
+        text-align: left;
+      }
+
+      DIV.divisas-blue-bar DIV.dark-side-alert {
+        background: #e42512
+          url("https://www.cuitonline.com/images/cotizacion_bkg.png") center
+          right no-repeat;
+        color: #ffffff;
+      }
+
+      DIV.alert-image {
+        position: absolute;
+        left: 1.5%;
+        top: 23px;
+      }
+
+      DIV.divisas-blue-bar DIV.light-side {
+        position: relative;
+        float: left;
+        padding: 0;
+        background: #1f7ac1;
+        width: 56%;
+        height: 60px;
+        font-size: 24px;
+        color: #afdcff;
+        font-weight: bold;
+      }
+
+      DIV.divisas-blue-bar DIV.light-side DIV.currencyValue {
+        float: left;
+        width: 50%;
+        height: 52px;
+        margin-top: -2px;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      DIV.currencyValue SPAN.currency-label {
+        font-weight: normal;
+        font-size: 0.7em;
+      }
+
+      DIV.currencyValue SPAN.currency-value {
+        color: white;
+        font-size: 0.9em;
+      }
+
+      DIV.divisas-blue-bar DIV.light-side DIV.separator {
+        border-right: solid #afdcff 1px;
+        width: 0px;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0;
+        margin-right: -1px;
+        float: left;
+      }
+
+      DIV.divisas-data-container {
+        height: auto;
+        position: relative;
+        text-align: center;
+        margin: 4px auto 0px auto;
+        padding: 10px 10px 0px 10px;
+        min-height: 470px;
+        border: solid #f0f0f0 1px;
+      }
+
+      DIV.divisas-chart-container {
+        float: left;
+        width: 65%;
+        height: 262px;
+      }
+
+      DIV.divisas-table-container {
+        float: right;
+      }
+
+      @media (max-width: 1060px) {
+        DIV.divisas-chart-container {
+          float: none;
+          margin: 0;
+          width: 100%;
+        }
+
+        DIV.divisas-table-container {
+          display: inline-block;
+          float: none;
+          margin: 14px auto 0 auto;
+        }
+
+        DIV.divisas-heading-bar DIV.more-divisas A {
+          spadding: 2px 5px 2px 0px;
+        }
+      }
+
+      @media (max-width: 1170px) {
+        DIV.categories {
+          margin-left: 14px;
+        }
+
+        A.link-logo {
+          margin-left: 14px;
+        }
+      }
+
+      SPAN.divisas-name-long {
+        display: inline;
+      }
+
+      SPAN.divisas-name-short {
+        display: none;
+      }
+
+      #flot-tooltip {
+        font-size: 12px;
+        font-family: Verdana, Arial, sans-serif;
+        position: absolute;
+        display: none;
+        border: 2px solid;
+        padding: 2px;
+        background-color: #fff;
+        opacity: 0.8;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
+        text-align: left;
+      }
+
+      DIV.er-buy-and-sale {
+        padding-top: 5px;
+      }
+      DIV.er-buy-and-sale H2 {
+        font-size: 2em;
+      }
+
+      H3.er-daily-hsitory-title {
+        margin-top: 0px;
+        margin-bottom: 8px;
+        background: #f0f0f0;
+        padding: 8px 0px 6px 0;
+        height: 20px;
+        width: 240px;
+        font: bold 14px Arial, sans-serif;
+      }
+
+      DIV.tableHeading {
+        position: relative;
+        width: 240px;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+
+      DIV.tableHeading TABLE TR TD {
+        padding: 3px 0px;
+        font: 12px bold arial, sans-serif;
+        font-weight: bold;
+        color: #1c6bc4;
+        text-align: center;
+      }
+
+      DIV.tableBody {
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 240px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      DIV.tableBody TABLE {
+      }
+
+      DIV.tableBody TABLE TR TD {
+        padding: 0px 0;
+        border-bottom: solid #e8e8e8 1px;
+        font: 12px Arial, sans-serif;
+        color: #676767;
+        text-align: center;
+      }
+
+      .col-hora {
+        width: 60px;
+      }
+
+      .col-indicator {
+        width: 10px;
+      }
+
+      .col-compra {
+        width: 80px;
+      }
+
+      .col-venta {
+        width: 74px;
+      }
+
+      TR.grey-row {
+        background: #f7f7f7;
+      }
+
+      /* WIDGET HEADER */
+      DIV.divisas-widget {
+        position: absolute;
+        right: -23px;
+        top: 6px;
+        width: 180px;
+      }
+
+      TABLE.divisas-table {
+        width: 100%;
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+      }
+
+      TABLE.divisas-table TR TD {
+        padding: 1px 0px;
+      }
+
+      TABLE.divisas-table TR TD.value {
+        text-align: center;
+      }
+
+      TABLE.divisas-table TR TD.label {
+        text-align: right;
+        padding-right: 4px;
+      }
+
+      TABLE.divisas-table TR TD.label A {
+        font-weight: bold;
+        color: #818181;
+        text-decoration: none;
+      }
+
+      TABLE.divisas-table TR TD.value {
+        color: #1f7ac1;
+      }
+
+      TABLE.divisas-table THEAD TR TD {
+        color: #cccccc;
+        text-decoration: underline;
+        text-align: center;
+        font-size: 10px;
+      }
+
+      TABLE.divisas-table TFOOT TR TD {
+        font-size: 10px;
+        color: #9a9a9a;
+        text-align: center;
+        padding-top: 8px;
+      }
+
+      /* FAQS */
+      DIV.bodyBajas {
+        width: 95%;
+        max-width: 1170px;
+      }
+
+      DIV.bodyBajas UL {
+        text-align: left;
+        list-style: none;
+        margin-bottom: 35px;
+      }
+
+      DIV.bodyBajas H2 {
+        color: #1c6bb0;
+        font-size: 14px;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        line-height: 1;
+      }
+
+      DIV.bodyBajas P {
+        color: #49495a;
+        font-weight: normal;
+        line-height: 14px;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ASK CAPTCHA */
+
+      DIV.header-popup {
+        position: relative;
+        height: 80px;
+        padding-top: 30px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #f1f1f1;
+        width: 100%;
+      }
+
+      DIV.captcha-text {
+        position: relative;
+        width: 680px;
+        height: auto;
+        margin: 40px auto 0px auto;
+        padding-top: 10px;
+        text-align: left;
+        font: 16px Arial, sans-serif;
+        color: #494949;
+      }
+
+      DIV.captcha-form {
+        position: relative;
+        width: 700px;
+        height: auto;
+        margin: 0px auto;
+        padding-top: 5px;
+        text-align: center;
+        font: bold 12px Arial, Helvetica, sans-serif;
+        color: #666666;
+      }
+
+      TD.captcha-image {
+        text-align: left;
+      }
+
+      TD.captcha-input-text {
+        text-align: left;
+        color: #494949;
+        padding-left: 10px;
+      }
+
+      TD.captcha-input-text INPUT {
+        background-color: #ffffff;
+        border: solid 1px #d4d4d4;
+        font: 12px Arial, sans-serif;
+        color: #494949;
+        text-align: center;
+        margin: 5px 0px;
+        width: 200px;
+        height: 24px;
+      }
+
+      TABLE.button-container-table {
+        margin: 24px auto 0 auto;
+      }
+
+      BUTTON.obtener-constancia {
+        background-color: #1f7ac1;
+        padding: 7px 21px 7px 21px;
+        font: bold 14px Arial, Helvetica, sans-serif;
+        color: #fff;
+        border: none;
+        width: 340px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      BUTTON.obtener-constancia > SPAN {
+        display: block;
+      }
+
+      #_loadingImage {
+        position: absolute;
+        top: 8px;
+        left: 11px;
+        display: none;
+      }
+
+      /* BCRA CAPTCHA */
+
+      DIV.bcra-captcha-container {
+        position: relative;
+        width: 700px;
+        height: auto;
+        margin: 0px auto;
+        padding-top: 5px;
+        text-align: center;
+        font: bold 12px Arial, Helvetica, sans-serif;
+        color: #333333;
+      }
+
+      DIV.bcra-captcha-button-container {
+        position: relative;
+        width: 205px;
+        margin: 0 auto;
+      }
+
+      /* DATEAS CAPTCHA */
+
+      DIV.captchaBody {
+        width: 510px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+      }
+
+      DIV.info {
+        position: relative;
+        height: auto;
+        margin: 0px auto;
+        padding-top: 10px;
+        text-align: left;
+        font: 12px Arial, Helvetica, sans-serif;
+        color: #313131;
+      }
+
+      DIV.dateas-captcha-form {
+        width: 100%;
+        margin: 20px auto 0 auto;
+      }
+
+      DIV.dateas-captcha-form-column {
+        text-align: left;
+        width: 215px;
+        float: left;
+      }
+
+      DIV.dateas-captcha-form-column DIV {
+        position: relative;
+        font-weight: bold;
+        height: 50px;
+        margin-top: 10px;
+      }
+      DIV.dateas-captcha-form-column DIV.wide {
+        width: 250px;
+      }
+      DIV.dateas-captcha-form BUTTON {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+      DIV.banner-results-for-mid {
+        display: none;
+      }
+
+      SPAN.tax-period {
+        font-size: 0.9em;
+        color: #3a6dbf;
+      }
+
+      SPAN.regimen-type,
+      SPAN.activity-order {
+        color: #689798;
+        font-weight: bold;
+      }
+
+      LI.afip-error-msg {
+        background-color: #ffe8bc;
+        margin: 5px auto;
+      }
+
+      LI.afip-error-msg UL {
+        background-color: #fffbcc;
+        list-style: square inside !important;
+        padding: 0;
+      }
+
+      LI.afip-error-msg H2 {
+        padding: 6px 12px;
+      }
+
+      LI.afip-error-msg UL LI {
+        color: #000;
+        padding: 6px 5px 6px 17px;
+        border-top: solid #fff 1px;
+      }
+      LI.afip-error-msg UL LI SPAN {
+        position: absolute;
+        margin-left: -10px;
+      }
+
+      @media (max-width: 550px) {
+        DIV.mapa_deshabilitado {
+          background: url("https://www.cuitonline.com/images/mapa-no-disponible_2x.png")
+            no-repeat;
+          background-size: contain;
+        }
+      }
+    </style>
+    <style rel="stylesheet" type="text/css" media="(max-width: 990px)">
+      DIV.home-logo {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      INPUT.search-box {
+        font-size: 14px;
+        padding: 8px 60px 8px 5px;
+      }
+
+      DIV.home-ads {
+        margin-top: 30px;
+        margin-bottom: 90px;
+      }
+
+      DIV.divisa-link {
+        display: block;
+      }
+
+      BUTTON.search-button {
+        height: 33px;
+      }
+
+      @media (max-width: 970px) {
+        DIV.search-box-container-header {
+          position: absolute;
+          left: 250px;
+          display: inline-block;
+        }
+
+        INPUT.search-box-header {
+          width: 245px;
+        }
+
+        DIV.banner-entre-datos {
+          display: none;
+        }
+      }
+
+      /* DETALLE */
+
+      @media (max-width: 990px) {
+        DIV.persona-data {
+          width: 96%;
+          margin-bottom: 24px;
+          max-width: 100%;
+          padding: 0 2% 0 2%;
+        }
+
+        DIV.persona-map {
+          position: relative;
+          margin: 0 auto;
+        }
+
+        DIV.banner-entre-datos {
+          display: none;
+        }
+      }
+
+      @media (max-width: 990px) {
+        DIV.seleccione_dateas {
+          left: 12px;
+        }
+
+        DIV.seleccione_dateas {
+          left: 10px;
+        }
+
+        DIV.radio_btns {
+          left: 12px;
+        }
+
+        DIV.text_inputs {
+          right: 12px;
+          text-align: left;
+        }
+
+        DIV.text_inputs SPAN {
+          display: none;
+        }
+
+        .pedir_informe_btn {
+          right: 12px;
+        }
+
+        DIV.select_cuit {
+          width: 100%;
+          left: 0;
+        }
+
+        DIV.seleccione_gratuito {
+          left: 12px;
+        }
+
+        DIV.co-select-like {
+          position: absolute;
+          left: 12px;
+        }
+
+        DIV.text_inputs_gratuito {
+          right: 12px;
+        }
+
+        DIV.text_inputs_gratuito SPAN {
+          display: none;
+        }
+
+        DIV.pedir-informe-btn-container {
+          bottom: 15px;
+          right: 12px;
+          text-align: right;
+        }
+        DIV.informe_gratuito {
+          height: 130px;
+        }
+
+        DIV.banner-entre-datos {
+          display: none;
+        }
+      }
+
+      @media (max-width: 860px) {
+        DIV.divisas-blue-bar DIV.light-side {
+          font-size: 21px;
+          width: 50%;
+        }
+
+        DIV.divisas-blue-bar DIV.dark-side {
+          width: 45%;
+        }
+
+        DIV.banner-entre-datos {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        DIV.ads-right-bar {
+          display: none;
+        }
+
+        DIV.banner-results-for-mid {
+          display: block;
+        }
+
+        DIV.left-pane {
+          width: 100%;
+        }
+
+        IMG.img-logo {
+          display: none;
+        }
+
+        IMG.img-logo-mobile {
+          display: inline;
+          width: 50%;
+        }
+
+        DIV.header-popup {
+          height: auto;
+          padding: 10px 0;
+        }
+
+        DIV.header-popup IMG.img-logo-mobile {
+          display: inline;
+          width: 30%;
+        }
+
+        DIV.ads-bottom-bar {
+          width: 100%;
+        }
+
+        DIV.captcha-form {
+          width: 100%;
+        }
+
+        DIV.captcha-text {
+          margin-top: 12px;
+        }
+
+        DIV.captchaBody {
+          margin-top: 12px;
+        }
+
+        DIV.home-logo IMG.img-logo-mobile {
+          display: inline;
+          width: 25%;
+        }
+
+        DIV.search-top-bar-container {
+          text-align: left;
+        }
+
+        DIV.results {
+          margin-right: 12px;
+        }
+
+        SPAN.linea-cuit-persona {
+          padding-bottom: 4px;
+          display: inline-block;
+        }
+
+        SPAN.linea-monotributo-persona {
+          padding-bottom: 4px;
+          display: inline-block;
+        }
+
+        DIV.paginator {
+          padding: 5px 0;
+        }
+
+        DIV.paginator A {
+          font-size: 16px;
+        }
+
+        DIV.paginator-next {
+          right: 76px;
+        }
+
+        DIV.paginator SPAN.selected {
+          font-size: 16px;
+          padding: 1px 4px 0px 4px;
+        }
+
+        H1.title-no-results {
+          text-align: center;
+          font-size: 1.6em;
+        }
+
+        DIV.text_inputs {
+          text-align: right;
+        }
+
+        DIV.text_inputs SPAN {
+          display: inline;
+        }
+
+        DIV.text_inputs_gratuito SPAN {
+          display: inline;
+        }
+
+        DIV.banner-entre-datos {
+          display: inline-block;
+          width: 99%;
+          height: auto;
+          margin: 20px auto 20px auto;
+          text-align: center;
+          min-width: 130px;
+        }
+
+        DIV.persona-data {
+          margin-bottom: 0;
+        }
+
+        /* DIVISAS */
+
+        DIV.divisas-home {
+          overflow: hidden;
+        }
+
+        DIV.divisas-content {
+          position: relative;
+          height: 50px;
+          width: 300px;
+          overflow: hidden;
+        }
+
+        DIV.divisas-mask {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 50px;
+          white-space: nowrap;
+          -webkit-transition: left 1s;
+          transition: left 1s;
+        }
+
+        DIV.divisas-home DIV.divisa-link {
+          height: 26px;
+          margin: 12px 0;
+          padding: 2px 0 0 0;
+          font: 18px Arial, sans-serif;
+          display: inline-block;
+          float: none;
+          width: 300px;
+        }
+
+        DIV.divisas-home DIV.divisa-link A {
+          display: inline-block;
+        }
+
+        DIV.divisas-home DIV.divisa-link A SPAN.indicator {
+          height: 20px;
+          margin-left: 15px;
+          width: 15px;
+        }
+
+        DIV.divisas-home DIV.divisa-link A SPAN.flag {
+          margin: 0;
+          text-align: left;
+          width: 10px;
+          height: 16px;
+          padding: 1px 0 0 0;
+        }
+
+        DIV.divisas-home DIV.divisa-link A SPAN.value {
+          /*padding-left: 35px;*/
+        }
+
+        SPAN.divisas-name-long {
+          display: none;
+        }
+
+        SPAN.divisas-name-short {
+          display: inline;
+        }
+
+        DIV.divisas-right-button {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 45px;
+          width: 40px;
+          background: #e6e8eb
+            url("https://www.cuitonline.com/images/flecha-derecha.png") center
+            center no-repeat;
+          background-size: 40%;
+          cursor: pointer;
+          z-index: 10;
+        }
+
+        DIV.divisas-left-button {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 45px;
+          width: 40px;
+          background: #e6e8eb
+            url("https://www.cuitonline.com/images/flecha-izquierda.png") center
+            center no-repeat;
+          background-size: 40%;
+          cursor: pointer;
+          z-index: 10;
+        }
+      }
+
+      @media (max-width: 740px) {
+        DIV.divisas-table-container {
+          width: 100%;
+        }
+
+        DIV.divisas-table-container H3 {
+          width: 100%;
+        }
+
+        DIV#dailyHistoryDiv {
+          width: 100%;
+        }
+
+        DIV.tableHeading {
+          width: 100%;
+        }
+
+        DIV.tableHeading TABLE {
+          width: 100%;
+          background: #fff;
+        }
+
+        DIV.tableHeading TABLE TR TD {
+          font-size: 14px;
+        }
+
+        DIV#dailyHistoryTable {
+          width: 100%;
+        }
+
+        DIV.tableBody TABLE {
+          width: 100%;
+        }
+
+        DIV.tableBody TABLE TR TD {
+          font-size: 14px;
+          padding: 2px 0;
+        }
+
+        .col-hora {
+          width: 29%;
+        }
+
+        .col-indicator {
+          width: 4%;
+        }
+
+        .col-compra {
+          width: 33%;
+        }
+
+        .col-venta {
+          width: 35%;
+        }
+
+        .col-last {
+          width: 0;
+        }
+
+        TR.grey-row {
+          background: #fff;
+        }
+
+        DIV.banner-entre-datos {
+          display: inline-block;
+          width: 99%;
+          height: auto;
+          margin: 20px auto 20px auto;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 600px) {
+        DIV.footer {
+          height: auto;
+          text-align: center;
+        }
+
+        DIV.div-copyright {
+          position: relative;
+          top: 0;
+          left: 0;
+          margin: 0 auto;
+          display: inline-block;
+          width: auto;
+        }
+
+        DIV.social-footer {
+          position: relative;
+          margin: 0 auto 10px auto;
+          width: 165px;
+          height: 30px;
+          top: 0;
+          right: 0;
+        }
+
+        DIV.div-btn-baja {
+          position: relative;
+          display: block;
+          width: 30%;
+          left: 0;
+          top: 0;
+          margin: 18px auto 0 auto;
+        }
+
+        DIV.text_inputs {
+          text-align: left;
+        }
+
+        DIV.text_inputs SPAN {
+          display: none;
+        }
+      }
+    </style>
+    <style rel="stylesheet" type="text/css" media="(max-width: 550px)">
+      /* HOME */
+
+      DIV.home-logo {
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+
+      DIV.home-logo IMG.img-logo-mobile {
+        width: 50%;
+      }
+
+      DIV.header-popup IMG.img-logo-mobile {
+        display: inline;
+        width: 50%;
+      }
+
+      IMG.img-logo {
+        display: none;
+      }
+
+      IMG.img-logo-mobile {
+        display: inline;
+        width: 50%;
+      }
+
+      DIV.search-box-container-home {
+        width: 100%;
+      }
+
+      DIV.search-button-container-home {
+        position: relative;
+        margin-top: 30px;
+      }
+
+      INPUT.search-box-home {
+        font-size: 15px;
+        color: #757575;
+        text-align: left;
+        padding: 15px 10px 15px 10px;
+        width: 85%;
+        background-color: #fff;
+        border: solid 1px #d4d4d4;
+        margin: 0;
+        height: 16px;
+      }
+
+      BUTTON.search-button-home {
+        font-size: 25px;
+        padding: 10px 0px 10px 46px;
+        background: #4f4f66
+          url("https://www.cuitonline.com/images/search-icon.png") right 36px
+          center no-repeat;
+        width: 200px;
+        height: 60px;
+        margin: 0;
+        border-radius: 2px;
+        color: #ffffff;
+        text-align: left;
+        background-size: 15%;
+      }
+
+      BUTTON.search-button-home SPAN.button-text {
+        display: block;
+      }
+
+      DIV.home-ads {
+        margin-top: 30px;
+        margin-bottom: 45px;
+      }
+
+      DIV.footer {
+        height: auto;
+      }
+
+      DIV.div-copyright {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 auto;
+        display: inline-block;
+        width: auto;
+      }
+
+      DIV.social-footer {
+        position: relative;
+        margin: 0 auto 10px auto;
+        height: 24px;
+        top: 0;
+        right: 0;
+      }
+
+      /* HEADER SECCIONES */
+
+      DIV.search-top-bar-container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      DIV.search-top-bar-logo {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      DIV.section-search DIV.filters-button {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        display: inline-block;
+        cursor: pointer;
+        width: 38px;
+        height: 23px;
+      }
+
+      DIV.search-box-container-header {
+        display: inline-block;
+        width: auto;
+        position: relative;
+        left: 0;
+      }
+
+      INPUT.search-box-header {
+        font-size: 14px;
+        color: #757575;
+        text-align: left;
+        padding: 7px 37px 7px 5px;
+        width: 266px;
+        background-color: #fff;
+        border: solid 1px #d4d4d4;
+        margin: 0;
+        height: 19px;
+      }
+
+      DIV.search-button-container-header {
+        position: absolute;
+        top: 0px;
+        right: 0;
+      }
+
+      BUTTON.search-button-header {
+        background: #4f4f66
+          url("https://www.cuitonline.com/images/search-icon.png") center center
+          no-repeat;
+        background-size: 50%;
+        width: 34px;
+        height: 34px;
+        margin: 0;
+        border-radius: 2px;
+      }
+
+      /* SEARCH RESULTS */
+
+      DIV.categories {
+        position: absolute;
+        top: -166px;
+        left: -260px;
+        z-index: 20;
+        background: #525256;
+        display: block;
+        padding: 50px 0 0 50px;
+        width: 210px;
+        height: auto;
+        margin: 0;
+
+        -webkit-transition: left 1s;
+        transition: left 1s;
+        overflow: hidden;
+      }
+
+      DIV.categories-mobile-show {
+        left: 0;
+      }
+
+      DIV.close-filter-button {
+        display: block;
+        background: url("https://www.cuitonline.com/images/cerrar-filtros.png")
+          center center no-repeat;
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: 20px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      DIV.categories DIV.filters-title {
+        width: 100%;
+        text-align: left;
+        background-color: #525256;
+        color: #c1c1c1;
+        font-size: 16px;
+        margin-bottom: 15px;
+        white-space: nowrap;
+      }
+
+      DIV.categories DIV.view-categories {
+        margin-bottom: 7px;
+      }
+
+      DIV.categories DIV.view-categories DIV.view-name {
+        font-size: 15px;
+        height: 15px;
+        color: #fff;
+        background-color: #525256;
+        padding: 3px 0px 3px 0px;
+        text-align: left;
+        border-bottom: solid #c1c1c1 1px;
+        margin-bottom: 4px;
+      }
+
+      DIV.categories DIV.view-categories A {
+        color: #c1c1c1;
+        text-decoration: none;
+        background: none;
+        padding-left: 8px;
+        line-height: 15px;
+        font-size: 15px;
+        margin-bottom: 4px;
+        white-space: nowrap;
+      }
+
+      DIV.categories DIV.view-categories A:hover {
+        text-decoration: none;
+      }
+
+      DIV.categories DIV.view-categories SPAN.category-count {
+        font-size: 15px;
+        color: #c1c1c1;
+        text-align: left;
+        padding: 0px 1px;
+        line-height: 15px;
+      }
+
+      DIV.breadcrumb-in-filter {
+        display: inline-block;
+      }
+      DIV.breadcrumb-in-filter A {
+        color: #c1c1c1;
+        text-decoration: none;
+        background: url("https://www.cuitonline.com/images/clear-filters.png")
+          center right no-repeat !important;
+        padding-left: 8px;
+        line-height: 15px;
+        font-size: 15px;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        padding-right: 14px;
+      }
+
+      DIV.just-on-mobile {
+        display: block;
+      }
+
+      DIV.results-count {
+        display: none;
+      }
+
+      DIV.bottom-container {
+        margin: 0px;
+      }
+
+      DIV.results {
+        width: 100%;
+        margin: 0;
+      }
+
+      DIV.search-query {
+        width: 96%;
+        background: #1f414d;
+        font-size: 15px;
+        padding: 10px 1% 0px 3%;
+        text-transform: uppercase;
+        color: #e6e8eb;
+        font-weight: bold;
+        margin: 0;
+        display: none;
+      }
+
+      DIV.search-query SPAN {
+        display: block;
+        color: #ffffff;
+        text-transform: lowercase;
+        font-weight: normal;
+        padding: 5px 0px;
+      }
+
+      DIV.search-breadcrumbs-button {
+        display: block;
+        width: 100%;
+        background: #1f7ac1;
+        text-align: center;
+        cursor: pointer;
+        color: #92c7f0;
+        font-size: 15px;
+        padding: 12px 0;
+        display: none;
+      }
+
+      DIV.breadcrumbs-button-text {
+        background: url("https://www.cuitonline.com/images/abrir-breadcrumbs.png")
+          center right no-repeat;
+        background-size: 15%;
+        display: inline-block;
+        padding-right: 50px;
+      }
+
+      DIV.search-breadcrumbs {
+        display: block;
+        background: #1f7ac1;
+
+        padding-top: 0;
+        padding-bottom: 0;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+
+        /*-webkit-transition: max-height 400ms, padding-top 500ms, padding-bottom 500ms;
+  transition: max-height 400ms, padding-top 500ms, padding-bottom 500ms;*/
+      }
+
+      DIV.search-breadcrumbs-mobile-show {
+        height: auto;
+        padding-bottom: 5px;
+        padding-top: 20px;
+        max-height: 350px;
+      }
+
+      DIV.breadcrumb {
+        display: block;
+        float: none;
+        width: 100%;
+        margin: 0;
+        font-size: 15px;
+        color: #92c7f0;
+        background: #1f7ac1;
+        text-align: center;
+        border: none;
+      }
+
+      DIV.hl-breadcrumb {
+        border: none !important;
+      }
+
+      DIV.breadcrumb DIV.breadcrumb-inner {
+        padding: 10px 0;
+        border: none;
+      }
+
+      DIV.breadcrumb A {
+        background: url("https://www.cuitonline.com/images/remover-breadcrumb.png")
+          no-repeat !important;
+        background-size: 100% !important;
+        padding: 6px 12px 6px 12px !important;
+        border: none;
+      }
+
+      DIV.results DIV.hit {
+        margin: 0;
+        padding: 12px 1% 9px 3%;
+      }
+
+      DIV.denominacion {
+        margin-bottom: 8px;
+      }
+
+      DIV.paginator {
+        padding: 0;
+        height: 30px;
+        border: none;
+        display: inline-block;
+        width: 100%;
+        margin-top: 5%;
+      }
+
+      DIV.paginator A {
+        font-size: 20px;
+      }
+
+      DIV.paginator SPAN.special-link {
+        position: relative;
+        margin-top: 5px;
+      }
+      DIV.paginator SPAN.special-link A {
+        background: #f1f1f1;
+        display: block;
+        width: 100%;
+      }
+
+      DIV.paginator DIV.paginator-next,
+      DIV.paginator DIV.paginator-prev {
+        width: 40%;
+        height: 30px;
+        margin: 0;
+        top: 0;
+        text-align: center;
+        padding-top: 5px;
+        background: #f1f1f1;
+      }
+
+      DIV.mobile-button-fs {
+        width: 90% !important;
+      }
+
+      DIV.paginator DIV.paginator-prev {
+        left: 5%;
+      }
+
+      DIV.paginator DIV.paginator-next {
+        right: 5%;
+      }
+
+      DIV.paginator TABLE {
+        display: none;
+      }
+
+      DIV.ads-right-bar {
+        display: none;
+      }
+
+      /* FOOTER */
+      DIV.footer-search {
+        width: 100%;
+      }
+
+      DIV.div-co-iso {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 10px;
+      }
+
+      IMG.logo-footer {
+        display: none;
+      }
+
+      IMG.logo-footer-mobile {
+        display: inline;
+        /* width: 20%; */
+      }
+
+      DIV.footer-home {
+        margin-top: -25px;
+      }
+
+      DIV.footer-home DIV.div-copyright {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        margin: 12px auto 20px;
+        display: inline-block;
+        text-align: center;
+        padding: 0;
+      }
+
+      DIV.footer-search DIV.div-copyright {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        margin: 0 auto 20px auto;
+        display: inline-block;
+        text-align: center;
+        padding: 0;
+      }
+
+      DIV.div-btn-baja {
+        position: relative;
+        display: block;
+        width: 50%;
+        left: 0;
+        top: 0;
+        margin: 18px auto 0 auto;
+      }
+
+      /* ESTILOS DE LA PAGINA DE DETALLE */
+
+      H1.p_title {
+        background: #ffffff;
+      }
+
+      DIV.persona-informes {
+        position: relative;
+        padding: 0;
+        width: 98%;
+        margin: 12px auto 0 auto;
+      }
+
+      DIV.persona-informes > DIV {
+        margin: 0;
+        text-align: left;
+        width: 25%;
+        padding: 0;
+        border: none;
+        min-height: initial;
+      }
+
+      DIV.persona-informes > DIV > DIV {
+        margin: 0;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      DIV.persona-informes > DIV > DIV > SPAN.informes-nombre-corto {
+        display: block;
+        width: 100%;
+        padding: 10px 0 10px 0;
+        /*background-image:  url('../https://www.cuitonline.com/images/abrir-informes.png');
+  background-size: 25%;
+  background-repeat: no-repeat;
+  background-position: bottom 10px center;*/
+        cursor: pointer;
+      }
+
+      DIV.persona-informes > DIV > DIV > SPAN.informes-nombre-largo {
+        display: none;
+      }
+
+      DIV.afip SPAN.informes-nombre-corto {
+        background-color: #424242;
+      }
+
+      DIV.rentas SPAN.informes-nombre-corto {
+        background-color: #e5880f;
+      }
+
+      DIV.banco-central SPAN.informes-nombre-corto {
+        background-color: #1d6ac2;
+      }
+
+      DIV.dateas SPAN.informes-nombre-corto {
+        background-color: #267f00;
+      }
+
+      DIV.afip DIV.titulo_box_informes {
+        color: #ffffff;
+      }
+
+      DIV.rentas DIV.titulo_box_informes {
+        color: #ffffff;
+      }
+
+      DIV.banco-central DIV.titulo_box_informes {
+        color: #ffffff;
+      }
+
+      DIV.dateas DIV.titulo_box_informes {
+        color: #ffffff;
+      }
+
+      UL.p_listaInformes-mobile LI {
+        list-style: none;
+      }
+
+      UL.p_listaInformes-mobile LI A {
+        color: #ffffff;
+        font-size: 15px;
+        text-decoration: none;
+      }
+
+      UL.p_listaInformes {
+        display: none;
+      }
+
+      UL.p_listaInformes-mobile {
+        /*position: absolute;*/
+        /*top: 52px;*/
+        display: block;
+        width: 100%;
+        z-index: 10;
+        padding: 0;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+
+        /*-webkit-transition: max-height 500ms;
+  transition: max-height 500ms;*/
+      }
+
+      UL.p_listaInformes-mobile LI {
+        margin-top: 2%;
+        margin-left: 2%;
+      }
+
+      UL.p_listaInformes-mobile LI:last-child {
+        margin-bottom: 2%;
+      }
+
+      UL.p_listaInformes-mobile-show {
+        max-height: 300px;
+      }
+
+      DIV.afip,
+      DIV.rentas,
+      DIV.banco-central,
+      DIV.dateas {
+        width: 100%;
+      }
+
+      DIV.afip UL.p_listaInformes-mobile {
+        background-color: #424242;
+      }
+
+      DIV.rentas UL.p_listaInformes-mobile {
+        background-color: #e5880f;
+      }
+
+      DIV.banco-central UL.p_listaInformes-mobile {
+        background-color: #1d6ac2;
+      }
+
+      DIV.dateas UL.p_listaInformes-mobile {
+        background-color: #267f00;
+      }
+
+      UL.p_info LI {
+        font-size: 14px;
+      }
+
+      LI.p_cuit_title {
+        color: #1f7ac1 !important;
+        text-align: center;
+        border: none;
+        margin-bottom: 10px;
+        font-size: 20px !important;
+      }
+
+      LI.p_cuit_title SPAN {
+        font-size: 20px !important;
+      }
+
+      SPAN.c_black {
+        font-size: 14px;
+      }
+
+      DIV.persona-data {
+        width: 96%;
+        padding: 0 2% 0 2%;
+      }
+
+      DIV.banner-entre-datos {
+        display: inline-block;
+        width: 99%;
+        height: auto;
+        margin: 20px auto 20px auto;
+        text-align: center;
+        min-width: 130px;
+      }
+
+      /* INFORMES Y CONSTANCIAS */
+
+      DIV.informes-constancias-head {
+        margin: 0 0 10px 0;
+        font-weight: normal;
+      }
+
+      DIV.informe_tipo DIV.titulo-informe {
+        font-size: 20px;
+        width: 100%;
+        background: none;
+        padding: 2px 0 2px 0px;
+      }
+
+      DIV.informe_tipo {
+        margin: 0;
+      }
+
+      #error_gratuito,
+      #error_dateas {
+        position: relative;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100%;
+        text-align: center;
+        font: bold 14px Arial, sans-serif;
+        color: #c20e1a;
+        padding-bottom: 12px;
+      }
+
+      DIV.informe_dateas {
+        padding-top: 25px;
+        height: auto;
+        text-align: center;
+      }
+
+      DIV.seleccione_dateas {
+        position: relative;
+        left: 0;
+        top: 0 !important;
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        color: #49495a;
+      }
+
+      DIV.radio_btns {
+        position: relative;
+        top: 0 !important;
+        left: 0;
+        display: inline-block;
+        text-align: center;
+        margin: 20px auto;
+        font-size: 18px;
+      }
+
+      DIV.radio_btns INPUT[type="radio"] {
+        height: 21px;
+      }
+
+      DIV.text_inputs {
+        position: relative;
+        top: 0 !important;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      DIV.text_inputs SPAN {
+        display: none;
+      }
+
+      DIV.text_inputs INPUT {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px 1px 10px 5px;
+        margin-bottom: 12px;
+      }
+
+      .pedir_informe_btn SPAN {
+        display: block;
+        font-size: 18px;
+      }
+
+      .pedir_informe_btn {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        width: 90%;
+        background: #1f7ac1
+          url("https://www.cuitonline.com/images/pedir-informes-arrow.png")
+          no-repeat;
+        background-position: right 12px center;
+        padding: 10px 0;
+        color: #ffffff;
+        height: auto;
+        margin-bottom: 12px;
+        margin-top: 25px;
+        background-size: 4%;
+      }
+
+      DIV.informe_gratuito {
+        padding-top: 25px;
+        height: auto !important;
+        display: inline-block;
+        text-align: center;
+      }
+
+      DIV.select_cuit {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      DIV.seleccione_gratuito {
+        position: relative;
+        left: 0;
+        top: 0 !important;
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        color: #49495a;
+        margin-bottom: 12px;
+      }
+
+      DIV.co-select-like {
+        float: none;
+        margin: 0 auto 12px auto;
+        position: relative;
+      }
+
+      DIV.text_inputs_gratuito SPAN {
+        display: none;
+      }
+
+      DIV.text_inputs_gratuito {
+        position: relative;
+        text-align: center;
+        right: 0;
+      }
+
+      DIV.text_inputs_gratuito INPUT {
+        width: 90% !important;
+        font-size: 16px;
+        padding: 10px 1px 10px 5px;
+        margin-bottom: 12px;
+      }
+
+      DIV.pedir-informe-btn-container {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+      }
+
+      DIV.informe_gratuito {
+        margin: 0;
+      }
+
+      /* FAQS */
+
+      DIV.bodyBajas UL {
+        padding: 0 10px;
+      }
+
+      /* CAPTCHA DE CONSTANCIAS */
+
+      DIV.captcha-text {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        font-size: 16px;
+      }
+
+      DIV.captcha-form {
+        position: relative;
+        width: 100%;
+      }
+
+      DIV.captcha-form TABLE {
+        width: 100%;
+      }
+
+      DIV.captcha-form TABLE TR TD {
+        display: block;
+        text-align: center;
+      }
+
+      TD.captcha-image {
+        margin-top: 20px;
+      }
+
+      TD.captcha-input-text {
+        margin-top: 30px;
+        padding-left: 0;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      TD.captcha-input-text INPUT {
+        width: 90%;
+        font-size: 16px;
+        padding: 10px 1px 10px 5px;
+        margin-bottom: 12px;
+        height: auto;
+      }
+
+      TABLE.button-container-table {
+        width: 100%;
+        margin: 16px 0 0 0;
+      }
+
+      TABLE.button-container-table DIV {
+        display: inline-block;
+        width: 90%;
+      }
+
+      BUTTON.obtener-constancia {
+        width: 100%;
+        background: #1f7ac1
+          url("https://www.cuitonline.com/images/pedir-informes-arrow.png")
+          no-repeat;
+        background-size: 3%;
+        background-position: right 12px center;
+        padding: 10px 0;
+        color: #ffffff;
+        height: auto;
+        font-size: 16px;
+      }
+
+      #_loadingImage {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: none;
+      }
+
+      DIV.bcra-captcha-container {
+        width: 100%;
+      }
+
+      DIV.bcra-captcha-button-container {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      /* INFORMES DATEAS */
+
+      DIV.captchaBody {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      DIV.info {
+        margin-top: 12px;
+        padding-left: 0;
+        font-size: 16px;
+        width: 90%;
+      }
+
+      DIV.dateas-captcha-form {
+        width: 100%;
+      }
+
+      DIV.dateas-captcha-form-column {
+        display: block;
+        font: 16px Arial, sans-serif;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      DIV.dateas-captcha-form-column:first-child {
+        margin-bottom: 30px;
+      }
+
+      DIV.dateas-captcha-form-column DIV {
+        height: auto;
+      }
+
+      DIV.dateas-captcha-form-column DIV.wide {
+        width: 100%;
+        height: auto;
+      }
+
+      DIV.dateas-captcha-form INPUT {
+        width: 90% !important;
+        font-size: 16px;
+        padding: 10px 1px 10px 5px;
+        margin-bottom: 12px;
+        height: auto !important;
+        margin-top: 12px;
+      }
+
+      DIV.dateas-captcha-form BUTTON {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 92%;
+      }
+
+      /* DIVISAS */
+
+      DIV.divisas-heading-bar {
+        padding: 0;
+        height: 56px;
+        margin: 0;
+      }
+
+      DIV.divisas-heading-bar H1 {
+        display: none;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding: 0;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A {
+        display: block;
+        width: 20%;
+        float: left;
+        padding: 20px 0 5px 0;
+        margin: 0;
+        height: 31px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      DIV.divisas-heading-bar DIV.more-divisas A.divisa-link-selected {
+        background-color: #1f7ac1;
+        border-radius: 0;
+        color: #fff;
+      }
+
+      DIV.divisas-blue-bar DIV.dark-side {
+        display: none;
+      }
+
+      DIV.divisas-blue-bar DIV.dark-side-alert {
+        display: none;
+      }
+
+      DIV.divisas-blue-bar DIV.light-side {
+        width: 100%;
+        font-size: 21px;
+        text-align: center;
+      }
+
+      DIV.light-side SPAN.separator {
+        display: none;
+      }
+
+      DIV.light-side > SPAN:first-child {
+        margin-right: 1%;
+      }
+
+      DIV.divisas-data-container {
+        margin-top: 12px;
+        border: none;
+        padding-top: 0;
+      }
+    </style>
+    <!--[if IE 7
+      ]><style rel="stylesheet" type="text/css" media="screen">
+        IMG.logo-footer {
+        }
+
+        IMG.logo-footer {
+          width: 15%;
+        }
+
+        BUTTON.search-button-home,
+        BUTTON.search-button-header {
+          background: #4f4f66;
+        }
+
+        DIV.search-button-container-home,
+        DIV.search-button-container-header {
+          top: 1px;
+        }
+
+        IFRAME {
+          frameborder: 0;
+          scroll: none;
+          scrollbars: no;
+        }
+      </style><!
+    [endif]-->
+  </head>
+  <body class="indexbody">
+    <div class="main-container main-container-home">
+      <header>
+        <div class="divisas-home">
+          <div
+            id="divisasLeftButton"
+            class="divisas-left-button"
+            style="display: none"
+          ></div>
+          <div class="divisas-content">
+            <div class="divisas-mask">
+              <div class="divisa-link dolar" id="divisadolar">
+                <a
+                  href="dolar"
+                  title="Cotización oficial del Dólar: compra y venta minuto a minuto"
+                >
+                  <span class="flag">
+                    <img
+                      src="https://www.cuitonline.com/images/USA_flag.jpg"
+                      alt=""
+                      width="21"
+                      height="15"
+                    />
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                  <span class="indicator divisa-indicator-estable"> </span>
+                  <span class="value"> $ 166.75 </span>
+                  <span>&nbsp;/&nbsp;</span>
+                  <span class="value" style="padding-left: 2px">
+                    $ 174.75
+                  </span>
+                </a>
+              </div>
+              <div class="divisa-link euro" id="divisaeuro">
+                <a
+                  href="euro"
+                  title="Cotización oficial del Euro: compra y venta minuto a minuto"
+                >
+                  <span class="flag">
+                    <img
+                      src="https://www.cuitonline.com/images/UE_flag.jpg"
+                      alt=""
+                      width="21"
+                      height="15"
+                    />
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                  <span class="indicator divisa-indicator-estable"> </span>
+                  <span class="value"> $ 173.50 </span>
+                  <span>&nbsp;/&nbsp;</span>
+                  <span class="value" style="padding-left: 2px">
+                    $ 181.50
+                  </span>
+                </a>
+              </div>
+              <div class="divisa-link real" id="divisareal">
+                <a
+                  href="real"
+                  title="Cotización oficial del Real: compra y venta minuto a minuto"
+                >
+                  <span class="flag">
+                    <img
+                      src="https://www.cuitonline.com/images/Brazil_flag.jpg"
+                      alt=""
+                      width="21"
+                      height="15"
+                    />
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                  <span class="indicator divisa-indicator-estable"> </span>
+                  <span class="value"> $ 30.30 </span>
+                  <span>&nbsp;/&nbsp;</span>
+                  <span class="value" style="padding-left: 2px"> $ 34.30 </span>
+                </a>
+              </div>
+              <div class="divisa-link bitcoin" id="divisabitcoin">
+                <a
+                  href="bitcoin"
+                  title="Valor de mercado del Bitcoin segundo a segundo"
+                >
+                  <span class="flag">
+                    <img
+                      src="https://www.cuitonline.com/images/BTC_icon.png"
+                      alt=""
+                      width="21"
+                      height="15"
+                    />
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                  <span class="indicator divisa-indicator-estable"> </span>
+                  <span class="value">
+                    <span
+                      style="
+                        font-size: 9px;
+                        padding-top: 2px;
+                        padding-right: 2px;
+                        color: #5e5e5e;
+                      "
+                      >U$D</span
+                    >
+                    17,195.30
+                  </span>
+                  <span>&nbsp;/&nbsp;</span>
+                  <span class="value" style="padding-left: 2px">
+                    <span
+                      style="
+                        font-size: 9px;
+                        padding-top: 2px;
+                        padding-right: 2px;
+                        color: #5e5e5e;
+                      "
+                      >U$D</span
+                    >
+                    17,368.12
+                  </span>
+                </a>
+              </div>
+              <div class="divisa-link uva" id="divisauva">
+                <a href="uva" title="Valuación oficial del UVA">
+                  <span class="flag">
+                    <img
+                      src="https://www.cuitonline.com/images/UVA_icon.png"
+                      alt=""
+                      width="21"
+                      height="15"
+                    />
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
+                  <span class="indicator divisa-indicator-estable"> </span>
+                  <span class="value"> $ 176.35 </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div id="divisasRightButton" class="divisas-right-button"></div>
+        </div>
+      </header>
+      <div class="container">
+        <section>
+          <div class="home-logo">
+            <a
+              href="//www.cuitonline.com/"
+              title="La manera más sencilla de encontrar el CUIT o CUIL que buscás"
+            >
+              <img
+                class="img-logo"
+                src="https://www.cuitonline.com/images/logo-home.png"
+                alt="Cuit Online"
+              />
+              <img
+                class="img-logo-mobile"
+                src="https://www.cuitonline.com/images/logo-home-mobile-1-2x.png"
+                alt="Cuit Online"
+                width="200"
+              />
+            </a>
+          </div>
+          <div class="search-box-container-home">
+            <form
+              id="search"
+              action="search.php"
+              method="get"
+              onsubmit="javascript: return removeBeginWildcards();"
+            >
+              <input
+                id="searchBox"
+                class="search-box-home"
+                type="text"
+                name="q"
+                value=""
+                placeholder="Ingrese nombre, razón social, DNI, CUIT o CUIL"
+              />
+              <div class="search-button-container-home">
+                <button type="submit" class="button search-button-home">
+                  <span class="button-text">Buscar</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div id="co_left1"></div>
+        </section>
+        <footer>
+          <div class="footer footer-home">
+            <!-- SOCIAL -->
+            <div class="social-footer">
+              <!-- Facebook -->
+              <div class="facebook">
+                <div style="float: left; height: auto">
+                  <div
+                    class="fb-like"
+                    data-href="http://www.cuitonline.com"
+                    data-layout="button"
+                    data-action="like"
+                    data-show-faces="false"
+                    data-share="false"
+                  ></div>
+                </div>
+              </div>
+              <!-- Twitter -->
+              <div class="twitter">
+                <a
+                  href="https://twitter.com/share"
+                  class="twitter-share-button"
+                  data-url="http://www.cuitonline.com"
+                  data-text="Información comercial gratuita. Rápido y seguro!"
+                  data-lang="es"
+                  data-hashtags="CuitOnline"
+                  data-count="none"
+                  >Tweet</a
+                >
+              </div>
+            </div>
+            <div class="div-copyright">
+              <div class="div-co-iso">
+                <a href="//www.cuitonline.com/" title="copyright">
+                  <img
+                    class="logo-footer img-co-iso"
+                    src="https://www.cuitonline.com/images/logo-footer-mobile-2x.png"
+                    alt=""
+                  />
+                  <img
+                    class="logo-footer-mobile img-co-iso"
+                    src="https://www.cuitonline.com/images/logo-footer-mobile-2x.png"
+                    alt=""
+                    width="58"
+                    height="33"
+                  />
+                </a>
+              </div>
+              2007-2022 © CuitOnline. All rights reserved. |
+              <a href="https://www.cuitonline.com/privacidad" target="_blank"
+                >Política de Privacidad</a
+              >
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <div id="fb-root"></div>
+    <script>
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+    <script
+      type="text/javascript"
+      src="//platform.twitter.com/widgets.js"
+    ></script>
+  </body>
+</html>
